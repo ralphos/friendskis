@@ -6,4 +6,5 @@ Friendskis::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
   
   get 'photos/new', controller: 'photos', action: 'new', as: 'new_photo'
+  post 'photos/confirm', controller: 'photos', action: 'confirm', as: 'confirm_photo'
 end

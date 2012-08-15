@@ -2,6 +2,8 @@
 
 <div class="photo-thumbnails" style="width: 550px">
   <% @profile_photos.each do |photo_url| %>
-    <%= image_tag photo_url, height: '135px' %>
+    <%= link_to((image_tag photo_url, height: '135px'), confirm_photo_path(photo_url: photo_url), html_options = { :method => :post }) %>
   <% end %>
 </div>
+
+# Probably need to take 3 sizes from Facebook for each photo i) thumbnail ii) medium size for preview and feed and iii) large view for when you click on it. 
