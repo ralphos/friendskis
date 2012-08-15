@@ -28,3 +28,4 @@ group :test do
 end
 
 gem 'omniauth-facebook'
+gem 'quiet_assets'
