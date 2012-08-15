@@ -1,0 +1,7 @@
+<h2>Share photos to increase your visibility!</h2>
+
+<div class="photo-thumbnails" style="width: 550px">
+  <% @profile_photos.each do |photo_url| %>
+    <%= image_tag photo_url, height: '135px' %>
+  <% end %>
+</div>
