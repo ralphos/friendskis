@@ -13,4 +13,16 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+  
+  def facebook
+    @facebook ||= Koala::Facebook::API.new(oauth_token)
+  end
+  
+  def get_profile_photos
+    album_hash = facebook.get_connections(uid, "albums")
+    album_ids = album_hash.map { |h| h["id"] }
+    album_photos = facebook.get_connections(album_ids[1], "photos")
+    photo_links = album_photos.map { |h| h["images"][5] }
+    photo_links.map { |l| l["source"] }
+  end
 end
