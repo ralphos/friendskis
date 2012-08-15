@@ -1,1 +1,10 @@
 <h1>Welcome to Friendskis</h1>
+
+<div id="user-login">
+  <% if current_user %>
+    Hey <%= current_user.name.split.first %>
+    <%= link_to "Sign out", signout_path %>
+  <% else %>
+    <%= link_to "Login anonymously with Facebook", "/auth/facebook", id: "sign-in" %>
+  <% end %>
+</div>
