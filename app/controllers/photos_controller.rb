@@ -13,7 +13,7 @@ class PhotosController < ApplicationController
     @photo = Photo.new(params[:photo])
     @photo.user_id = current_user.id
     if @photo.save
-      redirect_to root_url
+      redirect_to users_url
     else
       flash.now.alert = "Sorry there was an error saving your post"
       render :back

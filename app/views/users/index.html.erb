@@ -1,0 +1,8 @@
+<h2>This will be your feed</h2>
+
+<% @posts.each do |post| %>
+  <%= image_tag post.medium_url %>
+  <p>
+    <%= post.caption %>
+  </p>
+<% end %>
