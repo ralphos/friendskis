@@ -1,9 +1,9 @@
 <h2>Share photos to increase your visibility!</h2>
 
 <div class="photo-thumbnails" style="width: 550px">
-  <% @profile_photos.each do |photo_url| %>
-    <%= link_to((image_tag photo_url, height: '135px'), confirm_photo_path(photo_url: photo_url), html_options = { :method => :post }) %>
+  <% @photos.each do |photo_url| %>
+    <%= link_to((image_tag photo_url[1]["source"], height: '135px'), confirm_photo_path(photo_url: photo_url), html_options = { :method => :post }) %>
   <% end %>
 </div>
 
-# Probably need to take 3 sizes from Facebook for each photo i) thumbnail ii) medium size for preview and feed and iii) large view for when you click on it. 
+<!-- Probably need to take 3 sizes from Facebook for each photo i) thumbnail ii) medium size for preview and feed and iii) large view for when you click on it. -->
