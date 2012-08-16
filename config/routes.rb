@@ -7,6 +7,7 @@ Friendskis::Application.routes.draw do
   
   resources :photos, except: [:edit, :update]
   post 'photos/confirm', controller: 'photos', action: 'preview', as: :preview
+  post '/album', controller: 'photos', action: 'album', as: :album_view
   
   get '/feed', controller: 'users', action: 'index', as: :users
   
