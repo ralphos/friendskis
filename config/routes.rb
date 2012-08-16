@@ -5,6 +5,7 @@ Friendskis::Application.routes.draw do
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
   
-  get 'photos/new', controller: 'photos', action: 'new', as: 'new_photo'
-  post 'photos/confirm', controller: 'photos', action: 'confirm', as: 'confirm_photo'
+  resources :photos, except: [:edit, :update]
+  post 'photos/confirm', controller: 'photos', action: 'confirm', as: 'confirm_photo'  
+  
 end
