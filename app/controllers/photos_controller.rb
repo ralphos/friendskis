@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
     @photos = current_user.get_photos
   end
   
-  def confirm
+  def preview
     @photo = Photo.new
     @photo_url = params[:photo_url]
   end
