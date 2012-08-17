@@ -29,3 +29,4 @@ end
 
 gem 'omniauth-facebook'
 gem 'quiet_assets'
+gem 'koala'
