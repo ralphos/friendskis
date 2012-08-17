@@ -1,0 +1,22 @@
+<h2>Add a caption for your photo</h2>
+
+<div class="photo">
+  <%= image_tag @medium_url %>
+</div>
+
+<div class="add-caption">
+  <%= form_for @photo, url: photos_path do |f| %>
+  
+    <%= f.hidden_field :thumbnail_url, value: @thumbnail_url %>
+    <%= f.hidden_field :medium_url, value: @medium_url %>
+    
+    <div>
+      <%= f.label :caption, 'Add a caption' %><br>
+      <%= f.text_field :caption, class: 'add-caption' %>
+    </div>
+    
+    <div id='share-btn'>
+      <%= f.submit 'Share on Friendskis', class: 'share-btn' %>
+    </div>
+  <% end %>
+</div>

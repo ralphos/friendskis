@@ -1,0 +1,13 @@
+<h2>This will be your feed</h2>
+<div id="share-photo">
+  <%= link_to "Share Photo", albums_path %>
+</div>
+<br>
+<div id="feed">
+  <% @photos.each do |photo| %>
+    <%= image_tag photo.medium_url %>
+    <p>
+      <%= photo.caption %>
+    </p>
+  <% end %>
+</div>
