@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(:version => 20120816100124) do
     t.string   "gender"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.string   "username"
+    t.date     "date_of_birth"
+    t.text     "bio"
+    t.string   "preference"
+    t.integer  "min_age"
+    t.integer  "max_age"
+    t.string   "location"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
