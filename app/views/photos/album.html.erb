@@ -1,5 +1,5 @@
 <% @album_photos.each do |photo| %>
   <%= link_to((image_tag photo["images"][5]["source"]), preview_path(thumbnail_url: photo["images"][5]["source"], 
-                                                                     medium_url: photo["images"][3]["source"]), 
+                                                                     medium_url: photo["images"][4]["source"]), 
                                                                      method: :post ) %>
 <% end %>
