@@ -6,6 +6,7 @@ class CreatePhotos < ActiveRecord::Migration
       t.string :large_url
       t.string :caption
       t.integer :user_id
+      t.boolean :profile_pic
 
       t.timestamps
     end
