@@ -3,7 +3,11 @@ class SessionsController < ApplicationController
   def create
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
-    redirect_to root_url
+    if user.username.nil?
+      redirect_to setup_path
+    else
+      redirect_to users_url
+    end
   end
 
   def destroy
