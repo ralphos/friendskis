@@ -1,9 +1,10 @@
 module ApplicationHelper
   
-  def small_profile
-    # use current_user.profile_pic to get photo id and display it. 
+  def profile_pic_small
+    image_tag(Photo.find(current_user.profile_pic).thumbnail_url)      
   end
   
-  def medium_profile
+  def profile_pic_medium
+    image_tag(Photo.find(current_user.profile_pic).medium_url)
   end
 end
