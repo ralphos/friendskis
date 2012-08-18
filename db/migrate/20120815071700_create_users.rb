@@ -15,6 +15,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :min_age
       t.integer :max_age
       t.string :location
+      t.integer :profile_pic
 
       t.timestamps
     end
