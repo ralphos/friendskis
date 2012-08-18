@@ -36,4 +36,8 @@ class User < ActiveRecord::Base
     photo_hash.map { |h| { thumbnail_url: h["images"][5]["source"], medium_url: h["images"][4]["source"] } }
   end
   
+  def age
+    ((Date.today - date_of_birth) / 365).floor
+  end
+  
 end
