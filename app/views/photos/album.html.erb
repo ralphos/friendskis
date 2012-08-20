@@ -1,5 +1,7 @@
+<h2>Share photos to increase your visibility!</h2>
+
 <% @album_photos.each do |photo| %>
-  <%= link_to((image_tag photo["images"][5]["source"]), preview_path(thumbnail_url: photo["images"][5]["source"], 
-                                                                     medium_url: photo["images"][4]["source"]), 
+  <%= link_to((image_tag photo[:thumbnail_url]), preview_path(thumbnail_url: photo[:thumbnail_url], 
+                                                                     medium_url: photo[:medium_url]), 
                                                                      method: :post ) %>
 <% end %>
