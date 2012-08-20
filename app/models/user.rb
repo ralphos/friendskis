@@ -20,9 +20,9 @@ class User < ActiveRecord::Base
     @facebook ||= Koala::Facebook::API.new(oauth_token)
   end
   
-  def album_covers
+  def albums
     albums = facebook.get_connections(uid, "albums")
-    albums.map { |h| { id: h["id"], cover_photo: facebook.get_object(h["cover_photo"])["images"][5]["source"] } }
+    albums.map { |h| { id: h["id"], name: h["name"], cover_photo: facebook.get_object(h["cover_photo"])["images"][5]["source"] } }
   end
   
   def album_photos(album_id)
@@ -34,11 +34,15 @@ class User < ActiveRecord::Base
     albums = facebook.get_connections(uid, "albums")
     profile_album = albums.select { |a| a["name"] == "Profile Pictures" } # What if they don't have an album with profile pictures (they prob will)
     photo_hash = facebook.get_connections(profile_album.first["id"], "photos")
-    photo_hash.map { |h| { thumbnail_url: h["images"][5]["source"], medium_url: h["images"][4]["source"] } }
+    photo_hash.map { |h| { tiny_url: h["images"][7]["source"], thumbnail_url: h["images"][5]["source"], medium_url: h["images"][4]["source"] } }
   end
   
   def age
     ((Date.today - date_of_birth) / 365).floor
+  end
+  
+  def latest_user_photos
+    Photo.where(user_id: self.id).order("created_at desc")
   end
   
 end

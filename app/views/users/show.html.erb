@@ -1,5 +1,5 @@
 <div>
-  <%= profile_pic_small %>
+  <%= image_tag profile_pic_small(@user) %>
 </div>
 
 <div class='user-info'>
@@ -10,4 +10,10 @@
     <%= @user.location %><br>
     <%= criteria(@user) %>
   </p>  
+</div>
+
+<div id="feed">
+  <% @photos.each do |photo| %>
+    <%= render 'feed', photo: photo %>
+  <% end %>
 </div>

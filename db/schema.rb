@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(:version => 20120816100124) do
 
   create_table "photos", :force => true do |t|
+    t.string   "tiny_url"
     t.string   "thumbnail_url"
     t.string   "medium_url"
     t.string   "large_url"
