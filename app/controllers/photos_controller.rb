@@ -1,7 +1,6 @@
 class PhotosController < ApplicationController
   
   def new
-    # @photos = current_user.get_photos
     @album_covers = current_user.album_covers
   end
   
