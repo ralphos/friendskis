@@ -1,6 +1,24 @@
-<h2>Choose your profile picture</h2>
+<div class="span3">
+  <%= render 'nav' %>
+</div><!-- //span3 -->
 
-<% @photos.each do |photo| %>
-  <%= link_to((image_tag photo[:thumbnail_url]), confirm_path(photo: photo), html_options = { method: :post }) %>
-<% end %>
+<div class="span9">
+  
+  <div class='select-album'>
+    <h3>Choose your profile picture</h3>
+  </div>
+
+  <% @photos.each do |photo| %>
+  <div class='album'>
+    <div class='album-border'>
+      <a href="<%= confirm_path(photo: photo) %>">
+      <div class='album-cover' style="background-image: url(<%= photo[:thumbnail_url] %>)">
+      </div><!-- /album-cover -->
+      </a>
+    </div><!-- /album-border -->
+  </div><!-- /album -->
+  <% end %>
+
+</div><!-- //span9 -->
+
 
