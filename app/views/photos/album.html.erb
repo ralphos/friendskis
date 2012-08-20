@@ -1,7 +1,33 @@
-<h2>Share photos to increase your visibility!</h2>
+<div class="span3">
+  <%= render 'nav' %>
+</div><!-- //span3 -->
 
-<% @album_photos.each do |photo| %>
-  <%= link_to((image_tag photo[:thumbnail_url]), preview_path(thumbnail_url: photo[:thumbnail_url], 
-                                                                     medium_url: photo[:medium_url]), 
-                                                                     method: :post ) %>
-<% end %>
+<div class="span9">
+  
+  <div class='select-album'>
+    <h3>Share photos to increase your visibility!</h3>
+    <%= link_to 'Back to albums', albums_path, class: 'uibutton icon prev' %>
+  </div>
+
+  <% @album_photos.each do |photo| %>
+  <div class='album'>
+    <div class='album-border'>
+      <a href="<%= preview_path(thumbnail_url: photo[:thumbnail_url], 
+                                medium_url: photo[:medium_url]) %>">
+      <div class='album-cover' style="background-image: url(<%= photo[:thumbnail_url] %>)">
+      </div><!-- /album-cover -->
+      </a>
+    </div><!-- /album-border -->
+  </div><!-- /album -->
+  <% end %>
+
+</div><!-- //span9 -->
+
+
+
+
+
+
+
+
+

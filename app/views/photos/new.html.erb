@@ -1,11 +1,27 @@
-<h2>Select an album</h2>
+<div class="span3">
+  <%= render 'nav' %>
+</div><!-- //span3 -->
 
-<div class="photo-thumbnails" style="width: 550px">
+<div class="span9">
+  
+  <div class='select-album'>
+    <h3>Select an album</h3>
+  </div>
+
   <% @albums.each do |album| %>
-  <div class='album-cover'>
-    <%= link_to((image_tag album[:cover_photo], height: '135px'), album_view_path(album_id: album[:id]), html_options = { method: :post }) %>
-    <h5><%= link_to album[:name], album_view_path(album_id: album[:id]) %></h5>
-  </div><!-- /album-cover -->
+  <div class='album'>
+    <div class='album-border'>
+      <a href="<%= album_view_path(album_id: album[:id]) %>">
+      <div class='album-cover' style="background-image: url(<%=album[:cover_photo] %>)">
+      </div><!-- /album-cover -->
+      </a>
+    </div><!-- /album-border -->
+    <div class='album-info'>
+      <%= link_to album[:name], album_view_path(album_id: album[:id]) %>
+      <p><%= pluralize(album[:count], 'photo') %></p>
+    </div><!-- /album-info -->
+  </div><!-- /album -->
   <% end %>
-</div>
+
+</div><!-- //span9 -->
 
