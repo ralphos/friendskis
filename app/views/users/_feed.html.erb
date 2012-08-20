@@ -6,7 +6,7 @@
     <div class='name-age-gender'>
       <h5>
         <%= link_to photo.user.username, user_path(photo.user) %>
-        <span><%= photo.user.age %><%= display_sex(photo.user) %></span>
+        <span><%= photo.user.age %> · <%= display_sex(photo.user) %></span>
       <h5>
     </div><!-- /name-age-gender -->
     <div class='post-content'>
