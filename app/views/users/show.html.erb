@@ -1,0 +1,19 @@
+<div>
+  <%= image_tag profile_pic_small(@user) %>
+</div>
+
+<div class='user-info'>
+  <h3><%= @user.username %></h3>
+  <p>
+    <%= @user.age %>
+    <%= display_sex(@user) %>
+    <%= @user.location %><br>
+    <%= criteria(@user) %>
+  </p>  
+</div>
+
+<div id="feed">
+  <% @photos.each do |photo| %>
+    <%= render 'feed', photo: photo %>
+  <% end %>
+</div>

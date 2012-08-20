@@ -1,0 +1,21 @@
+/********** Feed **********/
+
+.post {
+		
+	.profile-pic-tiny {
+		float: left;
+	}
+
+	.main-post-content {
+		margin-left: 100px;
+	}
+}
+
+/********** Albums **********/
+
+.album-cover {
+	float: left;
+	padding-left: 10px;
+	
+	h5 { padding: 0; margin: 0 }
+}
