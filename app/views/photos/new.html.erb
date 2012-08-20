@@ -1,8 +1,11 @@
-<h2>Share photos to increase your visibility!</h2>
+<h2>Select an album</h2>
 
 <div class="photo-thumbnails" style="width: 550px">
-  <% @album_covers.each do |cover| %>
-    <%= link_to((image_tag cover[:cover_photo], height: '135px'), album_view_path(album_id: cover[:id]), html_options = { method: :post }) %>
+  <% @albums.each do |album| %>
+  <div class='album-cover'>
+    <%= link_to((image_tag album[:cover_photo], height: '135px'), album_view_path(album_id: album[:id]), html_options = { method: :post }) %>
+    <h5><%= link_to album[:name], album_view_path(album_id: album[:id]) %></h5>
+  </div><!-- /album-cover -->
   <% end %>
 </div>
 

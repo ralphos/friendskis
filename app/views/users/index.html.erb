@@ -5,9 +5,6 @@
 <br>
 <div id="feed">
   <% @photos.each do |photo| %>
-    <%= image_tag photo.medium_url %>
-    <p>
-      <%= photo.caption %>
-    </p>
+    <%= render 'feed', photo: photo %>
   <% end %>
 </div>
