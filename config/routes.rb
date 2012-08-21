@@ -19,6 +19,6 @@ Friendskis::Application.routes.draw do
   get '/feed', controller: 'users', action: 'index', as: :users
   
   resources :messages, only: [:new, :create]
-  resources :conversations, only: [:show]
+  resources :conversations, only: [:index, :show]
   
 end

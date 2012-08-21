@@ -19,8 +19,7 @@ class User < ActiveRecord::Base
   end
   
   def conversations
-    # Add to arrays and then elimate the ones without a unique id!
-    # Maybe don't need this...
+    sender_conversations + recipient_conversations
   end
   
   def facebook

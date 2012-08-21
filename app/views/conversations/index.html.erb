@@ -1,0 +1,8 @@
+<% @conversations.each do |c| %>
+  <% if User.find(c.messages.last.user_id).username == current_user %>
+    <%= link_to User.find(c.messages.to).username, conversation_path(c) %>
+  <% else %>
+    <%= link_to current_user.username, conversation_path(c) %>
+  <% end %>
+  <%= c.messages.last.body %>
+<% end %>
