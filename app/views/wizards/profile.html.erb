@@ -4,20 +4,29 @@
 
 <div class="span9">
   
+  <div class='tip-box'>
+    <h3>Pick a Photo!<span>Step 2 of 3</span></h3>
+    <p>
+      Friendskis is all about sharing bits of content from your Facebook profile. Picking a profile picture from Facebook is your first step towards meeting new friends.
+    </p>
+  </div><!-- /tip-box -->
+  
   <div class='select-album'>
     <h3>Choose your profile picture</h3>
   </div>
 
-  <% @photos.each do |photo| %>
-  <div class='album'>
-    <div class='album-border'>
-      <a href="<%= confirm_path(photo: photo) %>">
-      <div class='album-cover' style="background-image: url(<%= photo[:thumbnail_url] %>)">
-      </div><!-- /album-cover -->
-      </a>
-    </div><!-- /album-border -->
-  </div><!-- /album -->
-  <% end %>
+  <div class='album-container'>
+    <% @photos.each do |photo| %>
+    <div class='album'>
+      <div class='album-border'>
+        <a href="<%= confirm_path(photo: photo) %>">
+        <div class='album-cover' style="background-image: url(<%= photo[:thumbnail_url] %>)">
+        </div><!-- /album-cover -->
+        </a>
+      </div><!-- /album-border -->
+    </div><!-- /album -->
+    <% end %>
+  </div><!-- /album-container -->
 
 </div><!-- //span9 -->
 
