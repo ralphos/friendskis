@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   attr_accessible :username, :date_of_birth, :preference, :min_age, :max_age, :location, :profile_pic
   
   has_many :photos, dependent: :destroy
-  has_many :conversations, foreign_key: :sender_id
-  has_many :conversation, foreign_key: :recipient_id # Not sure if it's necessary to have two foreign keys for the same thing here?
+  has_many :conversations, foreign_key: :sender_id, dependent: :destroy
+  has_many :conversations, foreign_key: :recipient_id, dependent: :destroy # Not sure if it's necessary to have two foreign keys for the same thing here?
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
