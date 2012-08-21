@@ -1,33 +1,51 @@
-<%= form_for @user, url: setup_path do |f| %>
+<div class="span3">
+  <%= render 'nav' %>
+</div><!-- //span3 -->
 
-  <h2>Pick a username</h2>
-  <hr>
-  <p>Choose a username so we can keep your identity on Facebook anonymous.</p>
-  <div class="field">
-    <%= f.text_field :username, placeholder: "Your username" %>
-  </div>
-  <h2>Confirm your Birthday</h2>
-  <hr>
-  <p>Confirm your birthdate so other people can find you based on your age.</p>
-  <div class="field">
-    <%= f.date_select :date_of_birth, start_year: 1900, end_year: Date.today.year %>
-  </div>
-  <h2>What are you looking for?</h2>
-  <hr>
-  <p>Tell us what kind of person you'd be interested in friending.</p>
-  <div class="field">
-    <div>
-    I'm a <%= f.select(:preference, { "woman seeking man" => 1, "man seeking woman" => 2 }) %>
-    </div>
-    <div>
-      between ages <%= f.select(:min_age, (18..99).to_a) %> and <%= f.select(:max_age, (18..99).to_a) %>
-    </div>
-    <div>
-      near <%= f.text_field :location, placeholder: "Enter your location" %>  
-    </div>
-  </div>
-  <div class="actions">
-    <%= f.submit "Next step: Add a profile photo" %>
-  </div>
+<div class="span9">
   
-<% end %>
+  <div class='tip-box'>
+    <h3>Welcome to Friendskis, <%= current_user.name.split.first %>.<span>Step 1 of 3</span></h3>
+    <p>
+      Friendskis is about helping you get the conversation started, so you can meet new people on Facebook. 
+    </p>
+  </div><!-- /tip-box -->
+
+  <%= form_for @user, url: setup_path do |f| %>
+
+    <div class='step'>
+      <h3><span class='step_one'>1</span>Pick a username</h3>
+      <p>Choose a username so we can keep your identity on Facebook anonymous.</p>
+      <div class="field">
+        <%= f.text_field :username, placeholder: "Your username" %>
+      </div>
+    </div><!-- /step -->
+      <div class='step'>
+      <h3><span class='step_no'>2</span>Confirm your Birthday</h3>
+      <p>Confirm your birthdate so other people can find you based on your age.</p>
+      <div class="field">
+        <%= f.date_select :date_of_birth, start_year: 1900, end_year: Date.today.year %>
+      </div>
+    </div><!-- /step -->
+    <div class='step'>
+      <h3><span class='step_no'>3</span>What are you looking for?</h3>
+      <p>Tell us what kind of person you'd be interested in friending.</p>
+      <div class="field-criteria">
+        <div>
+        I'm a <%= f.select(:preference, { "woman seeking man" => 1, "man seeking woman" => 2 }) %>
+        </div>
+        <div>
+          between ages <%= f.select(:min_age, (18..99).to_a) %> and <%= f.select(:max_age, (18..99).to_a) %>
+        </div>
+        <div>
+          near <%= f.text_field :location, placeholder: "Enter your location" %>  
+        </div>
+      </div>
+    </div><!-- /step -->
+    <div class="actions">
+      <%= f.submit "Next step: Add a profile photo", class: 'uibutton large confirm' %>
+    </div>
+  
+  <% end %>
+
+</div><!-- //span9 -->

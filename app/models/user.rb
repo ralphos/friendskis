@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :username, :date_of_birth, :preference, :min_age, :max_age, :location, :profile_pic
   
-  has_many :photos
+  has_many :photos, dependent: :destroy
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

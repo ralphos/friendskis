@@ -208,7 +208,8 @@ textarea {
 .container.canvas .row > [class*="span"] {
   display: inline;
   float: left;
-  margin-left: 20px;
+/*  margin-left: 20px;*/
+/*This takes out the left gutter for the main span9 section!!!! */
 }
 .container.canvas .span1 {
   width: 45px;
@@ -563,7 +564,7 @@ a:hover {
 .row > [class*="span"] {
   display: inline;
   float: left;
-  margin-left: 20px;
+/*  margin-left: 20px;*/
 }
 .span1 {
   width: 25px;
