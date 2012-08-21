@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120816100124) do
+ActiveRecord::Schema.define(:version => 20120821141935) do
+
+  create_table "conversations", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "photos", :force => true do |t|
     t.string   "tiny_url"
