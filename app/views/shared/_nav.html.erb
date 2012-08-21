@@ -1,0 +1,26 @@
+<div class="left-nav">
+  <div class="profile-details">
+    <%= link_to (image_tag profile_pic_tiny(current_user)), user_path(current_user) %>
+    <p>
+    <%= link_to current_user.username, user_path(current_user) %>
+    </p>
+  </div>
+  <div class="share-photo">
+    <h5>Your popularity</h5>
+    <p>Increase your visibility!</p>
+    <%= link_to "Share a Photo", albums_path, class: 'uibutton confirm large share-ph' %>
+  </div>
+  <div class='nav-links'>
+  <h6>Your Links</h6>
+  <ul>
+    <a href="/feed"><li><%= image_tag 'home.png' %><p>Home</p></li></a>
+    <a href="/messages"><li><%= image_tag 'message.png' %><p>Conversations</p></li></a>
+    <a href="#"><li><%= image_tag 'visitors.png' %><p>Visitors</p></li></a>
+    <!-- <a href="/search"><li><%#= image_tag 'friend-finder.png' %><p>Search</p></li></a> -->
+    <!-- <a href="#"><li><%#= image_tag 'invitefriend.png' %><p>Invite Friends</p></li></a> -->
+    <a href="/settings"><li><%= image_tag 'editprofile.png' %><p>Settings</p></li></a>
+  </ul>
+  </div><!-- //nav-links -->
+</div><!-- //left-nav -->
+
+  

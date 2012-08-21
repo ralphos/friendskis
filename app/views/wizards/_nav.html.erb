@@ -1,0 +1,19 @@
+<div class="left-nav">
+  <div class="profile-details">
+    <%= link_to (image_tag profile_pic_tiny(current_user)), '#' %>
+    <p>
+      <% if current_user.username.blank? %>
+        <%= link_to "Hey #{current_user.name.split.first}!", '#' %>
+      <% else %>
+        <%= link_to current_user.username, '#' %>
+      <% end %>
+    </p>
+  </div>
+
+  <div class='welcome-link'>
+    <h6>Your Links</h6>
+    <ul>
+      <li>Welcome</li>
+    </ul>
+  </div><!-- //nav-links -->
+</div><!-- //left-nav -->

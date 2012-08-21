@@ -1,14 +1,21 @@
-<h1>Welcome to Friendskis</h1>
+<h1>Friendskis</h1>
+<h3 class='tagline'>Discover and meet new friends on Facebook</h3>
 
-<div id="user-login">
-  <% if current_user %>
-    Hey <%= current_user.name.split.first %>
-    <%= link_to "Sign out", signout_path %>
-  <% else %>
-    <%= link_to "Login anonymously with Facebook", "/auth/facebook", id: "sign-in" %>
-  <% end %>
-</div>
-
-<div id="share-photo">
-  <%= link_to "Share Photo", albums_path %>
-</div>
+<center class='login'>
+  <a href="/auth/facebook" class='uibutton extra-large special'>Login <em>anonymously</em> with Facebook</a>
+  <!-- <p class="login-tip">*It's anonymous and we won't post to your wall!</p> -->
+  <div class='polaroid'>
+    <%= image_tag 'chick.jpeg' %>
+    <p>Join me now!</p>
+  </div>
+  <div class='landing-about'>
+    <h3><span class='step_one'>1</span>Meet new people on Facebook</h3>
+    <p>
+      Friendskis is about helping you get the conversation started, so you can meet new people on Facebook.
+      We keep everything anonymous and will never post to your wall!
+    </p>
+    <div class='landing-footer'>
+      <%= link_to 'About', '#' %> · <%= link_to 'FAQ', '#' %> · <%= link_to 'Terms', '#' %> · <%= link_to 'Privacy', '#' %>
+    </div>
+  </div><!-- //landing-about -->
+</center>

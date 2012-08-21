@@ -1,25 +1,43 @@
-<h2>Add a caption for your photo</h2>
+<div class="span3">
+  <%= render 'nav' %>
+</div><!-- //span3 -->
 
-<div class="photo">
-  <%= image_tag @photo_url["medium_url"] %>
-</div>
-
-<div class="add-caption">
-  <%= form_for @photo, url: photos_path do |f| %>
+<div class="span9">
   
-    <%= f.hidden_field :tiny_url, value: @photo_url["tiny_url"] %>
-    <%= f.hidden_field :thumbnail_url, value: @photo_url["thumbnail_url"] %>
-    <%= f.hidden_field :medium_url, value: @photo_url["medium_url"] %>
-    <%= f.hidden_field :profile_pic, value: true %>
-    
-    <div>
-      <%= f.label :caption, 'Add a caption' %><br>
-      <%= f.text_field :caption, class: 'add-caption' %>
-    </div>
-    
-    <div id='share-btn'>
-      <%= f.submit "I'm done! Let's make some friends!", class: 'profile-done' %>
-    </div>
-  <% end %>
-</div>
+  <div class='tip-box'>
+    <h3>You're almost ready!<span>Step 3 of 3</span></h3>
+    <p>
+      Great! Now all you need to do is confirm this as your profile photo and you're done! We also suggest adding a caption with hashtags to help explain what's in the picture!
+    </p>
+  </div><!-- /tip-box -->
+  
+  <div class='select-album'>
+    <h3>Add a caption to your profile picture</h3>
+    <%#= link_to 'Back to photos', albums_path, class: 'uibutton icon prev' %>
+  </div>
 
+  <div class="photo">
+    <%= image_tag @photo_url["medium_url"] %>
+  </div>
+
+    <%= form_for @photo, url: photos_path, html: { class: 'form-stacked' } do |f| %>
+
+      
+      <%= f.hidden_field :tiny_url, value: @photo_url["tiny_url"] %>
+      <%= f.hidden_field :thumbnail_url, value: @photo_url["thumbnail_url"] %>
+      <%= f.hidden_field :medium_url, value: @photo_url["medium_url"] %>
+      <%= f.hidden_field :profile_pic, value: true %>
+      
+      <div class='caption-label'>
+        <%= f.label :caption, 'Add a caption' %>
+      </div>
+      <div class='field'>
+        <%= f.text_field :caption, class: 'xlarge' %>
+      </div>
+
+      <div class='wizard-done'>
+        <%= f.submit "I'm done! Let's make some friends!", class: 'uibutton large special' %>
+      </div>
+    <% end %>
+
+</div><!-- //span9 -->

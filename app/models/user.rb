@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :username, :date_of_birth, :preference, :min_age, :max_age, :location, :profile_pic
   
-  has_many :photos
+  has_many :photos, dependent: :destroy
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   
   def albums
     albums = facebook.get_connections(uid, "albums")
-    albums.map { |h| { id: h["id"], name: h["name"], cover_photo: facebook.get_object(h["cover_photo"])["images"][5]["source"] } }
+    albums.map { |h| { id: h["id"], name: h["name"], count: h["count"], cover_photo: facebook.get_object(h["cover_photo"])["images"][5]["source"] } }
   end
   
   def album_photos(album_id)
