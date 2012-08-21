@@ -17,7 +17,7 @@
     </div><!-- /post-caption -->
     <div class='send-message'>
       <% if photo.user != current_user %>
-         <%= link_to 'Cute photo!', '#' %> · <%= link_to 'Send Message', '#' %>
+         <%= link_to 'Cute photo!', '#' %> · <%= link_to 'Send Message', new_message_path(recipient: photo.user) %>
          
       <% end %>
     </div><!-- /send-message -->

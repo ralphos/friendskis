@@ -1,0 +1,6 @@
+<% @messages.each do |m| %>
+  <div>
+    <%= User.find(m.user_id).username %>
+    <p><%= m.body %></p>
+  </div>
+<% end %>
