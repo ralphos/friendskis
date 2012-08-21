@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
       conversation = Conversation.where(sender_id: current_user.id, recipient_id: params[:message][:to]).first_or_create!
     end
     @message = Message.new(params[:message])
-    @message.conversation_id = conversation.id
+    @message.conversation_id = conversation.first.id
     @message.user_id = current_user.id
     if @message.save
       redirect_to conversation_path(@message.conversation)
