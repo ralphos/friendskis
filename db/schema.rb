@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20120821141935) do
     t.integer  "conversation_id"
     t.integer  "user_id"
     t.text     "body"
+    t.integer  "to"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   attr_accessible :username, :date_of_birth, :preference, :min_age, :max_age, :location, :profile_pic
   
   has_many :photos, dependent: :destroy
-  has_many :conversations, foreign_key: :sender_id, dependent: :destroy
-  has_many :conversations, foreign_key: :recipient_id, dependent: :destroy # Not sure if it's necessary to have two foreign keys for the same thing here?
+  has_many :sender_conversations, class_name: 'Conversation', foreign_key: :sender_id, dependent: :destroy
+  has_many :recipient_conversations, class_name: 'Conversation', foreign_key: :recipient_id, dependent: :destroy 
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -16,6 +16,11 @@ class User < ActiveRecord::Base
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
     end
+  end
+  
+  def conversations
+    # Add to arrays and then elimate the ones without a unique id!
+    # Maybe don't need this...
   end
   
   def facebook
