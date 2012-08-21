@@ -1,10 +1,12 @@
-<h2>This will be your feed</h2>
-<div id="share-photo">
-  <%= link_to "Share Photo", albums_path %>
-</div>
-<br>
-<div id="feed">
-  <% @photos.each do |photo| %>
-    <%= render 'feed', photo: photo %>
-  <% end %>
-</div>
+<div class="span3">
+  <%= render 'shared/nav' %>
+</div><!-- //span3 -->
+
+<div class="span9">
+  <div id="feed">
+    <h3>Showing everyone on Friendskis</h3>
+    <% @photos.each do |photo| %>
+      <%= render 'feed', photo: photo %>
+    <% end %>
+  </div>
+</div><!-- //span9 -->

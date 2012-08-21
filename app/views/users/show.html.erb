@@ -1,19 +1,8 @@
-<div>
-  <%= image_tag profile_pic_small(@user) %>
-</div>
+<div class="span3">
+  <%= render 'shared/nav' %>
+</div><!-- //span3 -->
+<div class="span9">
+  <%= render 'main_profile' %>
+</div><!-- //span9 -->
 
-<div class='user-info'>
-  <h3><%= @user.username %></h3>
-  <p>
-    <%= @user.age %>
-    <%= display_sex(@user) %>
-    <%= @user.location %><br>
-    <%= criteria(@user) %>
-  </p>  
-</div>
 
-<div id="feed">
-  <% @photos.each do |photo| %>
-    <%= render 'feed', photo: photo %>
-  <% end %>
-</div>

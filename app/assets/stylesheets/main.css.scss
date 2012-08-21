@@ -1,21 +1,312 @@
-/********** Feed **********/
+/********** Site-wide CSS Rules **********/
+
+html, body {
+/*	height: 100%;*/
+	overflow: scroll;
+}
+
+/*Borders for main section*/
+
+.container.canvas { padding-bottom: 30px }
+
+.span9 { 
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+}
+
+/********** The Feed **********/
+
+#feed {
+	
+	h3 { 
+		padding-top: 30px;
+		padding-bottom: 6px;
+		padding-left: 20px;
+		border-bottom: 1px solid #CCC;
+	}
+}
 
 .post {
-		
+	padding: 15px 0 15px 20px;
+	border-bottom: 1px solid #CCC;
+	&:last-child { border-bottom: none }
+	
 	.profile-pic-tiny {
 		float: left;
 	}
 
 	.main-post-content {
-		margin-left: 100px;
+		margin-left: 95px;
+		
+		h5 { 
+			font-weight: bold;
+			margin-bottom: 10px;
+			span { font-weight: normal; font-size: 12px; color: gray }
+		}
+		
+		.post-content {
+			margin-bottom: 10px;
+		}
+		
+		.post-caption {
+			border-left: 5px solid #E7EBF2;
+			padding-left: 5px;
+			font-size: 12px;
+			color: gray;
+			margin-bottom: 10px;
+		}
 	}
 }
 
+.send-message {
+	a { color: #6B84B4 }
+}
+
+
 /********** Albums **********/
 
-.album-cover {
-	float: left;
-	padding-left: 10px;
-	
-	h5 { padding: 0; margin: 0 }
+.tip-box {
+	padding: 30px 20px 20px;
+	background-color: #F5F7FA;
+	border-bottom: 1px dashed #CED5E5;
+	h3 { 
+		font-size: 14px; 
+		span { font-size: 12px; font-weight: normal; float: right; }
+	}
+	p { padding-top: 3px }
 }
+
+.select-album {
+	padding-left: 20px;
+	padding-right: 20px;
+	border-bottom: 1px solid #CCC;
+	margin: 10px 0;
+	overflow: hidden;
+	h3 { padding-bottom: 6px; float: left }
+	a { float: right; margin-top: 3px }
+}
+
+.select-album.photos {
+	padding-top: 20px;
+}
+
+.album-container {
+	padding-left: 15px;
+}
+
+.album {
+	float: left;
+	margin: 5px;
+	
+	.album-info {
+		a { font-size: 12px; font-weight: bold }
+		p { color: #666; padding-top: 3px }
+	}
+}
+
+.album-border {
+	border: 1px solid #CCC;
+	padding: 5px;
+	width: 156px;
+	display: block;
+	margin-bottom: 10px;
+}
+.album-cover {
+	width: 156px;
+	height: 126px;
+	background-position: center fixed;
+	background-repeat: no-repeat;
+}
+
+.photo {
+	margin: 0 auto;
+	text-align: center;
+	margin: 20px 0;
+}
+
+.field {
+	
+	input {
+			width: 515px; 
+			height: 20px; 
+			margin: 5px 0 20px 0
+	}
+}
+
+.share-btn {
+	text-align: center;
+}
+
+
+/********** Left Nav **********/
+
+.left-nav {
+	
+	padding-top: 30px;	
+	.profile-details {
+		
+		img {
+			vertical-align: middle;
+		}
+		
+		p {
+			display: inline-block;
+			font-weight: bold;
+			padding-left: 5px;
+		}
+	}
+	
+	.share-photo {
+		background: #E7EBF2;
+		margin: 15px 0;
+		padding: 10px 10px 15px 10px;
+		
+		.share-ph { width: 138px; margin: 5px 0 }
+		
+	}
+	
+	.large-profile-photo {
+		img { width: 175px; }
+	}
+	
+	.nav-links { 
+		h6 { font-size: 12px }
+		
+		ul {
+			list-style: none; 
+			margin: 0;
+			padding: 0 0 0 5px;			
+			
+			a {
+				text-decoration: none;
+				padding-bottom: 12px;
+				line-height: 18px;
+				
+				li { 
+					padding: 3px 0 4px 4px;
+					&:hover { background: #E7EBF2}
+					color: #333;
+					
+					img { float: left }
+					p { display: inline; vertical-align: middle; padding: 5px 0 5px 5px }
+				}
+			}
+		}
+	}
+}
+
+/********** Profile Page **********/
+
+.main-profile {
+	
+	padding-top: 30px;
+	
+	.header {
+		
+		padding-bottom: 15px; 
+		padding-right: 20px;
+		border-bottom: 1px solid #CCC;
+		
+		.profile { 
+			overflow: hidden;
+			padding-left: 20px;
+			
+			.profile-img {
+				float: left;
+				margin-right: 15px;
+			}
+			
+			.info-button {
+				
+				overflow: hidden;
+			
+				.profile-info { 
+					float: left;
+					margin-bottom: 10px;
+/*					padding-left: 15px;*/
+				
+					ul {
+						margin: 0;
+						padding: 0;
+						list-style: none;
+					
+						li { display: inline-block; padding-bottom: 3px; font-size: 12px }
+						li:last-child { display: block }
+					} /* ul */
+				
+				}
+				.profile-button {
+					float: right;
+					margin-top: 5px;
+					a { &:hover { text-decoration: none } }
+				} /* profile-button */
+			}
+			
+			.bio {
+				color: gray;
+				font-style: italic;
+				font-size: 14px;
+				line-height: 16px;
+				
+			}
+		}
+	}
+}
+
+/********** Wizard **********/
+
+.step {
+	padding: 10px 20px;
+	h3 { 
+		border-bottom: 1px solid #CCC;
+		padding-bottom: 5px;
+		margin-bottom: 10px;
+		
+		.step_one { 
+			background: #ACCD97; 
+			border: 1px solid #74AC51; 
+			padding: 3px 6px; 
+			margin-right: 10px; 
+			color: white
+		}
+		
+		.step_no { 
+			background: #8A9BC3; 
+			border: 1px solid #627AAD; 
+			padding: 3px 6px; 
+			margin-right: 10px; 
+			color: white
+		}
+	}
+	
+	#user_username { width: 50%; margin: 15px 0 0 }
+	#user_date_of_birth_1i, #user_date_of_birth_2i, #user_date_of_birth_3i { width: 100px; margin: 15px 7px 3px 7px }
+	
+	.field-criteria {
+		div { margin: 15px 0; }
+		#user_preference { width: 150px; }
+		select#user_min_age, select#user_max_age { width: 80px; margin: 0 5px }
+		#user_location { height: 20px; width: 245px }
+	}
+}
+
+.actions {
+	margin: 0 20px;
+	overflow: hidden;
+	input { width: 220px; float: right }
+}
+
+.welcome-link {
+	margin-top: 10px;
+	
+	ul {
+		list-style: none;
+	}
+}
+
+.wizard-done {
+	text-align: center;
+	input { width: 280px; }
+}
+
