@@ -1,6 +1,6 @@
 <div class="left-nav">
   <div class="profile-details">
-    <%= link_to (image_tag profile_pic_tiny(current_user)), user_path(current_user) %>
+    <%= link_to (image_tag profile_pic_tiny(current_user), width: '75px'), user_path(current_user) %>
     <p>
     <%= link_to current_user.username, user_path(current_user) %>
     </p>
@@ -14,7 +14,7 @@
   <h6>Your Links</h6>
   <ul>
     <a href="/feed"><li><%= image_tag 'home.png' %><p>Home</p></li></a>
-    <a href="/messages"><li><%= image_tag 'message.png' %><p>Conversations</p></li></a>
+    <a href="/conversations"><li><%= image_tag 'message.png' %><p>Conversations</p></li></a>
     <a href="#"><li><%= image_tag 'visitors.png' %><p>Visitors</p></li></a>
     <!-- <a href="/search"><li><%#= image_tag 'friend-finder.png' %><p>Search</p></li></a> -->
     <!-- <a href="#"><li><%#= image_tag 'invitefriend.png' %><p>Invite Friends</p></li></a> -->

@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
     albums = facebook.get_connections(uid, "albums")
     profile_album = albums.select { |a| a["name"] == "Profile Pictures" } # What if they don't have an album with profile pictures (they prob will)
     photo_hash = facebook.get_connections(profile_album.first["id"], "photos")
-    photo_hash.map { |h| { tiny_url: h["images"][7]["source"], thumbnail_url: h["images"][5]["source"], medium_url: h["images"][4]["source"] } }
+    photo_hash.map { |h| { tiny_url: h["images"][7]["source"], thumbnail_url: h["images"][5]["source"], medium_url: h["images"][5]["source"] } }
   end
   
   def age
