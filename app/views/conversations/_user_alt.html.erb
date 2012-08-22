@@ -1,0 +1,18 @@
+<div class='user-image' style="background-image: url(<%= recipients_profile_pic(conversation.messages.last.recipients_id) %>)">
+  <%#= image_tag recipients_profile_pic(conversation.messages.last.recipients_id), width: '75px' %>
+</div><!-- /user-image -->
+<div class='conversation-container'>
+  <div class='date'>
+    <%= conversation.messages.last.created_at.strftime('%d %b %Y')%>
+  </div>
+  <div class='user-info'>
+    <h5>
+      <%= link_to conversation.messages.last.recipients_username, conversation_path(conversation) %>
+    <h5>
+  </div><!-- /user-info -->
+
+  <div class='message-preview'>
+    <%= link_to " <= #{truncate(conversation.messages.last.body, length: 140, omission: '...')}", conversation_path(conversation) %>
+  </div><!-- /message-preview -->
+
+</div><!-- /conversation-container -->

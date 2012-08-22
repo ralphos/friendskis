@@ -1,0 +1,21 @@
+<div class='user-image' style="background-image: url(<%= profile_pic_tiny(message.user) %>)">
+</div>
+<div class='conversation-container'>
+  <div class='date'>
+    <%= message.created_at.strftime('%d %b %Y')%>
+  </div>
+  <div class='user-info'>
+    <h5>
+      <% if message.user == current_user %>
+        <%= link_to 'You', '' %>
+      <% else %>
+        <%= link_to message.user.username, user_path(message.user) %>
+      <% end %>
+    <h5>
+  </div><!-- /user-info -->
+  <div class='message'>
+    <p>
+      <%= message.body %>
+    </p>
+  </div><!-- /message-preview -->
+</div><!-- /conversation-container -->

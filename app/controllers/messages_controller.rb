@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
   def create
     # NEED TO REFACTOR. THIS SUCKS.
     if Conversation.where(sender_id: params[:message][:recipients_id], recipient_id: current_user.id).present?
-      conversation = Conversation.where(sender_id: params[:message][:recipients_id], recipient_id: current_user.id)
+      conversation = Conversation.where(sender_id: params[:message][:recipients_id], recipient_id: current_user.id).first
     else
       conversation = Conversation.where(sender_id: current_user.id, recipient_id: params[:message][:recipients_id]).first_or_initialize
       conversation.save

@@ -7,5 +7,6 @@ class ConversationsController < ApplicationController
   def show
     @conversation = Conversation.where(id: params[:id]).first
     @messages = @conversation.messages
+    @message = Message.new
   end
 end
