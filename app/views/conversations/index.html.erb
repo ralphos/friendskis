@@ -1,8 +1,12 @@
-<% @conversations.each do |c| %>
-  <% if User.find(c.messages.last.user_id).username == current_user %>
-    <%= link_to User.find(c.messages.to).username, conversation_path(c) %>
-  <% else %>
-    <%= link_to current_user.username, conversation_path(c) %>
+<% if @conversations.any? %>
+  <% @conversations.each do |c| %>
+    <% if c.messages.last.user == current_user %>
+      <%= link_to c.messages.last.recipients_username, conversation_path(c) %>
+    <% else %>
+      <%= link_to c.messages.last.user.username, conversation_path(c) %>
+    <% end %>
+    <%= c.messages.last.body %>
   <% end %>
-  <%= c.messages.last.body %>
+<% else %>
+  You have no messages!
 <% end %>
