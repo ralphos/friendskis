@@ -1,6 +1,45 @@
-<% @messages.each do |m| %>
-  <div>
-    <%= User.find(m.user_id).username %>
-    <p><%= m.body %></p>
-  </div>
-<% end %>
+<div class="span3">
+  <%= render 'shared/nav' %>
+</div><!-- //span3 -->
+
+<div class="span9">
+  <div id="conversations">
+    <div class='header'>
+      <div class='action-buttons'>
+        <%= link_to 'Back to Conversations', conversations_path, class: 'uibutton icon prev' %>
+        <%= link_to 'Send Friend Request', '#', class: 'uibutton icon secure' %>
+
+      </div>
+      <% if @messages.last.user != current_user%>
+        <h3><%= @messages.last.user.username %> </h3>
+      <% else %>
+        <h3><%= @messages.last.recipients_username %></h3>
+      <% end %>
+    </div>
+    <% @messages.each do |m| %>
+      <div class='conversation message'>
+        <%= render 'message', message: m %>
+      </div><!-- /conversation -->
+      <hr>
+      <% end %>
+      <div class='actions-reply'>
+        
+        <%= form_for @message do |f| %>
+        
+          <% if @messages.last.user == current_user %>
+            <%= f.hidden_field :recipients_id, value: @messages.last.recipients_id %>
+            <%= f.hidden_field :recipients_username, value: @messages.last.recipients_username %>
+          <% else %>
+            <%= f.hidden_field :recipients_id, value: @messages.last.user.id %>
+            <%= f.hidden_field :recipients_username, value: @messages.last.user.username %>
+          <% end %>
+          
+          <%= f.text_area :body, class: 'xxlarge', rows: '6' %>
+          
+          <%= f.submit 'Reply', class: 'uibutton confirm' %>
+          
+        <% end %>
+      </div>
+  </div><!-- /conversations -->
+</div><!-- //span9 -->
+

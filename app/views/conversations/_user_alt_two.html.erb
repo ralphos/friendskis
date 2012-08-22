@@ -1,0 +1,18 @@
+<div class='user-image' style="background-image: url(<%= profile_pic_tiny(conversation.messages.last.user) %>)">
+</div><!-- /user-image -->
+<div class='conversation-container'>
+  <div class='date'>
+    <%= conversation.messages.last.created_at.strftime('%d %b %Y')%>
+  </div>
+  <div class='user-info'>
+    <h5>
+      <%= link_to conversation.messages.last.user.username, conversation_path(conversation) %>
+    <h5>
+  </div><!-- /user-info -->
+  <div class='message-preview'>
+    <%= link_to truncate(conversation.messages.last.body, length: 140, omission: '...'), conversation_path(conversation) %></a>
+  </div><!-- /message-preview -->
+</div><!-- /conversation-container -->
+
+
+

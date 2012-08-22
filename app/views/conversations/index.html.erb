@@ -1,12 +1,25 @@
-<% if @conversations.any? %>
-  <% @conversations.each do |c| %>
-    <% if c.messages.last.user == current_user %>
-      <%= link_to c.messages.last.recipients_username, conversation_path(c) %>
+<div class="span3">
+  <%= render 'shared/nav' %>
+</div><!-- //span3 -->
+
+<div class="span9">
+  <div id="conversations">
+    <div class='header'>
+      <h3>Your Conversations</h3>
+    </div>
+    <% if @conversations.any? %>
+      <% @conversations.each do |conversation| %>
+      <div class='conversation'>
+        <% if conversation.messages.last.user == current_user %>
+          <%= render 'user_alt', conversation: conversation %>
+        <% else %>
+          <%= render 'user_alt_two', conversation: conversation %>
+        <% end %>
+      </div><!-- /conversation -->
+      <% end %>
     <% else %>
-      <%= link_to c.messages.last.user.username, conversation_path(c) %>
+      You have no messages!
     <% end %>
-    <%= c.messages.last.body %>
-  <% end %>
-<% else %>
-  You have no messages!
-<% end %>
+  </div><!-- /conversations -->
+</div><!-- //span9 -->
+
