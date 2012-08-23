@@ -17,8 +17,8 @@
     </div><!-- /post-caption -->
     <div class='send-message'>
       <% if photo.user != current_user %>
-         <%= link_to 'Cute photo!', '#' %> · <%= link_to 'Send Message', new_message_path(recipients_id: photo.user, recipients_username: photo.user.username) %>
-         
+         <%= link_to 'Cute photo!', '#' %> · <%= link_to 'Send Message', '#', onclick: "showModal($(this));", 
+          data: { username: photo.user.username, recipients: photo.user.id, recipients_username: photo.user.username } %>
       <% end %>
     </div><!-- /send-message -->
   </div><!-- /main-post-content -->

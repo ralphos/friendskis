@@ -5,8 +5,42 @@
 <div class="span9">
   <div id="feed">
     <h3>Showing everyone on Friendskis</h3>
+    <%#= render 'feed', :collection => @photos %>
+    
     <% @photos.each do |photo| %>
       <%= render 'feed', photo: photo %>
     <% end %>
   </div>
 </div><!-- //span9 -->
+
+<div class="modal" id="my-modal" tabindex="-1" role="dialog" style="display: none">
+  <div class="modal-header">
+  </div>
+  <div class="modal-body">
+    <%= form_for @message do |f| %>
+    <%= f.hidden_field :recipients_id  %>
+    <%= f.hidden_field :recipients_username  %>
+    <%= f.text_area :body %>
+  </div>
+  <div class="modal-footer">
+    <%= f.submit 'Send Message', class: 'uibutton large confirm' %>
+  </div>
+  <% end %>
+</div>
+
+<script>
+  function showModal(e) {
+    
+    $('#my-modal').modal({show:true, backdrop: true});        
+    $('#my-modal').find('.modal-header').html("<h3>Send a message to " + e.data('username') + "</h3>");
+    
+    console.log(e.data('recipients'));
+    console.log(e.data('recipients-username'));
+    
+    
+    $('#message_recipients_id').val(e.data('recipients'));
+    $('#message_recipients_username').val(e.data('recipients-username'));
+    
+    console.log($('#message_recipients_id').val());
+  }
+</script>

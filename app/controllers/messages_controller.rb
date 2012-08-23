@@ -20,7 +20,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to conversation_path(@message.conversation)
     else
-      render :back
+      redirect_to users_path
     end
   end
   
