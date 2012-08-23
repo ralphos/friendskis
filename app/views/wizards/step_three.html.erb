@@ -13,7 +13,6 @@
   
   <div class='select-album'>
     <h3>Add a caption to your profile picture</h3>
-    <%#= link_to 'Back to photos', albums_path, class: 'uibutton icon prev' %>
   </div>
 
   <div class="photo">
@@ -21,7 +20,6 @@
   </div>
 
     <%= form_for @photo, url: photos_path, html: { class: 'form-stacked' } do |f| %>
-
       
       <%= f.hidden_field :tiny_url, value: @photo_url["tiny_url"] %>
       <%= f.hidden_field :thumbnail_url, value: @photo_url["thumbnail_url"] %>

@@ -19,7 +19,7 @@
     <% @photos.each do |photo| %>
     <div class='album'>
       <div class='album-border'>
-        <a href="<%= confirm_path(photo: photo) %>">
+        <a href="<%= step_three_path(photo: photo) %>">
         <div class='album-cover' style="background-image: url(<%= photo[:thumbnail_url] %>)">
         </div><!-- /album-cover -->
         </a>
