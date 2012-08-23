@@ -10,9 +10,9 @@ Friendskis::Application.routes.draw do
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
   
-  get 'photos/preview', controller: 'photos', action: 'preview', as: :preview
-  get '/album', controller: 'photos', action: 'album', as: :album_view
-  get 'albums', controller: 'photos', action: 'new', as: :albums
+  get 'add-caption', controller: 'photos', action: 'add_caption', as: :add_caption
+  get '/album-photos', controller: 'photos', action: 'album_photos', as: :album_photos
+  get '/pick-album', controller: 'photos', action: 'pick_album', as: :pick_album
   resources :photos, except: [:new, :edit, :update]
   
   resources :users, only: [:show, :update]
