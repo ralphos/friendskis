@@ -1,14 +1,14 @@
 class PhotosController < ApplicationController
   
-  def new
+  def pick_album
     @albums = current_user.albums
   end
   
-  def album
+  def album_photos
     @album_photos = current_user.album_photos(params[:album_id])
   end
   
-  def preview
+  def add_caption
     @photo = Photo.new
     @thumbnail_url = params[:thumbnail_url]
     @medium_url = params[:medium_url]
