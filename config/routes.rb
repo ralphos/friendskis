@@ -21,4 +21,9 @@ Friendskis::Application.routes.draw do
   resources :messages, only: [:new, :create]
   resources :conversations, only: [:index, :show]
   
+  get '/account', controller: 'settings', action: 'account', as: :account
+  get '/notifications', controller: 'settings', action: 'notifications', as: :notifications
+  get '/privacy', controller: 'settings', action: 'privacy', as: :privacy
+  get '/credits', controller: 'settings', action: 'credits', as: :credits
+  
 end

@@ -1,0 +1,37 @@
+<div class="span3">
+  <%= render 'shared/nav' %>
+</div><!-- //span3 -->
+<div class="span9">
+  <div class='settings'>
+  <%= render 'settings_header' %>
+    <div class='account'>
+      <h3>What are you looking for?</h3>
+      <div class='acc_1'>
+      <%= form_for @user do |f| %>
+        
+        <%= f.label :preference, "I'm looking for" %>
+        <%= f.select(:preference, { "girls who like guys" => 1, "guys who like girls" => 2, "guys who like guys" => 3, "girls who like girls" => 4 }) %>
+      </div><!-- /acc_1 -->
+      <div class='acc_2'>
+        <%= f.label :min_age, 'between ages' %>
+        <%= f.select(:min_age, (18..99).to_a) %> <span>and</span> <%= f.select(:max_age, (18..99).to_a) %>
+      </div><!-- //acc_2 -->
+      <div class='acc_3'>
+        <%= f.label :location, 'near' %>
+        <%= f.text_field :location, placeholder: "Enter your location" %>  
+      </div><!-- //acc_3 -->
+      <h3>Birthday</h3>
+      <div class='birthdate'>
+        <%= f.date_select :date_of_birth, start_year: 1900, end_year: Date.today.year %>
+      </div><!-- //birthdate -->
+      <h3>Bio</h3>
+      <div class='bio'>
+        <%= f.text_area :bio, class: 'span7' %>
+      </div><!-- //bio -->
+    </div><!-- //account -->
+    <div class='actions account'>
+      <%= f.submit 'Save changes', class: 'uibutton large confirm' %>
+    </div><!-- //actions -->
+    <% end %>
+  </div><!-- //settings -->
+</div><!-- //span9 -->

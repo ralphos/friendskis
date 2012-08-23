@@ -1,0 +1,17 @@
+<div class="span3">
+  <%= render 'shared/nav' %>
+</div><!-- //span3 -->
+<div class="span9">
+  <div class='settings'>
+  <%= render 'settings_header' %>
+    <div class='notifications'>
+      <h3>Email me when</h3>
+      <div class='notification-settings'>
+        <input type='checkbox'>A user sends me a message<br>
+      </div>
+    </div><!-- //notifications -->
+    <div class='actions account'>
+      <%= submit_tag 'Save changes', class: 'uibutton large confirm' %>
+    </div><!-- //actions -->
+  </div><!-- //settings -->
+</div><!-- //span9 -->

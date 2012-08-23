@@ -1,0 +1,11 @@
+<div class='header'>
+  <div class='credit-balance'><%= link_to "You are not a paid subscriber. Join now!", credits_path, class: 'subscribe' %></div>
+  <%= image_tag 'searchicon.png' %>
+  <h3>Settings</h3>
+</div><!-- //header -->
+<ul class='tabs'>
+  <%= tab_links('Account', account_path) %>
+  <%= tab_links('Notifications', notifications_path) %>
+  <%= tab_links('Privacy', privacy_path) %>
+  <%= tab_links('Credits', credits_path) %>
+</ul>
