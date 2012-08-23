@@ -65,6 +65,17 @@ html, body {
 	.rate { color: gray }
 }
 
+/********** Message-Modal **********/
+
+#message_body {
+	width: 520px;
+	height: 100px;
+}
+
+.modal-footer {
+	input { float: right; width: 120px; }
+}
+
 
 /********** Albums **********/
 

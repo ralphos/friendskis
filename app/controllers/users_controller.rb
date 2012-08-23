@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   
   def index
     @photos = UserPhoto.latest_photos
+    @message = Message.new
   end
   
   def show
