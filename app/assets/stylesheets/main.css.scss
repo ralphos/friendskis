@@ -383,6 +383,113 @@ html, body {
 	}
 }
 
+/********** Settings **********/
+
+
+.settings {
+
+	border-right: 1px solid #CCC;
+	height: 800px;
+	padding: 30px 20px 0px;
+	
+	.header {
+		padding: 5px 0 12px;
+		.credit-balance { float: right; padding-top: 5px; a { color: red; font-weight: bold } }
+		h3 { display: inline }
+		img { vertical-align: middle; padding-bottom: 7px }
+	} /* header */	
+	
+	.account {
+		overflow: hidden;
+		padding-left: 10px;
+		padding-top: 5px;
+		
+		.acc_1 {
+			margin-right: 30px;
+			label { text-align: left; width: 90px; display: block; float: none; padding-bottom: 6px }
+			select { width: 150px }
+		}
+		
+		.acc_2 {
+			margin-right: 30px;
+			label { text-align: left; width: 80px; display: block; float: none; padding-bottom: 3px }
+			select { width: 80px }
+			span { margin: 0 5px }
+		}
+		
+		.acc_3 {
+			padding-top: 10px;
+			label { text-align: left; width: 50px; display: block; float: none; padding-bottom: 3px }
+			input { width: 150px }
+		}
+		
+		h3 { 
+			clear: left;
+			padding-top: 10px;
+			&:first-child { padding-top: 0 }
+		}
+		
+		.birthdate {
+			padding-top: 5px;
+			select { width: 100px }
+		}
+		
+		.bio {
+			padding-top: 10px;
+			textarea { height: 80px }
+		}
+		
+		.email-address {
+			padding-top: 10px;
+		}	
+	} /* account */
+	
+	.actions.account {
+		margin: 25px 0 0;
+		padding-top: 15px;
+		input { width: 120px; float: left }
+	}
+
+	
+	.notifications {
+		padding-top: 5px;
+		padding-left: 10px;
+		input { margin-right: 10px; margin-top: 10px }
+	}
+	
+	.actions.account {
+		margin: 15px 0 0 0;
+		input { width: 120px; float: left }
+	}
+	
+	.privacy {
+		padding-top: 5px;
+		.privacy-settings { margin-top: 10px }
+	}
+	
+	.credits {
+		padding-top: 5px;
+		
+		.credits-settings { 
+			h3 { padding-bottom: 5px }
+			
+			a { float: right; margin-top: 15px }
+			.credit-amt { font-weight: bold; color: #DD3C10 } 
+			
+		}
+		
+		.well {
+			margin-top: 15px;
+			padding: 10px 19px;
+			h5 { margin-bottom: 5px }
+			p > span { font-weight: bold }
+			li { color: #333; padding: 2px 0 }
+		}
+		
+	}
+} /* settings */
+
+
 
 
 
