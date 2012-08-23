@@ -1,0 +1,17 @@
+<h2>This page is gonna send messages</h2>
+
+<%= form_for @message do |f| %>
+
+  <%= f.hidden_field :recipients_id, value: @recipients_id %>
+  <%= f.hidden_field :recipients_username, value: @recipients_username %>
+
+  <div class='field'>
+    <%= f.label :body, 'Write a message' %>
+  </div>
+  <div class='field'>
+    <%= f.text_area :body %>
+  </div>
+  <div class='actions'>
+    <%= f.submit 'Send Message' %>
+  </div>
+<% end %>

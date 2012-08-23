@@ -1,6 +1,6 @@
 <div class='post'>
   <div class='profile-pic-tiny'>
-    <%= link_to image_tag(profile_pic_tiny(photo.user)), user_path(photo.user) %>
+    <%= link_to image_tag(profile_pic_tiny(photo.user), width: '75px'), user_path(photo.user) %>
   </div><!-- /profile-pic-tiny -->
   <div class='main-post-content'>
     <div class='name-age-gender'>
@@ -10,14 +10,15 @@
       <h5>
     </div><!-- /name-age-gender -->
     <div class='post-content'>
-      <%= image_tag photo.medium_url %>
+      <%= link_to (image_tag photo.medium_url), '#' %>
     </div><!-- /post-content -->
     <div class='post-caption'>
       <%= photo.caption %>
     </div><!-- /post-caption -->
     <div class='send-message'>
       <% if photo.user != current_user %>
-      <a href="#">Send Message</a>
+         <%= link_to 'Cute photo!', '#' %> · <%= link_to 'Send Message', new_message_path(recipients_id: photo.user, recipients_username: photo.user.username) %>
+         
       <% end %>
     </div><!-- /send-message -->
   </div><!-- /main-post-content -->

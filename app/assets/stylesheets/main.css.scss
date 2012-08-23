@@ -47,6 +47,7 @@ html, body {
 		
 		.post-content {
 			margin-bottom: 10px;
+			img { border: 1px solid #CCC; }
 		}
 		
 		.post-caption {
@@ -61,6 +62,7 @@ html, body {
 
 .send-message {
 	a { color: #6B84B4 }
+	.rate { color: gray }
 }
 
 
@@ -123,6 +125,7 @@ html, body {
 	margin: 0 auto;
 	text-align: center;
 	margin: 20px 0;
+	img { border: 1px solid #ccc; }
 }
 
 .field {
@@ -163,7 +166,6 @@ html, body {
 		padding: 10px 10px 15px 10px;
 		
 		.share-ph { width: 138px; margin: 5px 0 }
-		
 	}
 	
 	.large-profile-photo {
