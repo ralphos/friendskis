@@ -117,6 +117,7 @@ html, body {
 .album-cover {
 	width: 156px;
 	height: 126px;
+	background-size: cover;
 	background-position: center fixed;
 	background-repeat: no-repeat;
 }
@@ -311,4 +312,93 @@ html, body {
 	text-align: center;
 	input { width: 280px; }
 }
+
+/********** Conversations **********/
+
+#conversations {
+	
+	min-height: 800px;
+	
+	.header {
+		
+		.action-buttons { float: right; margin-top: 33px; padding-right: 20px; a { text-decoration: none }}
+		
+		h3 {
+			padding-top: 30px;
+			padding-bottom: 6px;
+			padding-left: 20px;
+			border-bottom: 1px solid #CCC	
+		}
+	}
+	
+	.conversation.message {
+		border-bottom: none;
+	}
+	
+	.conversation {
+		padding: 15px 0 15px 20px;
+		border-bottom: 1px solid #CCC;
+		overflow: hidden;
+		&:last-child { border-bottom: none }
+		
+		.user-image {
+			background-size: cover;
+			float: left;
+			width: 75px;
+			height: 75px;
+
+		}
+		
+		.conversation-container {
+			margin-left: 95px;
+		}
+		
+		.date {
+			float: right;
+			padding-right: 20px;
+			padding-top: 5px;
+			color: gray;
+		}
+		
+		.message-preview {
+			padding-right: 20px;
+			a { color: #333 }
+		}
+		
+		.message {
+			padding-right: 20px;
+			a { color: #333; }
+		}
+	}
+		
+	hr { margin: 0 20px }
+	
+	.actions-reply {
+		background: #F2F2F2;
+		margin: 0 20px;
+		border-top: 1px solid #DDD;
+		padding: 15px 5px 15px 75px;
+		
+		textarea { margin-right: 10px; width: 350px }
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

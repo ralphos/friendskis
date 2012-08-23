@@ -1,5 +1,10 @@
 module ApplicationHelper
   
+  def recipients_profile_pic(id)
+    user = User.where(id: id).first
+    Photo.find(user.profile_pic).tiny_url
+  end
+  
   def profile_pic_tiny(user)
     if user.profile_pic.nil?
       'default_profile.jpeg'
