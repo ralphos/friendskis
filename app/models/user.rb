@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   
   def album_photos(album_id)
     photos = facebook.get_connections(album_id, "photos")
-    photos.map { |h| { thumbnail_url: h["images"][5]["source"], medium_url: h["images"][5]["source"] } }
+    photos.map { |h| { thumbnail_url: h["images"][6]["source"], medium_url: h["images"][5]["source"] } }
   end
   
   def profile_photos
