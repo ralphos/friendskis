@@ -1,14 +1,14 @@
 class WizardsController < ApplicationController
   
-  def setup
+  def step_one
     @user = current_user
   end  
   
-  def profile
+  def step_two
     @photos = current_user.profile_photos
   end
   
-  def confirm
+  def step_three
     @photo = Photo.new
     @user = current_user
     @photo_url = params[:photo]
@@ -18,7 +18,7 @@ class WizardsController < ApplicationController
     @user = current_user
     @user.attributes = params[:user]
     if @user.save
-      redirect_to profile_url
+      redirect_to step_two_url
     else
       render :back
     end

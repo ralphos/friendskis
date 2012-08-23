@@ -1,10 +1,10 @@
 Friendskis::Application.routes.draw do
   root :to => 'welcome#index'
   
-  get 'wizards/setup', controller: 'wizards', action: 'setup', as: :setup
-  put 'wizards/setup', controller: 'wizards', action: 'update', as: :setup
-  get 'wizards/profile', controller: 'wizards', action: 'profile', as: :profile
-  get 'wizards/confirm', controller: 'wizards', action: 'confirm', as: :confirm
+  get 'wizards/step_one', controller: 'wizards', action: 'step_one', as: :step_one
+  put 'wizards/step_one', controller: 'wizards', action: 'update', as: :step_one
+  get 'wizards/step_two', controller: 'wizards', action: 'step_two', as: :step_two
+  get 'wizards/step_three', controller: 'wizards', action: 'step_three', as: :step_three
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
