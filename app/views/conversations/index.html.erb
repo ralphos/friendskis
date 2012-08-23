@@ -1,0 +1,12 @@
+<% if @conversations.any? %>
+  <% @conversations.each do |c| %>
+    <% if c.messages.last.user == current_user %>
+      <%= link_to c.messages.last.recipients_username, conversation_path(c) %>
+    <% else %>
+      <%= link_to c.messages.last.user.username, conversation_path(c) %>
+    <% end %>
+    <%= c.messages.last.body %>
+  <% end %>
+<% else %>
+  You have no messages!
+<% end %>
