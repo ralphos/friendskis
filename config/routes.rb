@@ -26,4 +26,9 @@ Friendskis::Application.routes.draw do
   get '/privacy', controller: 'settings', action: 'privacy', as: :privacy
   get '/credits', controller: 'settings', action: 'credits', as: :credits
   
+  match '/about' => 'static_pages#about'
+  match '/faq' => 'static_pages#faq'
+  match '/terms' => 'static_pages#terms'
+  match '/privacy-policy' => 'static_pages#privacy', as: :privacy_policy
+  
 end
