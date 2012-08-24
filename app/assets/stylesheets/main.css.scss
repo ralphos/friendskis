@@ -208,6 +208,28 @@ html, body {
 			}
 		}
 	}
+	
+	.nav-footer-links {
+		margin-top: 15px;
+		border-top: 1px solid #CCC;
+		padding-top: 15px;
+		padding-left: 5px;
+		
+		p { color: gray; margin: 0 0 3px 0 }
+		
+		ul {
+			list-style: none;
+			margin: 0;
+			
+			li {
+				display: inline;
+				padding: 0 2px 0 2px;
+				&:first-child { padding: 3px 2px 0 0 }
+				&:last-child { padding-right: none }
+				a { font-size: 10px; color: #6B84B4;}
+			}
+		}
+	}
 }
 
 /********** Profile Page **********/
