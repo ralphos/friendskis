@@ -371,18 +371,20 @@ html, body {
 		padding: 10px 0 10px 20px;
 		border-bottom: 1px solid #CCC;
 		overflow: hidden;
-		&:last-child { border-bottom: none }
 		
 		.user-image {
 			background-size: cover;
 			float: left;
 			width: 60px;
 			height: 60px;
-
+		}
+		
+		.user-info {
+			h5 { font-size: 12px; font-weight: bold }
 		}
 		
 		.conversation-container {
-			margin-left: 95px;
+			margin-left: 80px;
 		}
 		
 		.date {
