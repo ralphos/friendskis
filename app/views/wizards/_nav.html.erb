@@ -1,6 +1,7 @@
 <div class="left-nav">
   <div class="profile-details">
-    <%= link_to (image_tag profile_pic_tiny(current_user), width: '75px'), '#' %>
+    <div class='user-image' style="background-image: url(<%= profile_pic_tiny(current_user) %>)">
+    </div>
     <p>
       <% if current_user.username.blank? %>
         <%= link_to "Hey #{current_user.name.split.first}!", '#' %>

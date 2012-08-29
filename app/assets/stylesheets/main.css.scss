@@ -31,7 +31,7 @@ html, body {
 	padding: 15px 0 15px 20px;
 	border-bottom: 1px solid #CCC;
 	&:last-child { border-bottom: none }
-	
+		
 	.profile-pic-tiny {
 		float: left;
 	}
@@ -160,14 +160,18 @@ html, body {
 	padding-top: 30px;	
 	.profile-details {
 		
-		img {
+		.user-image {
+			display: inline-block;
+			background-size: cover;
+			width: 60px;
+			height: 60px;
 			vertical-align: middle;
 		}
 		
 		p {
 			display: inline-block;
 			font-weight: bold;
-			padding-left: 5px;
+			padding-left: 10px;
 		}
 	}
 	
@@ -281,8 +285,8 @@ html, body {
 			.bio {
 				color: gray;
 				font-style: italic;
-				font-size: 14px;
-				line-height: 16px;
+				font-size: 12px;
+				line-height: 14px;
 				
 			}
 		}
