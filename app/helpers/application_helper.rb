@@ -22,20 +22,23 @@ module ApplicationHelper
   end
   
   def display_sex(user)
-    if user.gender == "male"
-      "M" 
-    elsif user.gender == "female"
+    case user.gender
+    when "male"
+      "M"
+    when "female"
       "F"
     else
       "-"
-    end 
+    end
   end
   
   def criteria(user)
-    if user.preference == '1'
+    case user.preference
+    when '1'
       "Looking for men"
-    elsif user.preference == '2'
+    when '2'
       "Looking for women"
     end
   end
+    
 end
