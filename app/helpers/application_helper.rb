@@ -32,6 +32,15 @@ module ApplicationHelper
     end
   end
   
+  def sex_preference(user)
+    case user.preference
+    when '1'
+      'guys'
+    when '2'
+      'girls'
+    end
+  end
+  
   def criteria(user)
     case user.preference
     when '1'

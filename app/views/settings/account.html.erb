@@ -10,7 +10,7 @@
       <%= form_for @user do |f| %>
         
         <%= f.label :preference, "I'm looking for" %>
-        <%= f.select(:preference, { "girls who like guys" => 1, "guys who like girls" => 2, "guys who like guys" => 3, "girls who like girls" => 4 }) %>
+        <%= f.select(:preference, { "guys who like guys" => '1', "girls who like girls" => '2' }) %>
       </div><!-- /acc_1 -->
       <div class='acc_2'>
         <%= f.label :min_age, 'between ages' %>
