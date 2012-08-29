@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = current_user
     @user.attributes = params[:user]
     if @user.save
-      redirect_to account_url, notice: "Your account has been updated!"
+      redirect_to user_url(@user), notice: "Your account has been updated!"
     else
       render :back, notice: "Sorry there was an error updating your account."
     end
