@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
   
   def index
-    @photos = UserPhoto.latest_photos
+    @photos = UserPhoto.latest_photos(current_user)
     @message = Message.new
   end
   
   def show
     @user = User.find(params[:id])
-    @photos = @user.latest_user_photos
+    @photos = @user.photos
     @message = Message.new
   end
   

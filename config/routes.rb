@@ -1,4 +1,5 @@
 Friendskis::Application.routes.draw do
+  
   root :to => 'welcome#index'
   
   get 'wizards/step_one', controller: 'wizards', action: 'step_one', as: :step_one

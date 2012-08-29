@@ -46,9 +46,9 @@ class User < ActiveRecord::Base
   def age
     ((Date.today - date_of_birth) / 365).floor
   end
-  
+
   def latest_user_photos
-    Photo.where(user_id: self.id).order("created_at desc")
+    self.photos.order("created_at desc")
   end
   
 end
