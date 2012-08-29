@@ -19,7 +19,8 @@
           <% if @user == current_user %>
             <%= link_to 'Edit profile', '#', class: 'uibutton' %>
           <% else %>
-            <%= link_to 'Send Message', '#', class: 'uibutton special' %>
+            <%= link_to 'Send Message', '#', class: 'uibutton special', onclick: "showModal($(this));", 
+            data: { username: @user.username, recipients: @user.id, recipients_username: @user.username } %>
           <% end %>  
         </div><!-- //profile-button -->
       </div><!-- //info-button -->
