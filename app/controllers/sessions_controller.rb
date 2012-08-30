@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
     if user.username.nil?
+      user.get_birthday
       redirect_to step_one_path
     else
       redirect_to users_url
