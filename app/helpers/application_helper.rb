@@ -7,7 +7,7 @@ module ApplicationHelper
   
   def profile_pic_tiny(user)
     if user.profile_pic.nil?
-      'default_profile.jpeg'
+      "'/images/def_profile.jpg'"
     else
       Photo.find(user.profile_pic).tiny_url
     end
