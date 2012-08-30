@@ -18,6 +18,15 @@ class User < ActiveRecord::Base
     end
   end
   
+  def get_birthday
+    # I'm sure there is a better way to do this. Date.parse?? strptime? Refactor this please.
+    fb_hash = self.facebook.get_object(uid)
+    fb_birthday = fb_hash["birthday"].split('/')
+    month, day, year  = fb_birthday[0], fb_birthday[1], fb_birthday[2]
+    self.date_of_birth = "#{year}-#{month}-#{day}"
+    self.save!
+  end
+  
   def conversations
     sender_conversations + recipient_conversations
   end
