@@ -20,7 +20,7 @@
             <%= link_to 'Edit profile', '#', class: 'uibutton' %>
           <% else %>
           <!-- YO THIS IS PROBABLY GOING TO BE A 'NOTICE' OR I'M INTRIGUED BUTTON -->
-            <%= link_to 'Send Message', '#', class: 'uibutton special', onclick: "showModal($(this));", 
+            <%= link_to (@user.gender == "female" ? 'Notice her' : 'Notice him'), '#', class: 'uibutton special', onclick: "showModal($(this));", 
             data: { username: @user.username, recipients: @user.id, recipients_username: @user.username } %>
           <% end %>  
         </div><!-- //profile-button -->
