@@ -39,8 +39,15 @@
     </div><!-- //profile -->
   </div><!-- //header -->
   <div id="message-box">
-    <div class="input-container">
-      <%= form_for @message do |f| %>
+    <% if @user == current_user %>
+      <div class="share-photo-section">
+        <h4>Share photos from Facebook</h4>
+        <%= link_to "+ Choose a photo from Facebook", pick_album_path, class: 'profile-share-photo' %>
+        <p>Pro tip: The more you share the more likely someone will notice you in their feed</p>
+      </div><!-- //share-photo-section -->
+    <% else %>
+      <div class="input-container">   
+        <%= form_for @message do |f| %>
           
         <%= f.hidden_field :recipients_id, value: @user.id %>
         <%= f.hidden_field :recipients_username, value: @user.username %>
@@ -51,6 +58,7 @@
         </div><!-- //input-button" --> 
         
       <% end %>
+    <% end %>
     </div><!-- //input-container -->
   </div><!-- //message-box -->
   <div id="feed">

@@ -319,6 +319,28 @@ html, body {
         }
       }
     }
+    .share-photo-section {
+      h4 {
+        padding-bottom: 5px;
+      }
+      a {
+        display: block;
+        background: #F5F7FA;
+        border: 1px dashed #CED5E5;
+        width: 525px; 
+        height: 30px;
+        padding-top: 15px;
+        text-align: center;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        &:hover { text-decoration: none }
+      }
+      p {
+        margin-top: 10px;
+        font-style: italic;
+      }
+    }
   }
 }
 
