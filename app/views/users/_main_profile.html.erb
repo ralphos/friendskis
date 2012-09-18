@@ -17,17 +17,16 @@
         </div><!-- //profile-info -->
         <div class='profile-button'>
           <% if @user == current_user %>
-            <%= link_to 'Edit profile', '#', class: 'uibutton' %>
+            <%= link_to 'Edit profile', account_path, class: 'uibutton' %>
           <% else %>
           <!-- YO THIS IS PROBABLY GOING TO BE A 'NOTICE' OR I'M INTRIGUED BUTTON -->
-            <%= link_to (@user.gender == "female" ? 'Notice her' : 'Notice him'), '#', class: 'uibutton special', onclick: "showModal($(this));", 
-            data: { username: @user.username, recipients: @user.id, recipients_username: @user.username } %>
+            <%= link_to (@user.gender == "female" ? 'Notice her' : 'Notice him'), '#', class: 'uibutton special' %>
           <% end %>  
         </div><!-- //profile-button -->
       </div><!-- //info-button -->
       <div class='bio'>
         <% if @user.bio.nil? && @user == current_user %>
-          <p class='bio'><%= link_to 'Add bio', '#' %></p>
+          <p class='bio'><%= link_to 'Add bio', account_path %></p>
         <% else %>
           <% if !@user.bio.nil? %>
             <p class='bio'><%= @user.bio %></p>
@@ -52,7 +51,7 @@
         <%= f.hidden_field :recipients_id, value: @user.id %>
         <%= f.hidden_field :recipients_username, value: @user.username %>
         
-        <%= f.text_area :body, class: 'xxlarge', rows: '4', placeholder: "Write #{@user.username} a message..." %>
+        <%= f.text_area :body, class: 'xxlarge', rows: '4', placeholder: "Write #{@user.username} a private message..." %>
         <div class="input-button"> 
           <%= f.submit 'Send Message', class: 'uibutton confirm' %>
         </div><!-- //input-button" --> 
