@@ -49,7 +49,10 @@ html, body {
 		
 		.post-content {
 			margin-bottom: 10px;
-			img { border: 1px solid #CCC; }
+			img { 
+        width: 330px;
+        border: 1px solid #CCC; 
+      }
 		}
 		
 		.post-caption {
