@@ -18,6 +18,8 @@ html, body {
 /********** The Feed **********/
 
 #feed {
+
+  border-top: 1px solid #CCC;
 	
 	h3 { 
 		padding-top: 30px;
@@ -240,7 +242,7 @@ html, body {
 .main-profile {
 	
 	padding-top: 30px;
-	
+
 	.header {
 		
 		padding-bottom: 15px; 
@@ -291,6 +293,33 @@ html, body {
 			}
 		}
 	}
+
+  #message-box {
+    padding: 15px 20px;
+    .input-container {
+      border: solid #BDC7D8;
+      border-width: 1px;
+      form {
+        margin-bottom: 0;
+        textarea {
+          width: 505px; 
+          height: 60px;
+          border: none;
+          box-shadow: none;
+          padding: 8px;
+        }
+        .input-button {
+          background-color: #F2F2F2; 
+          border-top: 1px solid #E6E6E6;
+          overflow: hidden;
+          input {
+            float: right; 
+            margin: 5px 5px 5px 0;
+          }
+        }
+      }
+    }
+  }
 }
 
 /********** Wizard **********/
