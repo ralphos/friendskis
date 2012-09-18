@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def recent_photos
+    photos.order('created_at DESC')
+  end
   
   def get_birthday
     # I'm sure there is a better way to do this. Date.parse?? strptime? Refactor this please.
