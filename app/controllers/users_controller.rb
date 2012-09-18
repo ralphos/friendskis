@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @photos = @user.photos
+    @photos = @user.recent_photos
     @message = Message.new
   end
   
