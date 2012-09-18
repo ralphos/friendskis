@@ -21,7 +21,7 @@ class PhotosController < ApplicationController
       if @photo.profile_pic == true
         current_user.update_attributes(profile_pic: @photo.id)
       end
-      redirect_to users_url
+      redirect_to user_url(current_user)
     else
       flash.now.alert = "Sorry there was an error saving your post"
       render :back
