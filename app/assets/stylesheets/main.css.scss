@@ -327,6 +327,8 @@ html, body {
         padding-bottom: 5px;
       }
       a {
+        //font-weight: bold;
+        font-size: 12px;
         display: block;
         background: #F5F7FA;
         border: 1px dashed #CED5E5;
@@ -417,7 +419,7 @@ html, body {
 			padding-top: 30px;
 			padding-bottom: 6px;
 			padding-left: 20px;
-			border-bottom: 1px solid #CCC	
+			border-bottom: 1px solid #CCC;
 		}
 	}
 	
@@ -581,7 +583,32 @@ html, body {
 	}
 } /* settings */
 
+/**************** Visitors *****************/
 
+#visitors {
+  
+  min-height: 800px;
+
+  .header {
+    h3 {
+      padding: 30px 0 6px 20px;
+      border-bottom: 1px solid #CCC;
+    }
+  }
+
+  .visitor-photos {
+    padding: 20px 20px 20px 22px;
+    .visitor-photo {
+      display: inline-block;
+      background-size: cover;
+      width: 170px;
+      height: 140px;
+      margin-right: 2px;
+      margin-bottom: 6px;
+      vertical-align: middle;
+    }
+  }
+}
 
 
 

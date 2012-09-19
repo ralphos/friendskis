@@ -14,6 +14,7 @@ class MessagesController < ApplicationController
       conversation = Conversation.where(sender_id: current_user.id, recipient_id: params[:message][:recipients_id]).first_or_initialize
       conversation.save
     end
+    conversation.update_attribute(:updated_at, Time.now)
     @message = Message.new(params[:message])
     @message.conversation_id = conversation.id
     @message.user_id = current_user.id

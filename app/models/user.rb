@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :username, :date_of_birth, :preference, :min_age, :max_age, :location, :profile_pic, :bio
   
   has_many :photos, dependent: :destroy
+  has_many :visitors
   has_many :sender_conversations, class_name: 'Conversation', foreign_key: :sender_id, dependent: :destroy
   has_many :recipient_conversations, class_name: 'Conversation', foreign_key: :recipient_id, dependent: :destroy 
 
@@ -21,6 +22,13 @@ class User < ActiveRecord::Base
   def recent_photos
     photos.order('created_at DESC')
   end
+
+  def visitor_photos
+    visitor_ids = self.visitors.map { |v| v.visitor_id }
+    visitors = User.where(id: visitor_ids).reject { |v| v.id == id }
+    profile_pic_ids = visitors.map { |v| v.profile_pic }
+    Photo.where(id: profile_pic_ids)
+  end
   
   def get_birthday
     # I'm sure there is a better way to do this. Date.parse?? strptime? Refactor this please.
@@ -32,7 +40,8 @@ class User < ActiveRecord::Base
   end
   
   def conversations
-    sender_conversations + recipient_conversations
+    Conversation.where(["sender_id = ? OR recipient_id = ?", self.id, self.id]).order("updated_at desc")
+    # (sender_conversations + recipient_conversations).sort { |a, b| a.updated_at <=> b.updated_at }.reverse
   end
   
   def facebook
