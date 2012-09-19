@@ -1,0 +1,21 @@
+<div class="span3">
+  <%= render 'shared/nav' %>
+</div><!-- //span3 -->
+<div class="span9">
+  <div id="visitors">
+    <div class='header'>
+      <h3>Your Visitors</h3>
+    </div><!-- //header -->
+    <div class='visitor-photos'>
+      <% if @visitor_photos.any? %>
+        <% @visitor_photos.each do |v| %>
+          <a href="<%= user_path(v.user) %>">
+            <div class='visitor-photo' style="background-image: url(<%= v.medium_url %>)"></div>
+          </a>
+        <% end %>
+      <% else %>
+        You don't have any visitors yet! 
+      <% end %>
+    </div>
+  </div><!-- //visitors --> 
+</div><!-- //span9 -->

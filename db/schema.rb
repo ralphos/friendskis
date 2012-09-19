@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120821141935) do
+ActiveRecord::Schema.define(:version => 20120919034829) do
 
   create_table "conversations", :force => true do |t|
     t.integer  "sender_id"
@@ -67,6 +67,13 @@ ActiveRecord::Schema.define(:version => 20120821141935) do
     t.integer  "profile_pic"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  create_table "visitors", :force => true do |t|
+    t.string   "user_id"
+    t.string   "visitor_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

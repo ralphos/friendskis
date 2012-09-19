@@ -32,4 +32,5 @@ Friendskis::Application.routes.draw do
   match '/terms' => 'static_pages#terms'
   match '/privacy-policy' => 'static_pages#privacy', as: :privacy_policy
   
+  resources :visitors, only: [:index]
 end
