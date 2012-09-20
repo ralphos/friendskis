@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
       user.name = auth.info.name
       user.email = auth.info.email
       user.gender = auth.extra.raw_info.gender
+      user.location = auth.info.location
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
@@ -38,6 +39,9 @@ class User < ActiveRecord::Base
     self.date_of_birth = "#{year}-#{month}-#{day}"
     self.save!
   end
+
+  # def get_location_id
+  # end
   
   def conversations
     Conversation.where(["sender_id = ? OR recipient_id = ?", self.id, self.id]).order("updated_at desc")
