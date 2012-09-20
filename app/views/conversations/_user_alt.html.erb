@@ -1,6 +1,8 @@
-<div class='user-image' style="background-image: url(<%= recipients_profile_pic(conversation.messages.last.recipients_id) %>)">
-  <%#= image_tag recipients_profile_pic(conversation.messages.last.recipients_id), width: '75px' %>
-</div><!-- /user-image -->
+<a href="<%= conversation_url(conversation) %>">
+  <div class='user-image' style="background-image: url(<%= recipients_profile_pic(conversation.messages.last.recipients_id) %>)">
+    <%#= image_tag recipients_profile_pic(conversation.messages.last.recipients_id), width: '75px' %>
+  </div><!-- /user-image -->
+</a>
 <div class='conversation-container'>
   <div class='date'>
     <%= conversation.messages.last.created_at.strftime('%d %b %Y')%>

@@ -1,7 +1,9 @@
 <div class="left-nav">
   <div class="profile-details">
-    <div class='user-image' style="background-image: url(<%= profile_pic_tiny(current_user) %>)">
-    </div>
+    <a href="<%= user_url(current_user) %>">
+      <div class='user-image' style="background-image: url(<%= profile_pic_tiny(current_user) %>)">
+      </div>
+    </a>
     <p>
     <%= link_to current_user.username, user_path(current_user) %>
     </p>
