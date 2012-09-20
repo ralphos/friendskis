@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
-gem 'sqlite3'
 gem 'thin'
 
 
@@ -15,8 +14,13 @@ end
 
 gem 'jquery-rails'
 
+group :production do
+  gem 'pg'
+end
+
 group :development, :test do
   gem 'rspec-rails', '>= 2.8.1'
+  gem 'sqlite3'
 end
 
 group :test do
