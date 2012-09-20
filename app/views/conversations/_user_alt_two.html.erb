@@ -1,5 +1,7 @@
-<div class='user-image' style="background-image: url(<%= profile_pic_tiny(conversation.messages.last.user) %>)">
-</div><!-- /user-image -->
+<a href="<%= conversation_url(conversation) %>">
+  <div class='user-image' style="background-image: url(<%= profile_pic_tiny(conversation.messages.last.user) %>)">
+  </div><!-- /user-image -->
+</a>
 <div class='conversation-container'>
   <div class='date'>
     <%= conversation.messages.last.created_at.strftime('%d %b %Y')%>
