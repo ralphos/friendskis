@@ -32,10 +32,10 @@
       <p>Tell us what kind of person you'd be interested in friending.</p>
       <div class="field-criteria">
         <div>
-        I'm a <%= f.select(:preference, { "woman seeking man" => 1, "man seeking woman" => 2 }) %>
+          I'm a <%= f.select(:preference, options_for_select({"woman seeking man" => 1, "man seeking woman" => 2 }, current_user.gender == "female" ? 1 : 2 )) %>
         </div>
         <div>
-          between ages <%= f.select(:min_age, (18..99).to_a) %> and <%= f.select(:max_age, (18..99).to_a) %>
+          between ages <%= f.select(:min_age, (18..99).to_a) %> and <%= f.select(:max_age, (18..99).to_a, selected: 30) %>
         </div>
         <div>
           near <%= f.text_field :location, placeholder: "Enter your location" %>  
