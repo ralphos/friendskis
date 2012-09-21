@@ -1,8 +1,8 @@
 class CreateVisitors < ActiveRecord::Migration
   def change
     create_table :visitors do |t|
-      t.string :user_id
-      t.string :visitor_id
+      t.integer :user_id
+      t.integer :visitor_id
 
       t.timestamps
     end
