@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(:version => 20120919034829) do
   end
 
   create_table "visitors", :force => true do |t|
-    t.string   "user_id"
-    t.string   "visitor_id"
+    t.integer  "user_id"
+    t.integer  "visitor_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
