@@ -64,7 +64,8 @@ class User < ActiveRecord::Base
   
   def profile_photos
     albums = facebook.get_connections(uid, "albums")
-    profile_album = albums.select { |a| a["name"] == "Profile Pictures" } # What if they don't have an album with profile pictures (they prob will)
+    # Need to write a case where the user doesn't have any profile photos, otherwise will raise an error!
+    profile_album = albums.select { |a| a["name"] == "Profile Pictures" }
     photo_hash = facebook.get_connections(profile_album.first["id"], "photos")
     photo_hash.map { |h| { tiny_url: h["images"][7]["source"], thumbnail_url: h["images"][6]["source"], medium_url: h["images"][4]["source"] } }
   end
