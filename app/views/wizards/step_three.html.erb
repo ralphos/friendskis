@@ -20,7 +20,15 @@
   </div>
 
     <%= form_for @photo, url: photos_path, html: { class: 'form-stacked' } do |f| %>
-      
+
+      <% if @photo.errors.any? %>
+        <div class="alert-message error">
+          <% @photo.errors.full_messages.each do |msg| %>
+            <%= msg %>
+          <% end %>
+        </div>
+      <% end %>
+
       <%= f.hidden_field :tiny_url, value: @photo_url["tiny_url"] %>
       <%= f.hidden_field :thumbnail_url, value: @photo_url["thumbnail_url"] %>
       <%= f.hidden_field :medium_url, value: @photo_url["medium_url"] %>

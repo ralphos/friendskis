@@ -61,6 +61,17 @@
     </div><!-- //input-container -->
   </div><!-- //message-box -->
   <div id="feed">
+
+    <% if flash.any? %>
+      <div class="flash-msg">
+        <% flash.each do |name, msg| %>
+          <div class="alert-message info">
+            <p><strong><%= msg %></strong></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
     <% @photos.each do |photo| %>
       <%= render 'feed', photo: photo %>
     <% end %>

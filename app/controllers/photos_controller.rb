@@ -21,10 +21,12 @@ class PhotosController < ApplicationController
       if @photo.profile_pic == true
         current_user.update_attributes(profile_pic: @photo.id)
       end
-      redirect_to user_url(current_user)
+      redirect_to user_url(current_user), notice: "Your photo has been added! Other users will start seeing your photo shortly."
+
     else
-      flash.now.alert = "Sorry there was an error saving your post"
-      render :back
+       @thumbnail_url = params[:photo][:thumbnail_url]
+       @medium_url = params[:photo][:medium_url]
+       render 'add_caption'
     end
   end
 end
