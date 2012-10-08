@@ -6,7 +6,11 @@
       <% if current_user.username.blank? %>
         <%= link_to "Hey #{current_user.name.split.first}!", '#' %>
       <% else %>
-        <%= link_to current_user.username, '#' %>
+        <% if current_user.profile_pic.nil? %>
+          <%= link_to current_user.username, '#' %>
+        <% else %>
+          <%= link_to current_user.username, user_path(current_user) %>
+        <% end %>
       <% end %>
     </p>
   </div>
@@ -14,7 +18,11 @@
   <div class='welcome-link'>
     <h6>Your Links</h6>
     <ul>
-      <li>Welcome</li>
+      <% if current_user.profile_pic.nil? %>
+        <li>Welcome</li>
+      <% else %>
+        <li>Select a profile photo</li>
+      <% end %>
     </ul>
   </div><!-- //nav-links -->
 </div><!-- //left-nav -->

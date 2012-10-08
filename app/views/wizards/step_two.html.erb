@@ -3,13 +3,21 @@
 </div><!-- //span3 -->
 
 <div class="span9">
-  
+
   <div class='tip-box'>
+  <% if current_user.profile_pic.nil? %>
     <h3>Pick a Photo!<span>Step 2 of 3</span></h3>
     <p>
       Friendskis is all about sharing bits of content from your Facebook profile. Picking a profile picture from Facebook is the first step towards meeting new friends.
     </p>
+  <% else %>
+    <h3>Change your profile photo</h3>
+    <p>
+      Choose from one of your existing profile photos on Facebook.
+    </p>
+  <% end %>
   </div><!-- /tip-box -->
+  
   
   <div class='select-album'>
     <h3>Choose your profile picture</h3>

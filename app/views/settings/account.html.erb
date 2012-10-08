@@ -5,12 +5,22 @@
   <div class='settings'>
   <%= render 'settings_header' %>
     <div class='account'>
+      <h3>Profile photo</h3>
+        <div class="change-profile-pic">
+          <a href="<%= step_two_url %>">
+            <div class="profile-pic" style="background-image: url(<%= profile_pic_small(@user) %>)">
+            </div>
+          </a> 
+          <p>
+            <%= link_to "Change profile photo", step_two_url %>
+          </p>
+      </div>
       <h3>What are you looking for?</h3>
       <div class='acc_1'>
       <%= form_for @user do |f| %>
         
-        <%= f.label :preference, "I'm looking for" %>
-        <%= f.select(:preference, { "guys who like guys" => '1', "girls who like girls" => '2' }) %>
+        <%= f.label :preference, "I'm a" %>
+        <%= f.select(:preference, { "woman seeking man" => '1', "man seeking woman" => '2' }) %>
       </div><!-- /acc_1 -->
       <div class='acc_2'>
         <%= f.label :min_age, 'between ages' %>
