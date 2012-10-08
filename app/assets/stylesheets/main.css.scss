@@ -522,6 +522,8 @@ html, body {
 
     .change-profile-pic {
 
+      a { &:hover { text-decoration: none } }
+
       .profile-pic {
         display: inline-block;
         vertical-align: middle;
