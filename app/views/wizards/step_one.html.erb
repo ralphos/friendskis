@@ -11,7 +11,9 @@
     </p>
   </div><!-- /tip-box -->
 
-  <%= form_for @user, url: step_one_path do |f| %>
+  <%= form_for @user, url: step_one_path, validate: true do |f| %>
+
+    <%= f.hidden_field :is_first_login, value: false %>
 
     <div class='step'>
       <h3><span class='step_one'>1</span>Pick a username</h3>

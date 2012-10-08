@@ -652,7 +652,23 @@ html, body {
   }
 }
 
+/**************** Error Messages ****************/
 
+.field_with_errors {
+  display: inline-block;
+  overflow: hidden;
+  input { 
+    float: left;
+  }
+  label { 
+    //margin-left: 280px;
+    color: red;
+    padding-top: 20px;
+    padding-left: 10px;
+    width: auto;
+    
+  }
+}
 
 
 

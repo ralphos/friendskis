@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :date_of_birth, :preference, :min_age, :max_age, :location, :profile_pic, :bio
+  attr_accessible :username, :date_of_birth, :preference, :min_age, :max_age, :location, :profile_pic, :bio, :is_first_login
   
   has_many :photos, dependent: :destroy
   has_many :visitors
@@ -7,12 +7,13 @@ class User < ActiveRecord::Base
   has_many :recipient_conversations, class_name: 'Conversation', foreign_key: :recipient_id, dependent: :destroy 
 
   validates :username, presence: true
-  validates :username, uniqueness: true, length: { in: 4..10 }
+  validates :username, uniqueness: true, length: { in: 2..20 }
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
+      user.username = auth.info.first_name
       user.name = auth.info.name
       user.email = auth.info.email
       user.gender = auth.extra.raw_info.gender
