@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   has_many :sender_conversations, class_name: 'Conversation', foreign_key: :sender_id, dependent: :destroy
   has_many :recipient_conversations, class_name: 'Conversation', foreign_key: :recipient_id, dependent: :destroy 
 
+  validates :username, presence: true
+  validates :username, uniqueness: true, length: { in: 4..10 }
+
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
