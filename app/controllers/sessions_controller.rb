@@ -6,6 +6,8 @@ class SessionsController < ApplicationController
     if user.is_first_login? 
       user.get_birthday
       redirect_to step_one_path
+    elsif user.profile_pic.nil?
+      redirect_to step_two_path
     else
       redirect_to users_url
     end
