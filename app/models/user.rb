@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.username = auth.info.first_name
+      user.username = auth.info.first_name # need to change this
       user.name = auth.info.name
       user.email = auth.info.email
       user.gender = auth.extra.raw_info.gender
