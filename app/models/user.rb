@@ -7,19 +7,22 @@ class User < ActiveRecord::Base
   has_many :recipient_conversations, class_name: 'Conversation', foreign_key: :recipient_id, dependent: :destroy 
 
   validates :username, presence: true
-  validates :username, uniqueness: true, length: { in: 2..20 }
+  validates :username, length: { in: 4..16 }
+  validates :username, uniqueness: { case_sensitive: false }
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.username = auth.info.first_name # need to change this
       user.name = auth.info.name
       user.email = auth.info.email
       user.gender = auth.extra.raw_info.gender
       user.location = auth.info.location
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      if user.username.nil?
+        user.username = auth.info.first_name + auth.uid[0..2]
+      end
       user.save!
     end
   end
