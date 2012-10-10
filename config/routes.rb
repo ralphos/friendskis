@@ -10,11 +10,18 @@ Friendskis::Application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
-  
+  match 'sessions/test_login' => "sessions#test_login"
+ 
   get 'add-caption', controller: 'photos', action: 'add_caption', as: :add_caption
   get '/album-photos', controller: 'photos', action: 'album_photos', as: :album_photos
   get '/pick-album', controller: 'photos', action: 'pick_album', as: :pick_album
-  resources :photos, except: [:new, :edit, :update]
+
+  resources :photos, except: [:new, :edit, :update] do
+    member do
+      post :like
+      get :like
+    end
+  end
   
   resources :users, only: [:show, :update]
   get '/feed', controller: 'users', action: 'index', as: :users

@@ -29,4 +29,15 @@ class PhotosController < ApplicationController
        render 'add_caption'
     end
   end
+
+  def like
+    @photo = Photo.find(params[:id])
+    if @photo.like!(current_user)
+    end
+
+    respond_to do |format| 
+      format.js { }
+      format.html { redirect_to users_url }
+    end
+  end
 end

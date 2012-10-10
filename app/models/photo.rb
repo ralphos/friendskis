@@ -4,5 +4,16 @@ class Photo < ActiveRecord::Base
   belongs_to :user
 
   validates :caption, length: { maximum: 240 }
-  
+
+  has_many :likes
+
+  def like!(u)
+    likes.create!(photo:self, user: u)
+    self.rank_updated_at = DateTime.now
+    self.save
+  end
+
+  def liked?(u)
+    likes.where(user_id: u.id).count > 0
+  end
 end
