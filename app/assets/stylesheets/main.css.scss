@@ -198,8 +198,36 @@ html, body {
 		background: #E7EBF2;
 		margin: 15px 0;
 		padding: 10px 10px 15px 10px;
-		
-		.share-ph { width: 138px; margin: 5px 0 }
+    
+    h5 {
+      display: inline-block; 
+    }
+
+    span { 
+      float: right; 
+      margin-top: 7px;
+    }
+
+    .outer-pop-meter {
+      display: inline-block;
+      width: 156px;
+      height: 20px; 
+      background: white;
+      border: 1px solid #93A4C7;
+
+      .inner-pop-meter {
+        height: 20px;
+        //width: 25%;
+        background: #5B74A8;
+      }
+    }
+
+    p { 
+      margin-top: 5px; 
+      margin-bottom: 0 
+    }
+    
+    .share-ph { width: 138px; margin: 5px 0 }
 	}
 	
 	.large-profile-photo {

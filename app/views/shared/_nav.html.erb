@@ -10,6 +10,14 @@
   </div>
   <div class="share-photo">
     <h5>Your popularity</h5>
+    <span class="label notice">Low</span>
+    <!--<span class="label warning">medium</span>-->
+    <!--<span class="label success">High</span>-->
+    <!--<span class="label important">Hot</span>-->
+    <div class="outer-pop-meter">
+      <div class="inner-pop-meter" style="width: <%= 15 %>%">
+      </div><!-- /inner-pop-meter -->
+    </div><!-- /outer-pop-meter -->
     <p>Increase your visibility!</p>
     <%= link_to "Share a Photo", pick_album_path, class: 'uibutton confirm large share-ph' %>
   </div>
