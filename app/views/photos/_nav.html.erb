@@ -8,12 +8,9 @@
   </div>
   <div class="share-photo">
     <h5>Your popularity</h5>
-    <!--<span class="label notice">Low</span>-->
-    <!--<span class="label warning">medium</span>-->
-    <!--<span class="label success">High</span>-->
-    <span class="label important">Hot</span>
+      <%= popularity_label(current_user) %>
     <div class="outer-pop-meter">
-      <div class="inner-pop-meter" style="width: <%= 75 %>%">
+      <div class="inner-pop-meter" style="width: <%= current_user.percent_score %>%">
       </div><!-- /inner-pop-meter -->
     </div><!-- /outer-pop-meter -->
   </div>
