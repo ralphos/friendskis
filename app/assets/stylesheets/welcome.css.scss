@@ -2,14 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body.blue {
-	.span12 { margin-left: 20px }
+body {
 }
+
+//#left-margin {
+  //margin-left: 20px;
+//}
 
 header {
   background: #EDF4F9;
   height: 250px;
   border-bottom: 1px solid #DDE4F0;
+  margin-bottom: 50px;
 
   .welcome-msg {
     width: 760px; 
@@ -33,9 +37,64 @@ header {
       margin-top: 15px;
       margin-bottom: 10px;
     }
+
+    a.uibutton.large { font-size: 16px; }
   }
 }
 
+.step-header {
+
+  height: 60px;
+
+  h3 {
+    font-size: 19px;
+    line-height: 26px;
+  }
+}
+
+p.info { 
+  font-size: 14px; 
+  line-height: 20px;
+  color: #666; 
+}
+
+.span4 { 
+  margin-left: 20px; 
+}
+
+h3.people-header {
+  padding-bottom: 10px;
+}
+
+.homepage-links {
+  border: 1px solid #CCC;
+  border-right: none;
+  border-left: none;
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+.homepage-links img {
+  float: left;
+  width: 50px;
+}
+
+.homepage-links {
+  .box-1 { overflow: hidden; padding: 10px 0; border-bottom: 1px solid #CCC }
+  .box-2 { overflow: hidden; padding: 10px 0 }
+  .box-3 { overflow: hidden; padding: 10px 0; border-top: 1px solid #CCC }
+
+  .p-info { margin-left: 60px } 
+   h5 { color: #3B5998; font-weight: bold; font-size: 14px }
+}
+
+footer { 
+  margin-top: 30px;
+  ul { list-style: none }
+  li { display: inline }
+}
+
+/********************** Old landing page styles ************************/
 
 .login {
 	margin-top: 15px;

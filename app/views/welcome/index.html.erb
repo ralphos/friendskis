@@ -1,17 +1,52 @@
-  
-  <!-- <p class="login-tip">*It's anonymous and we won't post to your wall!</p> -->
-  <div class='polaroid'>
-    <%= image_tag 'chick.jpeg' %>
-    <p>Join me now!</p>
-  </div>
-  <div class='landing-about'>
-    <h3><span class='step_one'>1</span>Meet new people on Facebook</h3>
-    <p>
-      Friendskis is about helping you get the conversation started, so you can meet new people on Facebook.
-      We keep everything anonymous and will never post to your wall!
-    </p>
-    <div class='landing-footer'>
-      <%= link_to 'About', about_path %> · <%= link_to 'FAQ', faq_path %> · <%= link_to 'Terms', terms_path %> · <%= link_to 'Privacy', privacy_policy_path %>
-    </div>
-  </div><!-- //landing-about -->
-</center>
+<div class="row">
+  <div class="span4">
+    <div class="step-header">
+      <h3>Step 1: Browse photos of other users</h3>
+    </div><!-- /step-header -->
+    <p class='info'>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world 
+  </div><!-- /span4 --> 
+  <div class="span4">
+    <div class="step-header">
+      <h3>Step 2: Connect with people</h3>
+    </div><!-- /step-header -->
+    <p class='info'>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world 
+  </div><!-- /span4 -->
+  <div class="span4">
+    <div class="step-header">
+      <h3>Step 3: Relax, it's anonymous</h3>
+    </div><!-- /step-header -->
+    <p class='info'>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world
+  </div><!-- /span4 -->
+</div><!-- /row -->
+<div class="row" style="margin-top: 50px">
+  <div class="span7" style="margin-left: 20px">
+    <h3 class="people-header">Who's on Friendskis now</h3>
+    <div class="homepage-links">
+      <div class="box-1">
+        <%= image_tag "user-1.png" %>
+        <div class='p-info'>
+            <h5>Roxy85</h5>
+            <p>27 · Female · Interested in meeting guys</p>
+        </div><!-- /p-info -->
+      </div><!-- /box-1 -->
+      <div class="box-2">
+        <%= image_tag "user-2.jpg" %>
+        <div class='p-info'>
+          <h5>SarahW</h5>
+          <p>23 · Female · Interested in meeting guys</p>
+        </div><!-- /p-info -->
+      </div><!-- /box-2 -->
+      <div class="box-3">
+        <%= image_tag "user-3.jpg" %>
+        <div class='p-info'>
+          <h5>MiketheMan</h5>
+          <p>28 · Male · Interested in meeting girls</p>
+        </div><!-- /p-info -->
+      </div><!-- /box-3 -->
+    </div><!-- /homepage-links -->
+    <%= image_tag "like-box.png" %>
+  </div><!-- /span7 -->
+  <div class="span5" style="margin-left: 20px">
+    <%= image_tag "activity-box.png" %>
+  </div><!-- /span5 -->
+</div><!-- /row -->

@@ -559,6 +559,20 @@ html, body {
         height: 120px;
         background-size: cover;
         border: 1px solid #CCC;
+
+        .overlay { 
+          // need to get this working
+          background-color: rgba(190, 36, 30, 0);
+          display: block;
+          position: absolute;
+          z-index: 1;
+          height: 120px;
+          width: 120px;
+          -webkit-transition-property: background-color;
+          -webkit-transition-duration: 0.5s;
+          transition-property: background-color;
+          transition-duration: 0.5s; 
+        }
       }
       p { 
         font-weight: bold;
