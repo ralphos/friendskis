@@ -73,5 +73,9 @@ describe Photo do
       UserPhoto.latest_photos(user2).first.should == photo
     end
 
+    it "should sort by #rank_updated_at but still show latest photos added on top" do
+      photo = FactoryGirl.create(:photo) 
+      UserPhoto.latest_photos(user).first.should == photo
+    end
   end
 end

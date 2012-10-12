@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :username, :date_of_birth, :preference, :min_age, :max_age, :location, :profile_pic, :bio, :is_first_login
   
   has_many :photos, dependent: :destroy
+
   has_many :visitors
   has_many :sender_conversations, class_name: 'Conversation', foreign_key: :sender_id, dependent: :destroy
   has_many :recipient_conversations, class_name: 'Conversation', foreign_key: :recipient_id, dependent: :destroy 
