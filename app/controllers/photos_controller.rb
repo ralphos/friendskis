@@ -17,6 +17,7 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(params[:photo])
     @photo.user_id = current_user.id
+    @photo.rank_updated_at = DateTime.now
     if @photo.save
       if @photo.profile_pic == true
         current_user.update_attributes(profile_pic: @photo.id)
