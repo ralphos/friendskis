@@ -2,6 +2,10 @@ Friendskis::Application.routes.draw do
   
   root :to => 'welcome#index'
   
+
+  match '/payments_callback' => 'welcome#payments_callback'
+  match '/payments_callback2' => 'welcome#payments_callback'
+
   get 'wizards/step_one', controller: 'wizards', action: 'step_one', as: :step_one
   put 'wizards/step_one', controller: 'wizards', action: 'update', as: :step_one
   get 'wizards/step_two', controller: 'wizards', action: 'step_two', as: :step_two

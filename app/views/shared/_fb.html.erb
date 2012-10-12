@@ -1,6 +1,6 @@
 <div id="fb-ui-return-data"></div>
 <div id="fb-root"></div>
-<script src="http://connect.facebook.net/en_US/all.js"></script>
+<script src="//connect.facebook.net/en_US/all.js"></script>
 <script> 
   FB.init({appId: "<%= FB_APP_ID %>", status: true, cookie: true});
   // The dialog only opens if you've implemented the
@@ -8,8 +8,16 @@
   function buySubscription() {
     var obj = {
       method: 'pay',
+      //action: 'buy_item',
+      // You can pass any string, but your payments_get_items must
+      // be able to process and respond to this data.
+      order_info: {'item_id': '1a', 'price': '9.99 USD'},
+       
+      dev_purchase_params: {'oscif': true},
       action: 'create_subscription',
-      product: 'some_url_path'
+      product: "https://56km.showoff.io/test4.html"
+
+      //product: 'http://56km.showoff.io/credits'
       // You can pass any string, but your payments_get_items must
       // be able to process and respond to this data.
     };
