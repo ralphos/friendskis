@@ -76,6 +76,8 @@ ActiveRecord::Schema.define(:version => 20121010083019) do
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
     t.boolean  "is_first_login",   :default => true
+    t.integer  "score"
+    t.integer  "percent_score",    :default => 0
   end
 
   create_table "visitors", :force => true do |t|
