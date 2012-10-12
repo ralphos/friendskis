@@ -13,14 +13,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body class='blue'>
+  <header>
+    <div class='welcome-msg'>
+      <h1>Friendskis</h1>
+      <h3 class='tagline'>Discover and meet new friends on Facebook</h3>
+      <a href="/auth/facebook" class='uibutton extra-large special'>Login <em>anonymously</em> with Facebook</a>
+    </div><!-- //welcome-msg -->
+  </header>
   <div class="container canvas">
-    <div class="row">
-      <div class="span12">
-        <%= yield %>
-      </div><!-- //span12 -->
-    </div><!-- //row -->
-  <footer>
-  </footer>
+      <%= yield %>
+    <footer>
+    </footer>
   </div><!-- //container -->  
 </body>
 </html>
