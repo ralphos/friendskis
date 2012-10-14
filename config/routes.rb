@@ -1,6 +1,6 @@
 Friendskis::Application.routes.draw do
   
-  match '/subscription' => 'welcome#subscription', as: :subscription_path
+  match '/subscription' => 'welcome#subscription', as: :subscription
 
   root :to => 'welcome#index'
   
