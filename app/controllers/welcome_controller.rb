@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
 
+  skip_before_filter :verify_authenticity_token, only: :subscription
+
   layout 'welcome' 
   
   def index
@@ -20,4 +22,9 @@ class WelcomeController < ApplicationController
 
     render json: items, layout: false 
   end
+
+  def subscription
+    render layout: false
+  end
+
 end
