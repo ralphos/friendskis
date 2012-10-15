@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121012032856) do
+ActiveRecord::Schema.define(:version => 20121015032737) do
 
   create_table "conversations", :force => true do |t|
     t.integer  "sender_id"
@@ -73,11 +73,15 @@ ActiveRecord::Schema.define(:version => 20121012032856) do
     t.integer  "max_age"
     t.string   "location"
     t.integer  "profile_pic"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
-    t.boolean  "is_first_login",   :default => true
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.boolean  "is_first_login",             :default => true
     t.integer  "score"
-    t.integer  "percent_score",    :default => 0
+    t.integer  "percent_score",              :default => 0
+    t.string   "subscription_id"
+    t.string   "subscription_status"
+    t.integer  "subscription_error_code"
+    t.string   "subscription_error_message"
   end
 
   create_table "visitors", :force => true do |t|
