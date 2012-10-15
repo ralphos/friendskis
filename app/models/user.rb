@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :date_of_birth, :preference, :min_age, :max_age, :location, :profile_pic, :bio, :is_first_login
+  attr_accessible :username, :date_of_birth, :preference, :min_age, :max_age, :location, :profile_pic, :bio, :is_first_login, :subscription_id, :subscription_status
   
   has_many :photos, dependent: :destroy
 
@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   validates :username, presence: true
   validates :username, length: { in: 4..16 }
   validates :username, uniqueness: { case_sensitive: false }
+
+  scope :recent, order: "created_at desc"
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -26,6 +28,10 @@ class User < ActiveRecord::Base
       end
       user.save!
     end
+  end
+
+  def is_subscriber?
+    self.subscription_status == "active" 
   end
 
   def recent_photos

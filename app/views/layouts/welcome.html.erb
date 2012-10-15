@@ -12,14 +12,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'shared/fb' %>
+  <div id="fb-ui-return-data"></div>
+  <div id="fb-root"></div>
+  <!-- Move this somewhere else? -->
+  <script src="//connect.facebook.net/en_US/all.js"></script>
   <header>
     <div class='welcome-msg'>
-      <h1>Friendskis</h1>
-      <h3 class='tagline'>Discover and meet new friends on Facebook</h3>
-      <a href="/auth/facebook" class='uibutton large special'>Login <em>anonymously</em> with Facebook</a>
-      <%#<a href='#' class='uibutton large special' onclick="buySubscription();">Subscribe Now</a>%>
-
+      <div class="welcome-text">
+        <h1>Friendskis</h1>
+        <h3 class='tagline'>Discover and meet new friends on Facebook</h3>
+        <a href="/auth/facebook" class='uibutton large special'>Login <em>anonymously</em> with Facebook</a>
+        <%#<a href='#' class='uibutton large special' onclick="buySubscription();">Subscribe Now</a>%>
+      </div><!-- //welcome-text -->
+      <div class="polaroid">
+        <%= image_tag "profile.jpeg" %>
+        <p>Ralph<br>Founder, Friendskis</p>
+      </div><!-- //polaroid -->
     </div><!-- //welcome-msg -->
   </header>
   <div class="container canvas">
@@ -33,6 +41,7 @@
           <li><%= link_to 'Terms', terms_path %></li>
           <li><%= link_to 'Privacy', privacy_policy_path %></li>
         </ul>
+        <p>Friendskis © 2012</p>
       </div>
     </footer>
   </div><!-- //container -->  

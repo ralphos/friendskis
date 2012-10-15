@@ -44,9 +44,9 @@ module ApplicationHelper
   def criteria(user)
     case user.preference
     when '1'
-      "Looking for men"
+      "Interested in men"
     when '2'
-      "Looking for women"
+      "Interested in women"
     end
   end
 

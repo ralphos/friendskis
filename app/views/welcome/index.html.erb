@@ -22,25 +22,25 @@
   <div class="span7" style="margin-left: 20px">
     <h3 class="people-header">Who's on Friendskis now</h3>
     <div class="homepage-links">
-      <div class="box-1">
-        <%= image_tag "user-1.png" %>
-        <div class='p-info'>
-            <h5>Roxy85</h5>
-            <p>27 · Female · Interested in meeting guys</p>
-        </div><!-- /p-info -->
-      </div><!-- /box-1 -->
+        <div class="box-1">
+          <%= image_tag "https://graph.facebook.com/#{@user1.uid}/picture" %>
+          <div class='p-info'>
+            <h5><%= @user1.username %></h5>
+            <p><%= @user1.age.to_s + ' · ' + @user1.gender + ' · ' +  criteria(@user1) %></p>
+          </div><!-- /p-info -->
+        </div><!-- /box-1 -->
       <div class="box-2">
-        <%= image_tag "user-2.jpg" %>
+        <%= image_tag "https://graph.facebook.com/#{@user2.uid}/picture" %>
         <div class='p-info'>
-          <h5>SarahW</h5>
-          <p>23 · Female · Interested in meeting guys</p>
+          <h5><%= @user2.username %></h5>
+          <p><%= @user2.age.to_s + ' · ' + @user2.gender + ' · ' +  criteria(@user2) %></p>
         </div><!-- /p-info -->
       </div><!-- /box-2 -->
       <div class="box-3">
-        <%= image_tag "user-3.jpg" %>
+        <%= image_tag "https://graph.facebook.com/#{@user3.uid}/picture" %>
         <div class='p-info'>
-          <h5>MiketheMan</h5>
-          <p>28 · Male · Interested in meeting girls</p>
+          <h5><%= @user3.username %></h5>
+          <p><%= @user3.age.to_s + ' · ' + @user3.gender + ' · ' +  criteria(@user3) %></p>
         </div><!-- /p-info -->
       </div><!-- /box-3 -->
     </div><!-- /homepage-links -->

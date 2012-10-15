@@ -18,7 +18,7 @@ describe User do
       user = FactoryGirl.create(:user)
 
       photo1 = user.photos.create(caption: 'photo 1')
-      photo2 = user.photos.create(caption: 'photo 1')
+      photo2 = user.photos.create(caption: 'photo 2')
 
       5.times do |i|
         photo1.like!(FactoryGirl.create(:user, email: "liker#{i}@example.com", username: "liker#{i}"))
@@ -30,13 +30,13 @@ describe User do
 
       user.total_likes.should eq(8)
 
-      user.computed_score.should eq(400)
+      user.computed_score.should eq(800)
 
       user.compute_score!
 
       user.reload
 
-      user.score.should eq(400)
+      user.score.should eq(800)
 
     end
 
@@ -60,6 +60,15 @@ describe User do
 
     end
 
+  end
+
+  context "subscribers" do
+
+    let(:user) { FactoryGirl.create(:user, subscription_status: "active") }
+    
+    it "should check if a user is subscribed" do
+      user.is_subscriber?.should be_true
+    end
   end
 
 

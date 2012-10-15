@@ -1,18 +1,31 @@
 require 'spec_helper'
 
+
 describe SubscriptionsController do
 
   let(:user) { FactoryGirl.create(:user) }
 
   describe "POST create" do
-    it "creates a new subscription for a user" do
-      user.should_receive(:update_attributes).with("subscription_id" => "123", "subscription_status" => "active")
-      post :create, :user => { "subscription_id" => "123", "subscription_status" => "active" }
-    end
 
     it "saves the subscription id & status" do
-      user.should_receive(:save)
-      post :create
+      
+      session[:user_id] = user.id
+
+      xhr :put, :update, "subscription_id" => "123", "subscription_status" => "active" 
+
+      u = assigns(:user)
+
+      u.reload
+
+      u.subscription_id.should eq("123")
+      u.subscription_status.should eq("active")
+
+
+      output = JSON.parse(response.body)
+      output["success"].should == true
+
+      response.should be_success
+
     end
 
   end
