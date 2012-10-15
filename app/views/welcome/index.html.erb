@@ -43,6 +43,14 @@
           <p><%= @user3.age.to_s + ' · ' + @user3.gender + ' · ' +  criteria(@user3) %></p>
         </div><!-- /p-info -->
       </div><!-- /box-3 -->
+
+      <div class="box-3">
+        <%= image_tag "https://graph.facebook.com/#{@user3.uid}/picture" %>
+        <div class='p-info'>
+          <h5><%= @user4.username %></h5>
+          <p><%= @user4.age.to_s + ' · ' + @user4.gender + ' · ' +  criteria(@user4) %></p>
+        </div><!-- /p-info -->
+      </div><!-- /box-3 -->
     </div><!-- /homepage-links -->
     <%= image_tag "like-box.png" %>
   </div><!-- /span7 -->

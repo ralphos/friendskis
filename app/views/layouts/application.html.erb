@@ -16,7 +16,9 @@
   <div id="fb-root"></div>
   <!-- Move this somewhere else? -->
   <script src="//connect.facebook.net/en_US/all.js"></script>
-
+  <script>
+    FB.init({appId: "<%= FB_APP_ID %>", status: true, cookie: true});
+  </script>
   <div class="container canvas">
     <div class="row">
       <div class="span12 main">

@@ -1,4 +1,4 @@
-FB.init({appId: "<%= FB_APP_ID %>", status: true, cookie: true});
+
 // The dialog only opens if you've implemented the
 // Credits Callback payments_get_items.
 function buySubscription() {
