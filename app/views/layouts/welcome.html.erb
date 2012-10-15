@@ -7,19 +7,9 @@
   <title>Friendskis</title>
   <meta name="description" content="Friendskis helps you start the conversation so you can meet new people on Facebook.">
   <meta name="author" content="Friendskis Ltd">
-  <link href='http://fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <%= tag :meta, property: "og:title", content: "Friendskis" %>
-  <%= tag :meta, property: "og:image", content: "#" %>
-  <%= tag :meta, property: "og:description", content: "A subscription to Friendskis" %>
-  <%= tag :meta, property: "og:type", content: "fbpayment:subscription" %>
-  <%= tag :meta, property: "fb:app_id", content: FB_APP_ID %> 
-  <%= tag :meta, property: "fbpayment:price", content: "9.99 USD" %> 
-  <%= tag :meta, property: "fbpayment:alternate_price", content: "399.00 PHP"%>
-  <%= tag :meta, property: "og:url", content: "http://56km.showoff.io/credits" %> 
-
 </head>
 <body>
   <%= render 'shared/fb' %>
@@ -28,7 +18,7 @@
       <h1>Friendskis</h1>
       <h3 class='tagline'>Discover and meet new friends on Facebook</h3>
       <a href="/auth/facebook" class='uibutton large special'>Login <em>anonymously</em> with Facebook</a>
-      <a href='#' class='uibutton large special' onclick="buySubscription();">Subscribe Now</a>
+      <%#<a href='#' class='uibutton large special' onclick="buySubscription();">Subscribe Now</a>%>
 
     </div><!-- //welcome-msg -->
   </header>
