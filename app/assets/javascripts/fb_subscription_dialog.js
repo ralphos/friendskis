@@ -1,25 +1,16 @@
 
 // The dialog only opens if you've implemented the
 // Credits Callback payments_get_items.
-function buySubscription() {
+function buySubscription(subscriptionUrl) {
   var obj = {
     method: 'pay',
-    //action: 'buy_item',
-    // You can pass any string, but your payments_get_items must
-    // be able to process and respond to this data.
-    order_info: {'item_id': '1a', 'price': '9.99 USD'},
-     
+    order_info: {'item_id': '1a', 'price': '9.99 USD'},     
     dev_purchase_params: {'oscif': true},
     action: 'create_subscription',
-    product: "<%= subscription_url %>"
-
-    //product: 'http://56km.showoff.io/credits'
-    // You can pass any string, but your payments_get_items must
-    // be able to process and respond to this data.
+    product: subscriptionUrl
   };
 
   FB.ui(obj, js_callback);
-
 }
 
 // This JavaScript callback handles FB.ui's return data and differs
