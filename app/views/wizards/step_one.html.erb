@@ -39,7 +39,7 @@
         <div>
           between ages <%= f.select(:min_age, (18..99).to_a) %> and <%= f.select(:max_age, (18..99).to_a, selected: 30) %>
         </div>
-        <div>
+        <div style="display: none">
           near <%= f.text_field :location, placeholder: "Enter your location" %>  
         </div>
       </div>

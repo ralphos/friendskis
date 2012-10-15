@@ -5,7 +5,7 @@
 
 <div class="span9">
   <div id="feed">
-    <h3>Showing <%= sex_preference(current_user) %> ages <%= current_user.min_age %> to <%= current_user.max_age %> near <%= current_user.location %></h3>
+    <h3>Showing <%= sex_preference(current_user) %> ages <%= current_user.min_age %> to <%= current_user.max_age %> nearby</h3>
     
     <% @photos.each do |photo| %>
       <%= render 'feed', photo: photo %>
