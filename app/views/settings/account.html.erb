@@ -28,7 +28,7 @@
         <%= f.label :min_age, 'between ages' %>
         <%= f.select(:min_age, (18..99).to_a) %> <span>and</span> <%= f.select(:max_age, (18..99).to_a) %>
       </div><!-- //acc_2 -->
-      <div class='acc_3'>
+      <div class='acc_3' style="display: none">
         <%= f.label :location, 'near' %>
         <%= f.text_field :location, placeholder: "Enter your location" %>  
       </div><!-- //acc_3 -->
