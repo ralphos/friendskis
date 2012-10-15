@@ -24,10 +24,12 @@
         <a href="/auth/facebook" class='uibutton large special'>Login <em>anonymously</em> with Facebook</a>
         <%#<a href='#' class='uibutton large special' onclick="buySubscription();">Subscribe Now</a>%>
       </div><!-- //welcome-text -->
-      <div class="polaroid">
-        <%= image_tag "profile.jpeg" %>
-        <p>Ralph<br>Founder, Friendskis</p>
-      </div><!-- //polaroid -->
+      <a href="/about">
+        <div class="polaroid">
+          <%= image_tag "profile.jpeg" %>
+          <p>Ralph<br><span class="job">CEO, Friendskis</span></p>
+        </div><!-- //polaroid -->
+      </a>
     </div><!-- //welcome-msg -->
   </header>
   <div class="container canvas">

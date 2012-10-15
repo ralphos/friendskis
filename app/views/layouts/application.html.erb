@@ -10,18 +10,12 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <%= tag :meta, property: "og:title", content: "Subscription for #{current_user.username}" %>
-  <%= tag :meta, property: "og:image", content: "#" %>
-  <%= tag :meta, property: "og:description", content: "A subscription to Friendskis" %>
-  <%= tag :meta, property: "og:type", content: "fbpayment:subscription" %>
-  <%= tag :meta, property: "fb:app_id", content: FB_APP_ID %> 
-  <%= tag :meta, property: "fbpayment:price", content: "9.99 USD" %> 
-  <%= tag :meta, property: "fbpayment:alternate_price", content: "399.00 PHP"%>
-  <%= tag :meta, property: "og:url", content: "http://56km.showoff.io/credits" %> 
-</head>
+  </head>
 <body>
-
-  <%= render 'shared/fb' %>
+  <div id="fb-ui-return-data"></div>
+  <div id="fb-root"></div>
+  <!-- Move this somewhere else? -->
+  <script src="//connect.facebook.net/en_US/all.js"></script>
 
   <div class="container canvas">
     <div class="row">

@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def is_subscriber?
+  def is_subscriber
     self.subscription_status == "active" 
   end
 
