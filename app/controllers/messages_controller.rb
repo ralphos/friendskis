@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to conversation_path(@message.conversation)
     else
-      redirect_to users_path
+      redirect_to user_path(params[:message][:recipients_id])
     end
   end
   

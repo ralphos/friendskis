@@ -26,7 +26,10 @@ var js_callback = function(data) {
     },
     success: function(e) {
       if(e.success == true) {
-
+        $('#message_body').attr('onclick', '');
+        $('#message_body').unbind('click');
+        $('#send_message_button').attr('onclick', '');
+        $('#send_message_button').unbind('click');
       }
     }
   })
