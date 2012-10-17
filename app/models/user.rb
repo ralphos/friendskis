@@ -94,7 +94,7 @@ class User < ActiveRecord::Base
 
 
   def total_likes
-    Like.where(photo_id: photos.collect(&:id)).count
+    Like.where("created_at > ?", 1.week.ago).where(photo_id: photos.collect(&:id)).count
   end
 
   def computed_score

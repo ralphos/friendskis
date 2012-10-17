@@ -41,11 +41,10 @@ describe User do
     end
 
     it "should only compute scores based on likes created_at in the last week" do
-
       user1 = FactoryGirl.create(:user)
       user2 = FactoryGirl.create(:user, email: "some@email.com", username: "ralphy")
       photo = user1.photos.create(caption: "My photo")
-      like = FactoryGirl.create(:like, user: user2, photo: photo, created_at: DateTime.now - 2.weeks)
+      like = FactoryGirl.create(:like, user: user2, photo: photo, created_at: 2.weeks.ago)
       user1.total_likes.should eq(0)
       user1.computed_score.should eq(0)
     end
@@ -77,7 +76,7 @@ describe User do
     let(:user) { FactoryGirl.create(:user, subscription_status: "active") }
     
     it "should check if a user is subscribed" do
-      user.is_subscriber?.should be_true
+      user.subscriber?.should be_true
     end
   end
 
