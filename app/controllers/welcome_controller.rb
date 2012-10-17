@@ -10,6 +10,7 @@ class WelcomeController < ApplicationController
     @user2 = users[1]
     @user3 = users[2]
     @user4 = users[3]
+    redirect_to 'https://apps.facebook.com/friendskis/', status: :moved_permanently
   end 
 
   def subscription
