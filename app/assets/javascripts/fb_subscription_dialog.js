@@ -4,8 +4,6 @@
 function buySubscription(subscriptionUrl) {
   var obj = {
     method: 'pay',
-    order_info: {'item_id': '1a', 'price': '9.99 USD'},     
-    dev_purchase_params: {'oscif': true},
     action: 'create_subscription',
     product: subscriptionUrl
   };
