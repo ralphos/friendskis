@@ -3,11 +3,39 @@
 </div><!-- //span3 -->
 
 <div class="span9">
+  <div class="tip-box">
+    <h3>Unlock your Facebook profile</h3>
+    <p>
+      Share your profile on Facebook with this person...
+    </p>
+    <% if @conversation.sender == current_user && @conversation.sender_unlocked == true %>
+      <%= link_to "Your profile has been shared", '#', class: "uibutton disabled" %>
+    <% elsif @conversation.recipient == current_user && @conversation.recipient_unlocked == true %>
+      <%= link_to "Your profile has been shared", '#', class: "uibutton disabled" %>
+    <% else %>
+      <% if @conversation.sender == current_user %>
+        <%= link_to 'Share your Facebook profile', conversation_path(@conversation, sender_unlocked: true), class: 'uibutton icon secure', method: :put %>
+      <% elsif @conversation.recipient == current_user %>
+        <%= link_to 'Share your Facebook profile', conversation_path(@conversation, recipient_unlocked: true), class: 'uibutton icon secure', method: :put %>
+      <% end %>
+    <% end %>
+  </div>
+
   <div id="conversations">
     <div class='header'>
       <div class='action-buttons'>
         <%= link_to 'Back to Conversations', conversations_path, class: 'uibutton icon prev' %>
-        <%= link_to 'Share your Facebook profile', '#', class: 'uibutton icon secure' %>
+        <% if @conversation.sender == current_user && @conversation.recipient_unlocked == true %>
+          <%= link_to "View #{@conversation.recipient.username} on Facebook", "#{@conversation.recipient.link}", class: 'uibutton' %>
+        <% elsif @conversation.recipient == current_user && @conversation.sender_unlocked == true %>
+          <%= link_to "View #{@conversation.sender.username} on Facebook", "#{@conversation.sender.link}", class: 'uibutton' %>
+        <% else %>
+          <% if @conversation.sender == current_user %>
+            <%= link_to "#{@conversation.recipient.username} has not shared their profile", "#", class: 'uibutton disabled' %>
+          <% elsif @conversation.recipient == current_user %>
+            <%= link_to "#{@conversation.sender.username} has not shared their profile", "#", class: 'uibutton disabled' %>
+          <% end %>
+        <% end %>
 
       </div>
       <% if @messages.last.user != current_user%>

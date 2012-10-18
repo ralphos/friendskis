@@ -11,13 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121015032737) do
+ActiveRecord::Schema.define(:version => 20121018050413) do
 
   create_table "conversations", :force => true do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.boolean  "sender_unlocked",    :default => false
+    t.boolean  "recipient_unlocked", :default => false
   end
 
   create_table "likes", :force => true do |t|
@@ -82,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20121015032737) do
     t.string   "subscription_status"
     t.integer  "subscription_error_code"
     t.string   "subscription_error_message"
+    t.string   "link"
   end
 
   create_table "visitors", :force => true do |t|
