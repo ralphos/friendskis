@@ -14,4 +14,4 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   end
 end
 
-OmniAuth.config.full_host = 'https://apps.facebook.com/friendskis/'
+OmniAuth.config.full_host = 'https://apps.facebook.com/friendskis'
