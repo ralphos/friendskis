@@ -10,19 +10,19 @@ class SessionsController < ApplicationController
     elsif user.profile_pic.nil?
       redirect_to step_two_path
     else
-      redirect_to users_url
+      redirect_to users_path
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url
+    redirect_to root_path
   end
 
   def test_login
     if Rails.env.test?
       session[:user_id] = params[:user_id]
     end
-    redirect_to users_url
+    redirect_to users_path
   end
 end
