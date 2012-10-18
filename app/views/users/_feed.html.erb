@@ -1,31 +1,29 @@
-<div class='post'>
-  <a href="<%= user_url(photo.user) %>">
-    <div class='profile-pic-tiny' style="background-image: url(<%= profile_pic_tiny(photo.user) %>)">
-    </div><!-- /profile-pic-tiny -->
-  </a>
-  <div class='main-post-content'>
-    <div class='name-age-gender'>
-      <h5>
-        <%= link_to photo.user.username, user_path(photo.user) %>
-        <span><%= photo.user.age %> · <%= display_sex(photo.user) %></span>
-      <h5>
-    </div><!-- /name-age-gender -->
-    <div class='post-content'>
-      <%= link_to (image_tag photo.medium_url), '#' %>
-    </div><!-- /post-content -->
-    <div class='post-caption'>
-      <%= photo.caption %>
-    </div><!-- /post-caption -->
-    <div class='send-message'>
-      <% if photo.user != current_user %>
-         <% unless photo.liked?(current_user) %>
-           <%= link_to 'Cool', like_photo_path(photo) %> 
-         <% else %>
-           <%= link_to 'Cooled', '#' %>
-         <% end %>
-           · <%= link_to 'Send Message', '#', onclick: (current_user.subscriber? ? "showModal($(this));" : "buySubscription('#{subscription_url}');"), 
-          data: { username: photo.user.username, recipients: photo.user.id, recipients_username: photo.user.username } %>
-      <% end %>
-    </div><!-- /send-message -->
-  </div><!-- /main-post-content -->
-</div><!-- /post -->
+<a href="<%= user_url(photo.user) %>">
+  <div class='profile-pic-tiny' style="background-image: url(<%= profile_pic_tiny(photo.user) %>)">
+  </div><!-- /profile-pic-tiny -->
+</a>
+<div class='main-post-content'>
+  <div class='name-age-gender'>
+    <h5>
+      <%= link_to photo.user.username, user_path(photo.user) %>
+      <span><%= photo.user.age %> · <%= display_sex(photo.user) %></span>
+    <h5>
+  </div><!-- /name-age-gender -->
+  <div class='post-content'>
+    <%= link_to (image_tag photo.medium_url), '#' %>
+  </div><!-- /post-content -->
+  <div class='post-caption'>
+    <%= photo.caption %>
+  </div><!-- /post-caption -->
+  <div class='send-message'>
+    <% if photo.user != current_user %>
+       <% unless photo.liked?(current_user) %>
+         <%= link_to 'Cool', like_photo_path(photo) %> 
+       <% else %>
+         <%= link_to 'Cooled', '#' %>
+       <% end %>
+         · <%= link_to 'Send Message', '#', onclick: (current_user.subscriber? ? "showModal($(this));" : "buySubscription('#{subscription_url}');"), 
+        data: { username: photo.user.username, recipients: photo.user.id, recipients_username: photo.user.username } %>
+    <% end %>
+  </div><!-- /send-message -->
+</div><!-- /main-post-content -->

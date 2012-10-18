@@ -62,7 +62,9 @@ html, body {
 		.post-content {
 			margin-bottom: 10px;
 			img { 
-        width: 330px;
+        //width: 330px;
+        max-height: 400px;
+        max-width: 350px;
         border: 1px solid #CCC; 
       }
 		}
@@ -542,7 +544,13 @@ html, body {
 	
 	.header {
 		padding: 5px 0 12px;
-		.credit-balance { float: right; padding-top: 5px; a { color: red; font-weight: bold } }
+		.credit-balance { 
+
+      a.subscribed { color: green }
+      float: right; 
+      padding-top: 5px; 
+      a { color: red; font-weight: bold } 
+    }
 		h3 { display: inline }
 		img { vertical-align: middle; padding-bottom: 7px }
 	} /* header */	
