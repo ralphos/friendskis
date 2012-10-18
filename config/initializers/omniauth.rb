@@ -4,12 +4,12 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   # Set up ENV variables
   if Rails.env == "production"
     provider :facebook, '386324544771493', '775dfc20bc0f9461e86a383d83b52a1e',
-    scope: 'email,user_photos,user_birthday,user_location', iframe: true, display: "popup"
+    scope: 'email,user_photos,user_birthday,user_location', iframe: true
 
     FB_APP_ID = '386324544771493'
   else
     provider :facebook, '182721585186027', 'acce0a1b053db8895ab4f4892ca6c599',
-    scope: 'email,user_photos,user_birthday,user_location', iframe: true, display: "popup"
+    scope: 'email,user_photos,user_birthday,user_location', iframe: true
     FB_APP_ID = '182721585186027'
   end
 end
