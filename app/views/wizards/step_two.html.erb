@@ -23,6 +23,7 @@
     <h3>Choose your profile picture</h3>
   </div>
 
+  <% if @photos.present? %>
   <div class='album-container'>
     <% @photos.each do |photo| %>
     <div class='album'>
@@ -35,6 +36,14 @@
     </div><!-- /album -->
     <% end %>
   </div><!-- /album-container -->
+  <% else %>
+  <div class="no-profile-pics-container">
+    <div class="well">
+      <p><span class="label important">Oops! There was an error!</span> <br><br>We couldn't find any profile pictures in your Facebook account!</p><p><strong>Please add a profile picture on Facebook before signing up to Friendskis.</strong></p> 
+    </div>
+  </div>
+  <% end %>
+  
 
 </div><!-- //span9 -->
 
