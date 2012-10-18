@@ -72,8 +72,12 @@
       </div>
     <% end %>
 
-    <% @photos.each do |photo| %>
-      <%= render 'feed', photo: photo %>
+    <% @user_photos.each do |photo| %>
+      <div class="post">
+        <%= render 'feed', photo: photo %>
+      </div>
     <% end %>
   </div>
+  <%= paginate @user_photos %>
 </div><!-- //main-profile -->
+
