@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :date_of_birth, :preference, :min_age, :max_age, :location, :profile_pic, :bio, :is_first_login, :subscription_id, :subscription_status
+  attr_accessible :username, :date_of_birth, :preference, :min_age, :max_age, :location, :profile_pic, :bio, :is_first_login, :subscription_id, :subscription_status, :link
   
   has_many :photos, dependent: :destroy
 
@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
       user.name = auth.info.name
+      user.link = auth.extra.raw_info.link
       user.email = auth.info.email
       user.gender = auth.extra.raw_info.gender
       user.location = auth.info.location

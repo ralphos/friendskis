@@ -34,7 +34,7 @@ Friendskis::Application.routes.draw do
   get '/feed', controller: 'users', action: 'index', as: :users
   
   resources :messages, only: [:new, :create]
-  resources :conversations, only: [:index, :show]
+  resources :conversations, only: [:index, :show, :update]
   
   get '/account', controller: 'settings', action: 'account', as: :account
   get '/notifications', controller: 'settings', action: 'notifications', as: :notifications
