@@ -22,7 +22,7 @@
        <% else %>
          <%= link_to 'Cooled', '#' %>
        <% end %>
-         · <%= link_to 'Send Message', '#', onclick: (current_user.subscriber? ? "showModal($(this));" : "buySubscription('#{subscription_url}');"), 
+         · <%= link_to 'Send Message', '#', onclick: (current_user.subscriber? ? "showModal($(this));" : "buySubscription('#{subscription_url(v: SUBSCRIPTION_VERSION)}');"), 
         data: { username: photo.user.username, recipients: photo.user.id, recipients_username: photo.user.username } %>
     <% end %>
   </div><!-- /send-message -->
