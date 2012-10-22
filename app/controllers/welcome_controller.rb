@@ -6,9 +6,9 @@ class WelcomeController < ApplicationController
   
   def index
 
-   if params[:signed_request].blank?
-    redirect_to "https://apps.facebook.com/friendskis/"
-    return
+   if Rails.env == "production" && params[:signed_request].blank?
+     redirect_to "https://apps.facebook.com/friendskis/"
+     return
    end
 
     users = User.recent.slice(-4, 4)
