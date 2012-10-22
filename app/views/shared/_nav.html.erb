@@ -21,12 +21,12 @@
   <div class='nav-links'>
   <h6>Your Links</h6>
   <ul>
-    <a href="/feed"><li><%= image_tag 'home.png' %><p>Home</p></li></a>
-    <a href="/conversations"><li><%= image_tag 'message.png', class: "convos" %><p>Conversations</p></li></a>
-    <a href="/visitors"><li><%= image_tag 'visitors.png' %><p>Visitors</p></li></a>
+    <a href="/feed"><li class="<%= nav_class(users_path) %>"><%= image_tag 'home.png' %><p>Home</p></li></a>
+    <a href="/conversations"><li class="<%= nav_class(conversations_path) %>"><%= image_tag 'message.png', class: "convos" %><p>Conversations</p></li></a>
+    <a href="/visitors"><li class="<%= nav_class(visitors_path) %>"><%= image_tag 'visitors.png' %><p>Visitors</p></li></a>
     <!-- <a href="/search"><li><%#= image_tag 'friend-finder.png' %><p>Search</p></li></a> -->
     <!-- <a href="#"><li><%#= image_tag 'invitefriend.png' %><p>Invite Friends</p></li></a> -->
-    <a href="/account"><li><%= image_tag 'editprofile.png' %><p>Settings</p></li></a>
+    <a href="/account"><li class="<%= nav_class(account_path) %>"><%= image_tag 'editprofile.png' %><p>Settings</p></li></a>
   </ul>
   </div><!-- //nav-links -->
   <div class="nav-footer-links">

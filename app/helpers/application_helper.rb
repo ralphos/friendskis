@@ -62,4 +62,7 @@ module ApplicationHelper
     end
   end
     
+  def nav_class(link_path)
+    class_name = current_page?(link_path) ? 'active' : ''
+  end
 end

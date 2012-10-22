@@ -256,13 +256,15 @@ html, body {
 				
 				li { 
 					padding: 3px 0 4px 4px;
-					&:hover { background: #E7EBF2}
+					&:hover { background: #E7EBF2 }
 					color: #333;
 					
 					p { display: inline; vertical-align: middle; padding: 5px 0 5px 5px }
           img { float: left }
           img.convos { padding-top: 3px }
 				}
+
+        li.active { background: #D8DFEA }
 			}
 		}
 	}
