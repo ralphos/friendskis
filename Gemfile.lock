@@ -64,6 +64,7 @@ GEM
     eventmachine (0.12.10)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    ey_config (0.0.6)
     factory_girl (4.0.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.0.0)
@@ -199,6 +200,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   cucumber-rails (>= 1.2.1)
   database_cleaner
+  ey_config
   factory_girl_rails (>= 1.6.0)
   jquery-rails
   kaminari
