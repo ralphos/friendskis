@@ -20,15 +20,16 @@
     <script>
       FB.init({appId: "<%= FB_APP_ID %>", status: true, cookie: true});
     </script>
+    <div id="fb-root"></div>
     <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=182721585186027";
-        fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=386324544771493";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
     </script>
-    <div class='welcome-msg'>
+        <div class='welcome-msg'>
       <div class="welcome-text">
         <h1>Friendskis</h1>
         <h3 class='tagline'>Discover and meet new friends on Facebook</h3>
