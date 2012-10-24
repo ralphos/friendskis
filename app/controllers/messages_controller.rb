@@ -20,6 +20,7 @@ class MessagesController < ApplicationController
     @message.user_id = current_user.id
     if @message.save
       redirect_to conversation_path(@message.conversation)
+      MessageMailer.message_notification(@message.recipients_id, current_user).deliver
     else
       redirect_to user_path(params[:message][:recipients_id])
     end
