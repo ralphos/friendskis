@@ -37,7 +37,9 @@ class PhotosController < ApplicationController
     end
 
     respond_to do |format| 
-      format.js { }
+      format.js {
+        render js: "$('##{dom_id(@photo, 'like')}').html('You thought this photo was cool')" 
+      }
       format.html { redirect_to users_url }
     end
   end
