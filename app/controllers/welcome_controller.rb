@@ -5,11 +5,15 @@ class WelcomeController < ApplicationController
   layout 'welcome' 
   
   def index
+    if user_signed_in?
+      redirect_to users_path
+      return
+    end
 
-   if Rails.env == "production" && params[:signed_request].blank?
-     redirect_to "https://apps.facebook.com/friendskis/"
-     return
-   end
+    if Rails.env == "production" && params[:signed_request].blank?
+      redirect_to "https://apps.facebook.com/friendskis/"
+      return
+    end
 
     users = User.recent.slice(-4, 4)
     @user1 = users[0]
