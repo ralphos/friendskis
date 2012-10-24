@@ -28,6 +28,7 @@ var js_callback = function(data) {
         $('#message_body').unbind('click');
         $('#send_message_button').attr('onclick', '');
         $('#send_message_button').unbind('click');
+        document.location.reload();
       }
     }
   })
