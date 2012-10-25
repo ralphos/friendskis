@@ -24,6 +24,7 @@
 <div class="row" style="margin-top: 50px">
   <div class="span7" style="margin-left: 20px">
     <h3 class="people-header">Who's on Friendskis now</h3>
+    <% if !@user1.nil? && !@user2.nil? && !@user3.nil? && !@user4.nil? %>
     <div class="homepage-links">
         <div class="box-1">
           <%= image_tag "https://graph.facebook.com/#{@user1.uid}/picture" %>
@@ -55,6 +56,7 @@
         </div><!-- /p-info -->
       </div><!-- /box-3 -->
     </div><!-- /homepage-links -->
+  <% end %>
   </div><!-- /span7 -->
   <div class="span5" style="margin-left: 20px">
     <div class="fb-like-box" data-href="http://www.facebook.com/friendskis" data-width="300" data-height="340" data-show-faces="true" data-stream="true" data-header="true"></div>
