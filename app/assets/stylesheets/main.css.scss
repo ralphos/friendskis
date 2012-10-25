@@ -292,6 +292,17 @@ html, body {
 			}
 		}
 	}
+
+  .feedback {
+    padding-top: 15px;
+    padding-left: 5px;
+    .well { 
+      width: 138px; 
+      padding: 10px;
+      p { text-align: center; color: gray }
+      a { display: block; width: 95px; margin: 0 auto }
+    }
+  }
 }
 
 /********** Profile Page **********/
