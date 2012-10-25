@@ -4,9 +4,9 @@
 
 <div class="span9">
   <div class="tip-box">
-    <h3>Unlock your Facebook profile</h3>
+    <h3>Reveal your Facebook identity</h3>
     <p>
-      Share your profile on Facebook with this person...
+      Want to become friends with this person on Facebook? Click the button below and reveal your Facebook profile to allow the other person to send you friend requests or continue messaging on Facebook!
     </p>
     <% if @conversation.sender == current_user && @conversation.sender_unlocked == true %>
       <%= link_to "Your profile has been shared", '#', class: "uibutton disabled" %>
