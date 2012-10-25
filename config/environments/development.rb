@@ -44,7 +44,7 @@ Friendskis::Application.configure do
        :authentication => :plain,
        :address => "smtp.sendgrid.net",
        :port => 587,
-       :domain => 'friendskis.com', 
+       :domain => 'smtp.sendgrid.net', 
        :user_name => 'ey_service_1874@engineyard.com',
        :password => 'tyuyxnrs'
 
