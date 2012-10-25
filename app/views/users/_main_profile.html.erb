@@ -51,9 +51,9 @@
         <%= f.hidden_field :recipients_id, value: @user.id %>
         <%= f.hidden_field :recipients_username, value: @user.username %>
         
-        <%= f.text_area :body, class: 'xxlarge', rows: '4', placeholder: "Write #{@user.username} a private message...", onclick: (current_user.subscriber? ? nil : "buySubscription('#{subscription_url}');") %>
+        <%= f.text_area :body, class: 'xxlarge', rows: '4', placeholder: "Write #{@user.username} a private message...", onclick: (current_user.subscriber? ? nil : "buySubscription('#{subscription_url(v: SUBSCRIPTION_VERSION)}');") %>
         <div class="input-button"> 
-          <%= f.submit 'Send Message', id: "send_message_button", class: 'uibutton confirm', onclick: (current_user.subscriber? ? nil : "buySubscription('#{subscription_url}');return false;") %>
+          <%= f.submit 'Send Message', id: "send_message_button", class: 'uibutton confirm', onclick: (current_user.subscriber? ? nil : "buySubscription('#{subscription_url(v: SUBSCRIPTION_VERSION)}');return false;") %>
         </div><!-- //input-button" --> 
         
       <% end %>
