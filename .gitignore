@@ -20,5 +20,3 @@
 # Ignore database yml file
 config/database.yml
 
-# Don't add EY config file since it gets generated in deployment
-config/ey_services_config_local.yml

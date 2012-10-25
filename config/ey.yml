@@ -1,5 +1,0 @@
----
-sendgrid:
-  SENDGRID_SMTP_HOST: smtp.sendgrid.net
-  SENDGRID_PASSWORD: tyuyxnrs
-  SENDGRID_USERNAME: ey_service_1874@engineyard.com
