@@ -1,9 +1,9 @@
 <div class='header'>
   <div class='credit-balance'>
     <% if current_user.subscriber? %>
-      <%= link_to "You're currently subscribed. Yay!", credits_path, class: 'subscribed' %>
+      <%= link_to "You're currently subscribed. Yay!", '#', class: 'subscribed' %>
     <% else %>
-      <%= link_to "You are not a paid subscriber. Join now!", credits_path, class: 'subscribe' %>
+      <%= link_to "You are not a paid subscriber. Join now!", '#', class: 'subscribe' %>
     <% end %>
   </div>
   <%= image_tag 'searchicon.png' %>
@@ -13,5 +13,5 @@
   <%= tab_links('Account', account_path) %>
   <%= tab_links('Notifications', notifications_path) %>
   <%= tab_links('Privacy', privacy_path) %>
-  <%= tab_links('Credits', credits_path) %>
+  <%#<%= tab_links('Credits', credits_path) %>
 </ul>
