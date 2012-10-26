@@ -16,7 +16,7 @@ class WelcomeController < ApplicationController
     end
 
     if User.all.size >= 5
-      users = User.recent.slice(-4, 4)
+      users = User.all.slice(-4, 4)
       @user1 = users[0]
       @user2 = users[1]
       @user3 = users[2]
