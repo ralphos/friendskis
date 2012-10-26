@@ -24,9 +24,7 @@ class User < ActiveRecord::Base
       user.location = auth.info.location
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      if user.username.nil?
-        user.username = auth.info.first_name + auth.uid[0..2]
-      end
+      user.username = auth.extra.raw_info.username
       user.save!
     end
   end
