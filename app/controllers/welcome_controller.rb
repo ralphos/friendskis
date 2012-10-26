@@ -15,7 +15,7 @@ class WelcomeController < ApplicationController
       return
     end
 
-    if User.all.size >= 5
+    if User.all.count >= 5
       users = User.all.slice(-4, 4)
       @user1 = users[0]
       @user2 = users[1]
