@@ -59,7 +59,7 @@ module Friendskis
     # parameters by using an attr_accessible or attr_protected declaration.
     config.active_record.whitelist_attributes = true
 
-    config.action_controller.allow_forgery_protection = false
+    #config.action_controller.allow_forgery_protection = false
 
     # Enable the asset pipeline
     config.assets.enabled = true
