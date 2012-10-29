@@ -5,15 +5,17 @@ class WelcomeController < ApplicationController
   layout 'welcome' 
   
   def index
-    if Rails.env == "production" && params[:signed_request].blank?
+    if Rails.env == "production" # && params[:signed_request].blank?
       redirect_to "https://apps.facebook.com/friendskis/"
       return
+    else 
+      redirect_to_users_path
     end
 
-    if user_signed_in?
-      redirect_to users_path
-      return
-    end 
+    #if user_signed_in?
+      #redirect_to users_path
+      #return
+#    end 
   end
 
   def subscription
