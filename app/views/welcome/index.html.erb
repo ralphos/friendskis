@@ -24,40 +24,37 @@
 <div class="row" style="margin-top: 50px">
   <div class="span7" style="margin-left: 20px">
     <h3 class="people-header">Who's on Friendskis now</h3>
-     <%#Remove this when there are at least 4 users!%>
-    <% if !@user1.nil? && !@user2.nil? && !@user3.nil? && !@user4.nil? %>
     <div class="homepage-links">
         <div class="box-1">
-          <%= image_tag "https://graph.facebook.com/#{@user1.uid}/picture" %>
+          <%= image_tag "simon.jpg" %>
           <div class='p-info'>
-            <h5><%= @user1.username %></h5>
-            <p><%= @user1.age.to_s + ' · ' + @user1.gender + ' · ' +  criteria(@user1) %></p>
+            <h5>SimonW</h5>
+            <p>24 · Male · Interested in women</p>
           </div><!-- /p-info -->
         </div><!-- /box-1 -->
       <div class="box-2">
-        <%= image_tag "https://graph.facebook.com/#{@user2.uid}/picture" %>
+        <%= image_tag "laura.jpg" %>
         <div class='p-info'>
-          <h5><%= @user2.username %></h5>
-          <p><%= @user2.age.to_s + ' · ' + @user2.gender + ' · ' +  criteria(@user2) %></p>
+          <h5>Laura85</h5>
+          <p>27 · Female · Interested in men</p>
         </div><!-- /p-info -->
       </div><!-- /box-2 -->
       <div class="box-3">
-        <%= image_tag "https://graph.facebook.com/#{@user3.uid}/picture" %>
+        <%= image_tag "fred.jpg" %>
         <div class='p-info'>
-          <h5><%= @user3.username %></h5>
-          <p><%= @user3.age.to_s + ' · ' + @user3.gender + ' · ' +  criteria(@user3) %></p>
+          <h5>Freddy</h5>
+          <p>33 · Male · Interested in women</p>
         </div><!-- /p-info -->
       </div><!-- /box-3 -->
 
       <div class="box-3">
-        <%= image_tag "https://graph.facebook.com/#{@user4.uid}/picture" %>
+        <%= image_tag "marshall.jpg" %>
         <div class='p-info'>
-          <h5><%= @user4.username %></h5>
-          <p><%= @user4.age.to_s + ' · ' + @user4.gender + ' · ' +  criteria(@user4) %></p>
+          <h5>Marshmellow</h5>
+          <p>26 · Male · Interested in women</p>
         </div><!-- /p-info -->
       </div><!-- /box-3 -->
     </div><!-- /homepage-links -->
-  <% end %>
   </div><!-- /span7 -->
   <div class="span5" style="margin-left: 20px">
     <div class="fb-like-box" data-href="http://www.facebook.com/friendskis" data-width="300" data-height="340" data-show-faces="true" data-stream="true" data-header="true"></div>
