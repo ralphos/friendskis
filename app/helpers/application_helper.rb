@@ -47,6 +47,8 @@ module ApplicationHelper
       "Interested in men"
     when '2'
       "Interested in women"
+    else 
+      "Interested to meet people"
     end
   end
 
