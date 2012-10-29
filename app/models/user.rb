@@ -74,7 +74,7 @@ class User < ActiveRecord::Base
   
   def albums
     albums = self.facebook.get_connections(uid, "albums")
-    albums.map { |h| { id: h["id"], name: h["name"], count: h["count"], cover_photo: facebook.get_picture(h["cover_photo"]) } }
+    albums.map { |h| { id: h["id"], name: h["name"], count: h["count"], cover_photo: self.facebook.get_picture(h["cover_photo"]) } }
   end
   
   def album_photos(album_id)
