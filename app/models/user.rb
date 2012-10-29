@@ -14,21 +14,25 @@ class User < ActiveRecord::Base
   scope :recent, order: "created_at desc"
 
   def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.name = auth.info.name
-      user.link = auth.extra.raw_info.link
-      user.email = auth.info.email
-      user.gender = auth.extra.raw_info.gender
-      user.location = auth.info.location
-      user.oauth_token = auth.credentials.token
-      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.username = auth.extra.raw_info.username
-      if user.username.nil?
-        user.username = auth.info.first_name + auth.uid[0..2]
+    begin
+      where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.name = auth.info.name
+        user.link = auth.extra.raw_info.link
+        user.email = auth.info.email
+        user.gender = auth.extra.raw_info.gender
+        user.location = auth.info.location
+        user.oauth_token = auth.credentials.token
+        user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+        user.username = auth.extra.raw_info.username
+        if user.username.nil?
+          user.username = auth.info.first_name + auth.uid[0..2]
+        end
+        user.save!
       end
-      user.save!
+    rescue Exception => e
+      Airbrake.notify(e)
     end
   end
 
