@@ -26,7 +26,7 @@ group :test do
   gem "cucumber-rails", ">= 1.2.1"
 end
 
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', "1.4.0"
 gem 'quiet_assets'
 gem 'koala'
 gem 'client_side_validations'
