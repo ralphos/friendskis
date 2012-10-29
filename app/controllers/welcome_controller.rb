@@ -9,7 +9,7 @@ class WelcomeController < ApplicationController
       redirect_to "https://apps.facebook.com/friendskis/"
       return
     else 
-      redirect_to_users_path
+      redirect_to_users_path if user_signed_in?
     end
 
     #if user_signed_in?
