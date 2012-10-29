@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     elsif user.profile_pic.nil?
       redirect_to step_two_path
     else
-      redirect_to users_path
+      redirect_to users_path(id: user.id)
     end
   end
 
