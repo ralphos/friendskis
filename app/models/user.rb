@@ -8,13 +8,13 @@ class User < ActiveRecord::Base
   has_many :recipient_conversations, class_name: 'Conversation', foreign_key: :recipient_id, dependent: :destroy 
 
   validates :username, presence: true
-  validates :username, length: { in: 4..16 }
+  validates :username, length: { in: 4..24 }
   validates :username, uniqueness: { case_sensitive: false }
 
   scope :recent, order: "created_at desc"
 
   def self.from_omniauth(auth)
-    begin
+    #begin
       where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
         user.provider = auth.provider
         user.uid = auth.uid
@@ -29,11 +29,13 @@ class User < ActiveRecord::Base
         if user.username.nil?
           user.username = auth.info.first_name + auth.uid[0..2]
         end
+
+        Rails.logger.info user.inspect
         user.save!
       end
-    rescue Exception => e
-      Airbrake.notify(e)
-    end
+    #rescue Exception => e
+    #  Airbrake.notify(e)
+    #end
   end
 
   def subscriber?
