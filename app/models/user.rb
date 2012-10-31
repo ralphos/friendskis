@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   scope :recent, order: "created_at desc"
 
   def self.from_omniauth(auth)
-    begin
+    #begin
       where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
         user.provider = auth.provider
         user.uid = auth.uid
@@ -28,11 +28,13 @@ class User < ActiveRecord::Base
         if user.username.nil?
           user.username = auth.info.first_name + auth.uid[0..2]
         end
+
+        Rails.logger.info user.inspect
         user.save!
       end
-    rescue Exception => e
-      Airbrake.notify(e)
-    end
+    #rescue Exception => e
+    #  Airbrake.notify(e)
+    #end
   end
 
   def subscriber?
