@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :recipient_conversations, class_name: 'Conversation', foreign_key: :recipient_id, dependent: :destroy 
 
   validates :username, presence: true
-  validates :username, length: { in: 4..16 }
+  validates :username, length: { in: 4..24 }
   validates :username, uniqueness: { case_sensitive: false }
 
   scope :recent, order: "created_at desc"
