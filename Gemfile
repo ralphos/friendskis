@@ -33,3 +33,5 @@ gem 'client_side_validations'
 gem 'kaminari'
 gem 'ey_config'
 gem 'airbrake'
+
+gem 'rack-facebook-signed-request'
