@@ -213,7 +213,7 @@ DEPENDENCIES
   kaminari
   koala
   launchy
-  omniauth-facebook
+  omniauth-facebook (= 1.4.0)
   pg
   quiet_assets
   rails (= 3.2.8)
