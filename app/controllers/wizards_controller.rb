@@ -20,7 +20,7 @@ class WizardsController < ApplicationController
     if @user.save
       redirect_to step_two_url
     else
-      render :back
+      render 'step_one' 
     end
   end
 end
