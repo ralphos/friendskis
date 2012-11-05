@@ -1,50 +1,63 @@
-<div class='row'>
-<div class="span3">
-  <%= render 'shared/static_nav' %>
-</div><!-- //span3 -->
-<div class="span9">
-  <div class='about-lnc'>
-    <div class='about-header'>
-      <h2>Frequently Asked Questions</h2>
-    </div>
-    <div class='what'>
-      <h3 style="line-height: 20px">I’m not sure I want to log in with my Facebook account. Is it really anonymous?</h3>
-      <p>
-      Yes. When you sign up we ask you to provide a username so that no one knows your real name on Facebook. We think it’s really important to keep everyone’s Facebook profiles anonymous until <em>you</em> decide it’s time to share it - and even when you do share it, you’ll be able to choose <em>who</em> you want to share it with. 
-      </p>
-      <h3>Will you ever post to my wall on Facebook?</h3>
-      <p>
-      No, we think the idea of posting to your timeline or your friends’ timelines sucks, and we would never intentionally do that. Rest assured we will not implement any features that post to your wall. 
-      </p>
-      <h3>Will my friends see that I’ve joined Friendskis?</h3>
-      <p>
-      Possibly. Sometimes in the live ticker on the right side of your Facebook canvas will your friends be able to see apps that you’ve recently used. The other case is when you specifically invite a friend to join the app via a Facebook request. As mentioned above, we’ll never post to your activity feed or timeline on Facebook, so don’t worry about that. 
-      </p>
-      <h3>What do I have to pay for on Friendskis?</h3>
-      <p>
-      In order to contact other Friendskis’ members, you need to purchase a subscription via Facebook. Why? Because by charging our users (USD$2.99 per/month), we hope to separate the serious users from those who aren’t. Plus we need to pay our bills! 
-      </p>
-      <h3>How do I manage my subscription payments?</h3>
-      <p>
-      Once subscribed you can manage your subscription via your account settings page on Facebook. Click on the ‘payments’ tab and from there you should be able to edit/cancel your Friendskis subscription. 
-      </p>
-      <h3>What is the popularity meter and how does it work?</h3>
-      <p>
-      The popularity meter is a cool feature on Friendskis that let’s you know how popular your photos are relative to every other user in the system. Basically, whenever someone says your photo is ‘cool’, that photo is brought back to the top of everyone’s feed. Using our special algorithm we calculate how many ‘cool’ photos you have and adjust your popularity meter accordingly. So choose your photos wisely and watch your popularity rise!
-      </p>
-      <h3>How do I become friends with someone on Facebook that I like?</h3>
-      <p>
-      So let’s say you are messaging someone on Friendskis and it’s going well. You decide you want to add them as a friend on Facebook to get to know them some more. Well you can! Just click on the ‘Share profile’ button to reveal your actual Facebook profile. The other person in the conversation will now be able to click through to your Facebook profile and add you as a friend. 
-      </p>
-      <h3 style="line-height: 20px">How can I get in contact with Friendskis to ask a question, give feedback or just say “Hello”?</h3>
-      <p>
-      Friendskis was only recently launched and we’re working hard to improve it everyday. If you have any suggestions or ideas, we’d love to hear from you. Just send your email to ralph@friendskis.com
-      </p>
-    </div><!-- //what -->
-  </div><!-- //about-lnc -->
-</div><!-- //span9 -->
-</div>
+<% content_for :header do %>
+  <div class='blue-header'>
+    <div class='blue-header-title'>
+      <h2><%= page_header %></h2> <!-- write a method to change the content here depending on action -->
+    </div><!-- //blue-header-title -->
+  </div><!-- //blue-header -->
+<% end %>
 
+<div id="wrapper" class="container canvas">
+    <div class="span12 main" style="padding-left: 20px">
+      <div class="row">
+
+        <div class="span3">
+          <%= render 'shared/static_nav' %>
+        </div><!-- //span3 -->
+        <div class="span9" style="border: none">
+          <div class='about-lnc'>
+            <div class='about-header'>
+              <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class='what'>
+              <h3 style="line-height: 20px">I’m not sure I want to log in with my Facebook account. Is it really anonymous?</h3>
+              <p>
+              Yes. When you sign up we ask you to provide a username so that no one knows your real name on Facebook. We think it’s really important to keep everyone’s Facebook profiles anonymous until <em>you</em> decide it’s time to share it - and even when you do share it, you’ll be able to choose <em>who</em> you want to share it with. 
+              </p>
+              <h3>Will you ever post to my wall on Facebook?</h3>
+              <p>
+              No, we think the idea of posting to your timeline or your friends’ timelines sucks, and we would never intentionally do that. Rest assured we will not implement any features that post to your wall. 
+              </p>
+              <h3>Will my friends see that I’ve joined Friendskis?</h3>
+              <p>
+              Possibly. Sometimes in the live ticker on the right side of your Facebook canvas will your friends be able to see apps that you’ve recently used. The other case is when you specifically invite a friend to join the app via a Facebook request. As mentioned above, we’ll never post to your activity feed or timeline on Facebook, so don’t worry about that. 
+              </p>
+              <h3>What do I have to pay for on Friendskis?</h3>
+              <p>
+              In order to contact other Friendskis’ members, you need to purchase a subscription via Facebook. Why? Because by charging our users (USD$2.99 per/month), we hope to separate the serious users from those who aren’t. Plus we need to pay our bills! 
+              </p>
+              <h3>How do I manage my subscription payments?</h3>
+              <p>
+              Once subscribed you can manage your subscription via your account settings page on Facebook. Click on the ‘payments’ tab and from there you should be able to edit/cancel your Friendskis subscription. 
+              </p>
+              <h3>What is the popularity meter and how does it work?</h3>
+              <p>
+              The popularity meter is a cool feature on Friendskis that let’s you know how popular your photos are relative to every other user in the system. Basically, whenever someone says your photo is ‘cool’, that photo is brought back to the top of everyone’s feed. Using our special algorithm we calculate how many ‘cool’ photos you have and adjust your popularity meter accordingly. So choose your photos wisely and watch your popularity rise!
+              </p>
+              <h3>How do I become friends with someone on Facebook that I like?</h3>
+              <p>
+              So let’s say you are messaging someone on Friendskis and it’s going well. You decide you want to add them as a friend on Facebook to get to know them some more. Well you can! Just click on the ‘Share profile’ button to reveal your actual Facebook profile. The other person in the conversation will now be able to click through to your Facebook profile and add you as a friend. 
+              </p>
+              <h3 style="line-height: 20px">How can I get in contact with Friendskis to ask a question, give feedback or just say “Hello”?</h3>
+              <p>
+              Friendskis was only recently launched and we’re working hard to improve it everyday. If you have any suggestions or ideas, we’d love to hear from you. Just send your email to ralph@friendskis.com
+              </p>
+            </div><!-- //what -->
+          </div><!-- //about-lnc -->
+        </div><!-- //span9 -->
+
+      </div><!-- //row -->
+    </div><!-- //span12 -->
+</div><!-- //container -->  
 
 
 

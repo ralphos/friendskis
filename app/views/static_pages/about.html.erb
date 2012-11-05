@@ -1,53 +1,65 @@
-<div class='row'>
-<div class="span3">
-  <%= render 'shared/static_nav' %>
-</div><!-- //span3 -->
-<div class="span9">
-  <div class='about-lnc'>
-    <div class='about-header'>
-      <h2>About Friendskis</h2>
-    </div>
-    <div class='what'>
-      <h3>What is Friendskis?</h3>
-      <p>
-      Friendskis is an app that helps you discover and connect with new people on Facebook. Our aim is to help you broaden your circle of friends in a safe and anonymous environment whilst also having some fun! 
-      </p>
-      <p>
-      Friendskis works by allowing you to share photos from your Facebook profile anonymously. If you think someone’s photo is cool, vote up their photo or even better, send them a message. 
-      </p>
-      <p>
-      We keep everything on Friendskis anonymous until you decide to share your Facebook identity with whoever you are talking to. Simple as that! 
-      </p>
-    </div><!-- //what -->
-    <div class='who'>
-      <h3>Who is Friendskis?</h3>
-      <div class='founder-info'>
-        <h5>Ralph Wintle <span>Founder</span></h5>
-        <p>
-        Hi! My name is Ralph and I founded Friendskis in the Summer of 2012. I built Friendskis because I found that it was really difficult to meet new people online, whether for friendship or dating.
-        </p>
-        <p>
-        I realized that I would much rather check out someone’s Facebook profile before meeting them to make sure they were normal - plus I really enjoyed checking out other people’s photos! 
-        </p>
-        <p>
-        Please give Friendskis a try and always feel free to reach out to me if you have any suggestions or ideas! 
-        </p>
-      </div><!-- //founder-info -->
-      <div class='founder-profile'>
-        <%= image_tag 'profile.jpeg', style: 'width: 110px' %>
-      </div><!-- //founder-profile -->
-    </div><!-- //who -->
-    <div class='contact'>
-      <h3>Leave your Feedback!</h3>
-      <p>
-        I would love to hear your feedback in the comments section below or on our <%= link_to "Facebook app page", "https://www.facebook.com/friendskis" %>. 
-      </p>
-    </div>
-    <div class="fb-comments" data-href="https://friendskis.com/about" data-num-posts="6" data-width="540"></div>
-  </div><!-- //about-lnc -->
-</div><!-- //span9 -->
-</div>
+<% content_for :header do %>
+  <div class='blue-header'>
+    <div class='blue-header-title'>
+      <h2><%= page_header %></h2> <!-- write a method to change the content here depending on action -->
+    </div><!-- //blue-header-title -->
+  </div><!-- //blue-header -->
+<% end %>
+
+<div id="wrapper" class="container canvas">
+    <div class="span12 main" style="padding-left: 20px">
+      <div class="row">
+
+          <div class="span3">
+            <%= render 'shared/static_nav' %>
+          </div><!-- //span3 -->
+          <div class="span9" style="border: none">
+            <div class='about-lnc'>
+              <div class='about-header'>
+                <h2>About Friendskis</h2>
+              </div>
+              <div class='what'>
+                <h3>What is Friendskis?</h3>
+                <p>
+                Friendskis is an app that helps you discover and connect with new people on Facebook. Our aim is to help you broaden your circle of friends in a safe and anonymous environment whilst also having some fun! 
+                </p>
+                <p>
+                Friendskis works by allowing you to share photos from your Facebook profile anonymously. If you think someone’s photo is cool, vote up their photo or even better, send them a message. 
+                </p>
+                <p>
+                We keep everything on Friendskis anonymous until you decide to share your Facebook identity with whoever you are talking to. Simple as that! 
+                </p>
+              </div><!-- //what -->
+              <div class='who'>
+                <h3>Who is Friendskis?</h3>
+                <div class='founder-info'>
+                  <h5>Ralph Wintle <span>Founder</span></h5>
+                  <p>
+                  Hi! My name is Ralph and I founded Friendskis in the Summer of 2012. I built Friendskis because I found that it was really difficult to meet new people online, whether for friendship or dating.
+                  </p>
+                  <p>
+                  I realized that I would much rather check out someone’s Facebook profile before meeting them to make sure they were normal - plus I really enjoyed checking out other people’s photos! 
+                  </p>
+                  <p>
+                  Please give Friendskis a try and always feel free to reach out to me if you have any suggestions or ideas! 
+                  </p>
+                </div><!-- //founder-info -->
+                <div class='founder-profile'>
+                  <%= image_tag 'profile.jpeg', style: 'width: 110px' %>
+                </div><!-- //founder-profile -->
+              </div><!-- //who -->
+              <div class='contact'>
+                <h3>Leave your Feedback!</h3>
+                <p>
+                  I would love to hear your feedback in the comments section below or on our <%= link_to "Facebook app page", "https://www.facebook.com/friendskis" %>. 
+                </p>
+              </div>
+              <div class="fb-comments" data-href="https://friendskis.com/about" data-num-posts="6" data-width="540"></div>
+            </div><!-- //about-lnc -->
+          </div><!-- //span9 -->
 
 
-
+      </div><!-- //row -->
+    </div><!-- //span12 -->
+</div><!-- //container -->  
 
