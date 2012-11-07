@@ -17,9 +17,14 @@
             <%= link_to "Change profile photo", step_two_url %>
           </p>
       </div>
+      <%= form_for @user, validate: true, remote: true do |f| %>
+      <h3>Username</h3>
+      <div class='field'>
+        <%= f.text_field :username %>
+      </div>
       <h3>What are you looking for?</h3>
       <div class='acc_1'>
-      <%= form_for @user do |f| %>
+      
         
         <%= f.label :preference, "I'm a" %>
         <%= f.select(:preference, { "woman seeking man" => '1', "man seeking woman" => '2' }) %>
