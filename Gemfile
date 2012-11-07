@@ -20,6 +20,7 @@ group :development, :test do
   gem "capybara", ">= 1.1.2"
   gem "database_cleaner"
   gem "launchy"
+  gem "guard-rspec", "~> 0.7.0"
 end
 
 group :test do
