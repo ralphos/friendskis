@@ -11,8 +11,9 @@ class ApplicationController < ActionController::Base
   helper_method :correct_user?
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
-    @current_user ||= User.where(uid: session[:fb_id]).first if session[:fb_id]
+    @current_user ||= User.find(session[:user_id]) if @current_user.blank? && session[:user_id]
+    @current_user ||= User.where(uid: @fb_session_id).first if @current_user.blank? && @fb_session_id.present?
+    @current_user
   end
 
   def user_signed_in?
@@ -53,9 +54,9 @@ class ApplicationController < ActionController::Base
   def detect_facebook
     Rails.logger.info "Request Headers: #{request.headers.keys}"
 
-    session[:fb_id] = request.headers['HTTP_X_FB_ID']
+    @fb_session_id = request.headers['HTTP_X_FB_ID']
 
-    logger.info "FACEBOOK ID: #{session[:fb_id]}"
+    logger.info "FACEBOOK ID: #{@fb_session_id} / FB PARAMS #{request.env['facebook.params']}"
 
     if request.env['facebook.params']
       #logger.info "Received POST w/ signed_request from Facebook."
