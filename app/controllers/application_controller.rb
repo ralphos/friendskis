@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :set_facebook_cookie
+  before_filter :detect_facebook
 
   private
   
@@ -11,6 +12,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    @current_user ||= User.where(uid: session[:fb_id]).first if session[:fb_id]
   end
 
   def user_signed_in?
@@ -46,6 +48,20 @@ class ApplicationController < ActionController::Base
     end
 
     Rails.logger.info "Signed Request: #{params[:signed_request]}"
+  end
+
+  def detect_facebook
+    Rails.logger.info "Request Headers: #{request.headers.keys}"
+
+    session[:fb_id] = request.headers['HTTP_X_FB_ID']
+
+    logger.info "FACEBOOK ID: #{session[:fb_id]}"
+
+    if request.env['facebook.params']
+      #logger.info "Received POST w/ signed_request from Facebook."
+      #log_in_with_facebook request.env['facebook.params']
+    end
+    true
   end
 
 end

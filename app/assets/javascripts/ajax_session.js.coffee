@@ -3,6 +3,8 @@ $.ajaxSetup beforeSend: (xhr) ->
   xhr.withCredentials = true
   xhr.setRequestHeader "X-CSRF-Token", $("meta[name=\"csrf-token\"]").attr("content")
   xhr.setRequestHeader "X-Session", Application.meta.session if Application.meta.session?
+  xhr.setRequestHeader "X-FB-ID", Application.fb.userID
+
   true
 
 # Rails remote forms
@@ -11,4 +13,5 @@ $(document).on 'ajax:beforeSend', (e,xhr) ->
   xhr.withCredentials = true
   xhr.setRequestHeader "X-CSRF-Token", $("meta[name=\"csrf-token\"]").attr("content")
   xhr.setRequestHeader "X-Session", Application.meta.session if Application.meta.session?
+  xhr.setRequestHeader "X-FB-ID", Application.fb.userID
   true
