@@ -36,6 +36,7 @@
     // This is where we store the session data
     window.Application = {};
     window.Application.meta = <%= raw page_metadata.to_json %>;
+    window.Application.fb = {}
 
     $(function() {
       initCJAX();
@@ -50,6 +51,20 @@
   <script src="//connect.facebook.net/en_US/all.js"></script>
   <script>
     FB.init({appId: "<%= FB_APP_ID %>", status: true, cookie: true});
+
+    $(function() {
+      FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+          window.Application.fb.userID = response.authResponse.userID;
+          window.Application.fb.accessToken = response.authResponse.accessToken;
+        } else if (response.status === 'not_authorized') {
+          // the user is logged in to Facebook, 
+          // but has not authenticated your app
+        } else {
+          // the user isn't logged in to Facebook.
+        }
+       });
+    });
   </script>
 
   <div id="wrapper">
