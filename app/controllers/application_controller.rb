@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :set_facebook_cookie
-  before_filter :detect_facebook
 
   private
   
@@ -58,12 +57,8 @@ class ApplicationController < ActionController::Base
 
   def fb_user_id
     koala = Koala::Facebook::OAuth.new '386324544771493', '775dfc20bc0f9461e86a383d83b52a1e'
-    @fb_user_id = koala.parse_signed_request(params[:signed_request])
-  end
-
-  def detect_facebook
-    @fb_user_id = request.headers['HTTP_X_FB_ID']
-    logger.info "FACEBOOK ID: #{@fb_user_id}"
+    signed_params = koala.parse_signed_request(params[:signed_request])
+    @fb_user_id = signed_params["user"]["user_id"] if signed_params && signed_params["user"]
   end
 
 end
