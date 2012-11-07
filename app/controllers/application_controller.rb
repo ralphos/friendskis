@@ -11,8 +11,9 @@ class ApplicationController < ActionController::Base
   helper_method :correct_user?
 
   def current_user
-    @current_user = User.find(session[:user_id]) if @current_user.blank? && session[:user_id]
-    @current_user = User.where(uid: session[:fb_id]).first if @current_user.blank? && session[:fb_id]
+    @current_user ||= User.find(session[:user_id]) if @current_user.blank? && session[:user_id]
+    @current_user ||= User.where(uid: @fb_session_id).first if @current_user.blank? && @fb_session_id.present?
+    @current_user
   end
 
   def user_signed_in?

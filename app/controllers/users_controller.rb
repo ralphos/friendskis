@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   
   def index
     session[:user_id] = params[:id] if params[:id].present?
-    @user = User.find(params[:id]) 
-    @current_user = @user
+    @current_user = User.find(params[:id]) 
     @photos = UserPhoto.latest_photos(@user).page(params[:page])
     @message = Message.new
   end
