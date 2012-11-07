@@ -48,7 +48,7 @@
       rootUrl     = History.getRootUrl()
       relativeUrl = url.replace(rootUrl, "")
       $body.addClass "loading"
-      $content.animate {opacity: 0}, 200
+      #$content.animate {opacity: 0}, 200
 
       $.ajax
         url: url
