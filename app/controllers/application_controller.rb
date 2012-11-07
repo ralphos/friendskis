@@ -82,6 +82,7 @@ class ApplicationController < ActionController::Base
       session[:fb_user_id] = cookies[:fb_user_id] = @fb_user_id if @fb_user_id.present?
     end
 
+    @fb_user_id
   end
 
 end

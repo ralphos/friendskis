@@ -4,7 +4,7 @@ $.ajaxSetup beforeSend: (xhr) ->
   xhr.setRequestHeader "X-CSRF-Token", $("meta[name=\"csrf-token\"]").attr("content")
   xhr.setRequestHeader "X-Session", Application.meta.session if Application.meta.session?
   xhr.setRequestHeader "X-FB-ID", Application.fb.userID
-  xhr.setRequestHeader "X-FB-AccessToken", Application.fb.accessToken = response.authResponse.accessToken;
+  xhr.setRequestHeader "X-FB-AccessToken", Application.fb.accessToken 
 
   true
 
@@ -15,6 +15,6 @@ $(document).on 'ajax:beforeSend', (e,xhr) ->
   xhr.setRequestHeader "X-CSRF-Token", $("meta[name=\"csrf-token\"]").attr("content")
   xhr.setRequestHeader "X-Session", Application.meta.session if Application.meta.session?
   xhr.setRequestHeader "X-FB-ID", Application.fb.userID
-  xhr.setRequestHeader "X-FB-AccessToken", Application.fb.accessToken = response.authResponse.accessToken;
+  xhr.setRequestHeader "X-FB-AccessToken", Application.fb.accessToken 
 
   true
