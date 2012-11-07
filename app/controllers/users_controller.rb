@@ -17,7 +17,11 @@ class UsersController < ApplicationController
     @user = current_user
     @user.attributes = params[:user]
     if @user.save
-      redirect_to user_url(@user), notice: "Your account has been updated!"
+      respond_to do |w|
+        w.html { redirect_to user_url(@user)}
+        w.js { render js: "History.pushState(null, 'Profile Page', '#{user_url(@user)}')"}
+      end
+      flash[:notice] = "Your account has been updated!"
     else
       render :back, notice: "Sorry there was an error updating your account."
     end
