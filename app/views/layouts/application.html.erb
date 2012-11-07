@@ -44,7 +44,7 @@
   </script>
 
   </head>
-<body>
+  <body>
   <div id="fb-ui-return-data"></div>
   <div id="fb-root"></div>
   <!-- Move this somewhere else? -->
@@ -64,14 +64,21 @@
     });
   </script>
 
-  <div id="wrapper" class="container canvas">
-    <div class="row">
-      <div class="span12 main">
-        <div class="row">
-          <%= yield %>
-        </div><!-- //row -->
-      </div><!-- //span12 -->
-    </div><!-- //row -->
-  </div><!-- //container -->  
+  <div id="wrapper">
+
+    <%= yield :header %>
+
+    <div class="container canvas">
+      <div class="row">
+        <div class="span12 main">
+          <div class="row">
+            <%= yield %>
+          </div><!-- //row -->
+        </div><!-- //span12 -->
+      </div><!-- //row -->
+    </div><!-- //container -->  
+
+  </div>
+
 </body>
 </html>

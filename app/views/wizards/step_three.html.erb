@@ -27,7 +27,7 @@
     <%= image_tag @photo_url["medium_url"] %>
   </div>
 
-    <%= form_for @photo, url: photos_path, html: { class: 'form-stacked' } do |f| %>
+    <%= form_for @photo, url: photos_path, remote: true, html: { class: 'form-stacked' } do |f| %>
 
       <% if @photo.errors.any? %>
         <div class="alert-message error">

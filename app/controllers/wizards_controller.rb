@@ -18,7 +18,10 @@ class WizardsController < ApplicationController
     @user = current_user
     @user.attributes = params[:user]
     if @user.save
-      redirect_to step_two_url
+      respond_to do |w|
+        w.html { redirect_to step_two_path }
+        w.js { render js: "History.pushState(null, 'Wizard Step Two', '#{step_two_path}')"}
+      end
     else
       render 'step_one' 
     end

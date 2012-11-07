@@ -11,7 +11,7 @@
     </p>
   </div><!-- /tip-box -->
 
-  <%= form_for @user, url: step_one_path, validate: true do |f| %>
+  <%= form_for @user, url: step_one_path, validate: true, remote: true do |f| %>
 
     <%= f.hidden_field :is_first_login, value: false %>
 
