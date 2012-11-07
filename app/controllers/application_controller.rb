@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :set_facebook_cookie
-  before_filter :detect_facebook
 
   private
   
@@ -11,8 +10,15 @@ class ApplicationController < ActionController::Base
   helper_method :correct_user?
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if @current_user.blank? && session[:user_id]
-    @current_user ||= User.where(uid: @fb_session_id).first if @current_user.blank? && @fb_session_id.present?
+    if session[:user_id].present?
+      @current_user ||= User.find(session[:user_id])
+    end 
+
+    # If the sign in from facebook didn't work. Get from signed request (Safari workaround)
+    unless @current_user
+      @current_user ||= User.where(uid: fb_user_id).first if fb_user_id
+    end
+
     @current_user
   end
 
@@ -51,18 +57,32 @@ class ApplicationController < ActionController::Base
     Rails.logger.info "Signed Request: #{params[:signed_request]}"
   end
 
-  def detect_facebook
-    Rails.logger.info "Request Headers: #{request.headers.keys}"
+  def fb_user_id
+    if params[:signed_request]
+      koala = Koala::Facebook::OAuth.new FB_APP_ID, FB_SECRET
 
-    @fb_session_id = request.headers['HTTP_X_FB_ID']
+      signed_params = koala.parse_signed_request(params[:signed_request])
+      @fb_user_id = signed_params["user_id"] if signed_params
 
-    logger.info "FACEBOOK ID: #{@fb_session_id} / FB PARAMS #{request.env['facebook.params']}"
-
-    if request.env['facebook.params']
-      #logger.info "Received POST w/ signed_request from Facebook."
-      #log_in_with_facebook request.env['facebook.params']
+      session[:fb_user_id] = cookies[:fb_user_id] = @fb_user_id if @fb_user_id.present?
     end
-    true
+
+    if @fb_user_id.blank?
+      @fb_user_id = request.headers['HTTP_X_FB_ID']
+      session[:fb_user_id] = cookies[:fb_user_id] = @fb_user_id if @fb_user_id.present?
+    end
+
+    if @fb_user_id.blank? && session[:fb_user_id]
+      @fb_user_id = session[:fb_user_id]
+      session[:fb_user_id] = cookies[:fb_user_id] = @fb_user_id if @fb_user_id.present?
+    end
+
+    if @fb_user_id.blank? && cookies[:fb_user_id]
+      @fb_user_id = cookies[:fb_user_id]
+      session[:fb_user_id] = cookies[:fb_user_id] = @fb_user_id if @fb_user_id.present?
+    end
+
+    @fb_user_id
   end
 
 end

@@ -29,7 +29,6 @@ class User < ActiveRecord::Base
           user.username = auth.info.first_name + auth.uid[0..2]
         end
 
-        Rails.logger.info user.inspect
         user.save!
       end
     #rescue Exception => e
