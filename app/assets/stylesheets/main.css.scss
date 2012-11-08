@@ -693,17 +693,24 @@ html, body {
 		padding-top: 5px;
 		
 		.credits-settings { 
-			h3 { padding-bottom: 5px }
+			h3 { 
+        padding-bottom: 15px;
+        padding-top: 15px;
+      }
 			
-			a { float: right; margin-top: 15px }
-			.credit-amt { font-weight: bold; color: #DD3C10 } 
-			
+			a { 
+        float: right; 
+        margin-top: 15px;
+        width: 115px;
+        &:hover { text-decoration: none; color: white }
+      }
 		}
 		
 		.well {
 			margin-top: 15px;
 			padding: 10px 19px;
-			h5 { margin-bottom: 5px }
+			h5 { margin-bottom: 5px; }
+      h5.second-header { margin-top: 15px }
 			p > span { font-weight: bold }
 			li { color: #333; padding: 2px 0 }
 		}
