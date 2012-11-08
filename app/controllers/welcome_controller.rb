@@ -6,10 +6,15 @@ class WelcomeController < ApplicationController
   
   def index
 
-    if Rails.env == "production" && params[:signed_request].blank?
-      redirect_to "https://apps.facebook.com/friendskis/"
-      return
-    end
+    #if Rails.env == "production" && params[:signed_request].blank?
+
+      #if user_signed_in?
+        #session[:user_id] = current_user.id
+      #end
+
+      #redirect_to "https://apps.facebook.com/friendskis/"
+      #return
+    #end
 
     #if params[:signed_request].present?
       #redirect_to "/auth/facebook/?signed_request=#{params[:signed_request]}"

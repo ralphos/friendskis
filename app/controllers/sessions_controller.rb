@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path(signed_request: params[:signed_request])
+    redirect_to root_path #(signed_request: params[:signed_request])
   end
 
   def test_login
