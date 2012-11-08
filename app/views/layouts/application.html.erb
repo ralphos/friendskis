@@ -27,11 +27,12 @@
   <script type="text/javascript">
     // If our app is not loaded in a canvas, refresh and load inside a canvas
 
-    /*
-    if (window == window.top) {
-      window.top.location = "<%= facebook_iframed_url %>";
-    }
-    */
+    <% if Rails.env.production? %>
+      if (window == window.top) {
+        window.top.location = "<%= facebook_iframed_url %>";
+      }
+    <% end %>
+
 
     // This is where we store the session data
     window.Application = {};
@@ -39,7 +40,7 @@
     window.Application.fb = {}
 
     $(function() {
-      initCJAX();
+      //initCJAX();
     });
   </script>
 
@@ -50,7 +51,7 @@
   <!-- Move this somewhere else? -->
   <script src="//connect.facebook.net/en_US/all.js"></script>
   <script>
-    FB.init({appId: "<%= FB_APP_ID %>", status: true, cookie: true});
+    FB.init({appId: "<%= FB_APP_ID %>", status: true, cookie: true, channelUrl: '<%= channel_url %>'});
 
     $(function() {
       FB.getLoginStatus(function(response) {

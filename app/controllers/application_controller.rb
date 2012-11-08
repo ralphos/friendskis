@@ -72,8 +72,8 @@ class ApplicationController < ActionController::Base
       session[:fb_user_id] = cookies[:fb_user_id] = @fb_user_id if @fb_user_id.present?
     end
 
-    if @fb_user_id.blank? && session[:fb_user_id]
-      @fb_user_id = session[:fb_user_id]
+    if @fb_user_id.blank? && get_session[:fb_user_id]
+      @fb_user_id = get_session[:fb_user_id]
       session[:fb_user_id] = cookies[:fb_user_id] = @fb_user_id if @fb_user_id.present?
     end
 
@@ -84,5 +84,27 @@ class ApplicationController < ActionController::Base
 
     @fb_user_id
   end
+
+  def get_session
+    if has_session_in_header?
+      logger.info "Reading session from header"
+      return @header_session if @header_session
+      encrypted_session = request.headers['X-Session']
+      secret = Friendskis::Application.config.secret_token
+      verifier = ActiveSupport::MessageVerifier.new(secret, 'SHA1')
+      @header_session = verifier.verify(encrypted_session).with_indifferent_access
+    else
+      logger.info "Reading session from cookies"
+      session
+    end
+  end
+
+  # Session present in request header (for CJAX requests)
+  def has_session_in_header?
+    !!(request.headers['X-Session'])
+  end
+
+
+
 
 end

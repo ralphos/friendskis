@@ -1,5 +1,7 @@
 class PhotosController < ApplicationController
   
+  skip_before_filter :verify_authenticity_token, only: :create
+
   def pick_album
     @albums = current_user.albums
   end
