@@ -61,27 +61,25 @@ class ApplicationController < ActionController::Base
     if params[:signed_request]
       koala = Koala::Facebook::OAuth.new FB_APP_ID, FB_SECRET
 
-      signed_params = koala.parse_signed_request(params[:signed_request])
-      @fb_user_id = signed_params["user_id"] if signed_params
+      @signed_params = koala.parse_signed_request(params[:signed_request])
+      @fb_user_id = @signed_params["user_id"] if @signed_params
 
-      session[:fb_user_id] = cookies[:fb_user_id] = @fb_user_id if @fb_user_id.present?
+
     end
 
     if @fb_user_id.blank?
-      @fb_user_id = request.headers['HTTP_X_FB_ID']
-      session[:fb_user_id] = cookies[:fb_user_id] = @fb_user_id if @fb_user_id.present?
+      @fb_user_id = request.headers['HTTP_X_FB_ID'] 
     end
 
     if @fb_user_id.blank? && get_session[:fb_user_id]
-      @fb_user_id = get_session[:fb_user_id]
-      session[:fb_user_id] = cookies[:fb_user_id] = @fb_user_id if @fb_user_id.present?
+      @fb_user_id = get_session[:fb_user_id] 
     end
 
     if @fb_user_id.blank? && cookies[:fb_user_id]
-      @fb_user_id = cookies[:fb_user_id]
-      session[:fb_user_id] = cookies[:fb_user_id] = @fb_user_id if @fb_user_id.present?
+      @fb_user_id = cookies[:fb_user_id] 
     end
 
+    session[:fb_user_id] = cookies[:fb_user_id] = @fb_user_id if @fb_user_id.present?
     @fb_user_id
   end
 

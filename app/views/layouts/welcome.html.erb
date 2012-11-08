@@ -23,6 +23,17 @@
     })();
 
   </script>
+
+  <script type="text/javascript">
+
+    $(function() {
+
+      $('.sign_in_link').click(function() {
+        window.top.location = $(this).attr('href');
+      });
+
+    });
+  </script>
 </head>
 <body>
   <header>
@@ -48,10 +59,10 @@
       <div class="welcome-text">
         <h1>Friendskis</h1>
         <h3 class='tagline'>Discover and meet new friends on Facebook</h3>
-        <a href="/auth/facebook" class='uibutton large special'>Login <em>anonymously</em> with Facebook</a>
+        <a href="<%= authenticate_url %>" class='uibutton large special sign_in_link'>Login <em>anonymously</em> with Facebook</a>
         <%#<a href='#' class='uibutton large special' onclick="buySubscription();">Subscribe Now</a>%>
       </div><!-- //welcome-text -->
-      <a href="/auth/facebook">
+      <a href="<%= authenticate_url %>" class="sign_in_link">
         <div class="polaroid">
           <%= image_tag "anickas_profile.png" %>
           <p>Anicka<br><span class="job">Friendskis member</span></p>

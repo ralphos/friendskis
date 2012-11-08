@@ -68,8 +68,9 @@ class User < ActiveRecord::Base
     # (sender_conversations + recipient_conversations).sort { |a, b| a.updated_at <=> b.updated_at }.reverse
   end
   
-  def facebook
-    @facebook ||= Koala::Facebook::API.new(oauth_token)
+  def facebook(token = "")
+    token = oauth_token if token.blank?
+    @facebook ||= Koala::Facebook::API.new(token)
   end
   
   def albums

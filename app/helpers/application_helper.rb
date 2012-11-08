@@ -83,4 +83,8 @@ module ApplicationHelper
     "https://apps.facebook.com/friendskis"
   end
 
+  def authenticate_url
+    "#{root_url}auth/facebook"
+  end
+
 end
