@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  before_filter :fetch_signed_params
   before_filter :set_facebook_cookie
 
   private
@@ -57,14 +58,27 @@ class ApplicationController < ActionController::Base
     Rails.logger.info "Signed Request: #{params[:signed_request]}"
   end
 
+  def fetch_signed_request
+    koala = Koala::Facebook::OAuth.new FB_APP_ID, FB_SECRET
+
+    @signed_params = koala.parse_signed_request(params[:signed_request])
+
+    fb_id = @signed_params["user_id"]
+
+    if fb_id.present?
+      u = User.where(uid: fb_id).first
+      if u
+        u.update_attribute(:oauth_token, @signed_params["oauth_token"])
+      end
+
+    end
+    @signed_params
+  end
+
   def fb_user_id
     if params[:signed_request]
-      koala = Koala::Facebook::OAuth.new FB_APP_ID, FB_SECRET
-
-      @signed_params = koala.parse_signed_request(params[:signed_request])
+      fetch_signed_request
       @fb_user_id = @signed_params["user_id"] if @signed_params
-
-
     end
 
     if @fb_user_id.blank?
