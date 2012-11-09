@@ -3,6 +3,7 @@ Friendskis::Application.routes.draw do
   match '/subscriptions/update' => 'subscriptions#update'
   match '/subscription' => 'welcome#subscription', as: :subscription
   match '/channel' => 'welcome#channel', as: :channel
+  match '/redirect-fix' => 'welcome#redirect_fix', as: :redirect_fix
 
   root :to => 'welcome#index'
   

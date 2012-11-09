@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
   
   def index
-    @photos = UserPhoto.latest_photos(current_user).page(params[:page])
-    @message = Message.new
+    if user_signed_in?
+      @photos = UserPhoto.latest_photos(current_user).page(params[:page])
+      @message = Message.new
+    else
+      redirect_to redirect_fix_url
+    end
   end
   
   def show

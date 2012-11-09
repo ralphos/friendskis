@@ -41,4 +41,8 @@ class WelcomeController < ApplicationController
     end
   end
 
+  def redirect_fix
+
+  end
+
 end
