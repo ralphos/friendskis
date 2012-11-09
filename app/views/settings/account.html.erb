@@ -17,7 +17,7 @@
             <%= link_to "Change profile photo", step_two_url %>
           </p>
       </div>
-      <%= form_for @user, validate: true, remote: true do |f| %>
+      <%= form_for @user, validate: true do |f| %>
       <h3>Username</h3>
       <div class='field'>
         <%= f.text_field :username %>
