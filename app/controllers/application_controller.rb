@@ -60,6 +60,7 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_signed_request
+    return nil if params[:signed_request].blank?
     koala = Koala::Facebook::OAuth.new FB_APP_ID, FB_SECRET
 
     @signed_params = koala.parse_signed_request(params[:signed_request])
