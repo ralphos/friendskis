@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
     visitor_ids = self.visitors.map { |v| v.visitor_id }
     visitors = User.where(id: visitor_ids).reject { |v| v.id == id }
     profile_pic_ids = visitors.map { |v| v.profile_pic }
-    Photo.where(id: profile_pic_ids)
+    Photo.where(id: profile_pic_ids).order('created_at desc')
   end
   
   def get_birthday
