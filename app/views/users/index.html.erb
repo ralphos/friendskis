@@ -37,17 +37,20 @@
       <%= image_tag 'message_icon.jpg', width: '75px'%>
     </div><!-- /sales-icon -->
     <div style="padding-left: 95px;">
-      <h3>Why should I subscribe?</h3>
+      <h3>Become a subscriber</h3>
       <p style="margin-top: 5px;">
-        For only <strong>USD$2.99 a month</strong> you can join Friendskis as a member and start conversations with other users.
+        For only <strong>USD$2.99 a month</strong> you can join Friendskis as a member and send unlimited messages to other users.
       </p>
       <p>
-      By messaging someone you'll be able to find out more about them as they share cool stuff from their Facebook profile, and
-      unlike other dating sites, anyone you message can reply for free - so you'll get more responses!
+        By messaging someone you'll be able to find out more about them as they share cool stuff from their Facebook profile.
+        Unlike other dating sites, anyone you message <em>can reply for free</em> - so you'll get more responses!
+      </p>
+      <p>
+        Starting a conversation with this person could change everything. But you need to click the subscribe button below first!
       </p>
     </div>
   </div><!-- /modal-body --> 
   <div class="modal-footer">
-    <%= link_to "Sign me up!", '#', id: 'sales-click', class: 'uibutton large special', style: "float: right", onclick: "buySubscription('#{subscription_url(v: SUBSCRIPTION_VERSION)}');" %>
+    <%= link_to "Subscribe now", '#', id: 'sales-click', class: 'uibutton large special', style: "float: right", onclick: "buySubscription('#{subscription_url(v: SUBSCRIPTION_VERSION)}');" %>
   </div><!-- /modal-footer --> 
 </div><!-- /modal --> 
