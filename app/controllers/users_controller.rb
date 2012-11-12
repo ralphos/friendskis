@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
   
   def index
-    session[:user_id] = params[:id] if params[:id].present?
-    @photos = UserPhoto.latest_photos(current_user).page(params[:page])
-    @message = Message.new
+    if user_signed_in?
+      @photos = UserPhoto.latest_photos(current_user).page(params[:page])
+      @message = Message.new
+    else
+      redirect_to redirect_fix_url
+    end
   end
   
   def show
@@ -17,7 +20,11 @@ class UsersController < ApplicationController
     @user = current_user
     @user.attributes = params[:user]
     if @user.save
-      redirect_to user_url(@user), notice: "Your account has been updated!"
+      respond_to do |w|
+        w.html { redirect_to user_url(@user)}
+        w.js { render js: "History.pushState(null, 'Profile Page', '#{user_url(@user)}')"}
+      end
+      flash[:notice] = "Your account has been updated!"
     else
       render :back, notice: "Sorry there was an error updating your account."
     end

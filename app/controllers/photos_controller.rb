@@ -1,5 +1,7 @@
 class PhotosController < ApplicationController
   
+  skip_before_filter :verify_authenticity_token, only: :create
+
   def pick_album
     @albums = current_user.albums
   end
@@ -22,8 +24,10 @@ class PhotosController < ApplicationController
       if @photo.profile_pic == true
         current_user.update_attributes(profile_pic: @photo.id)
       end
-      redirect_to user_url(current_user), notice: "Your photo has been added! Other users will start seeing this photo shortly."
-
+      respond_to do |w|
+        w.html { redirect_to user_url(current_user) }
+        w.js { render js: "History.pushState(null, 'Feed', '#{user_url(current_user)}')"}
+      end
     else
        @thumbnail_url = params[:photo][:thumbnail_url]
        @medium_url = params[:photo][:medium_url]

@@ -3,7 +3,7 @@
     <% if current_user.subscriber? %>
       <%= link_to "You're currently subscribed. Yay!", '#', class: 'subscribed' %>
     <% else %>
-      <%= link_to "You are not a paid subscriber. Join now!", '#', class: 'subscribe' %>
+      <%= link_to "You are not a paid subscriber. Join now!", '#', class: 'subscribe', onclick: "buySubscription('#{subscription_url(v: SUBSCRIPTION_VERSION)}');" %>
     <% end %>
   </div>
   <%= image_tag 'searchicon.png' %>
@@ -13,5 +13,5 @@
   <%= tab_links('Account', account_path) %>
   <%= tab_links('Notifications', notifications_path) %>
   <%= tab_links('Privacy', privacy_path) %>
-  <%#<%= tab_links('Credits', credits_path) %>
+  <%= tab_links('Credits', credits_path) %>
 </ul>

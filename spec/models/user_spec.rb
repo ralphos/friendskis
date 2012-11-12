@@ -1,6 +1,28 @@
 require 'spec_helper'
 
 describe User do
+
+  it "has a valid factory" do
+    FactoryGirl.create(:user).should be_valid
+  end
+
+  it "is invalid without a username" do
+    FactoryGirl.build(:user, username: nil).should_not be_valid
+  end
+
+  it "is invalid with a username that is too short" do
+    FactoryGirl.build(:user, username: "yo").should_not be_valid
+  end
+
+  it "is invalid with a username that is too long" do
+    FactoryGirl.build(:user, username: "thissssssssuserrrrrnameeeeissstooooloooonnggggg").should_not be_valid
+  end
+
+  it "is invalid with a username that is not unique" do
+    FactoryGirl.create(:user, username: "ralphos")
+    FactoryGirl.build(:user, username: "ralphos").should_not be_valid
+  end
+
   context "Creation" do
     let(:user) {
       FactoryGirl.create(:user)

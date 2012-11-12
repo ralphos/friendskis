@@ -66,5 +66,8 @@ module Friendskis
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    #
+    # Make Facebook signed_request POSTs behave more RESTfully
+    config.middleware.use Rack::Facebook::SignedRequest, app_id: '386324544771493', secret: '775dfc20bc0f9461e86a383d83b52a1e', inject_facebook: false
   end
 end

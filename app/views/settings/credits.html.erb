@@ -6,28 +6,35 @@
   <%= render 'settings_header' %>
     <div class='credits'>
       <div class='credits-settings'>
-        <a href='#' class='uibutton large special' onclick="buySubscription('<%= subscription_url(v: SUBSCRIPTION_VERSION) %>')">Subscribe Now</a>
-        <h3>Subscribe Now!</h3>
-        <span>You currently have: </span><span class='credit-amt'>0 credits</span>
+        <% if !current_user.subscriber? %>
+          <a href='#' class='uibutton large special' onclick="buySubscription('<%= subscription_url(v: SUBSCRIPTION_VERSION) %>')">Join Now!</a>
+        <% else %>
+          <a href='#' class='uibutton large special disabled' style='width: 130px'>You're Subscribed!</a>
+        <% end %>
+          <h3>Send unlimited messages on Friendskis!</h3>
       </div>
       <div class='well'>
-        <h5>Become a Subscriber</h5><!-- <span class='label important'>Important</span> -->
+        <h5>Why should I become a subscriber?</h5><!-- <span class='label important'>Important</span> -->
         <p>
-          To send messages on Friendskis you need to become a paid member. 
+        For <span>USD$2.99 a month</span> you can become a subscriber and can <em>send unlimited messages</em> to whoever you like on Friendskis! 
         </p>
         <p>
-          <span>Become a paid subscriber on Friendskis for just USD$9.99 a month</span> and send messages to whoever you like. 
+          Messaging gives you the opportunity to share more information from your Facebook profile and even become friends with the person you're chatting to, on Facebook!
+        </p>
+        <h5 class='second-header'>Can I still send messages if I'm not a paying subscriber?</h5>
+        <p>
+          Yes. You can still use Friendskis without paying, except you will have to wait until someone messages you first!
         </p>
         <p>
-          You can still use Friendskis without paying, except you will have to wait until someone messages you first! Non-paying members can only reply to messages that have been sent to them. 
+          Non-paying members can reply (for free) to messages that have been sent to them. 
         </p>
       </div>
       <div class='well'>
-        <h5>Paid Member Features</h5>
+        <h5>What you get as a paid subscriber</h5>
           <ul>
             <li>Send messages without having to wait for someone else to do it first</li>
             <li>Anyone can receive your messages, even non paying members</li>
-            <li>Check out who has visited your profile</li>
+            <li>Option to reveal your Facebook profile so you can become friends on Facebook</li>
       </div>
     </div><!-- //credits -->
   </div><!-- //settings -->

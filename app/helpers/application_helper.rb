@@ -67,4 +67,24 @@ module ApplicationHelper
   def nav_class(link_path)
     class_name = current_page?(link_path) ? 'active' : ''
   end
+
+  def page_metadata
+    out = {}
+    session_key      = Rails.application.config.session_options[:key]
+    out['session']   = cookies[session_key]
+    out['csrfParam'] = Rack::Utils.escape_html(request_forgery_protection_token)
+    out['csrfToken'] = Rack::Utils.escape_html(form_authenticity_token)
+    out['appUrl']    = "https://apps.facebook.com/friendskis"
+    out
+  end
+
+  def facebook_iframed_url
+    #"#{$fb_url}#{request.path}" 
+    "https://apps.facebook.com/friendskis"
+  end
+
+  def authenticate_url
+    "#{root_url}auth/facebook"
+  end
+
 end

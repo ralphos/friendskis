@@ -23,6 +23,17 @@
     })();
 
   </script>
+
+  <script type="text/javascript">
+
+    $(function() {
+
+      $('.sign_in_link').click(function() {
+        window.top.location = $(this).attr('href');
+      });
+
+    });
+  </script>
 </head>
 <body>
   <header>
@@ -50,8 +61,9 @@
         <h3 class='tagline'>Discover and meet new friends on Facebook</h3>
         <a href="/auth/facebook" class='uibutton large special'>Login <em>anonymously</em> with Facebook</a>
         <p>We'll ask you for a username so your Facebook identity is kept anonymous</p>
+        <a href="<%= authenticate_url %>" class='uibutton large special sign_in_link'>Login <em>anonymously</em> with Facebook</a>
       </div><!-- //welcome-text -->
-      <a href="/auth/facebook">
+      <a href="<%= authenticate_url %>" class="sign_in_link">
         <div class="polaroid">
           <%= image_tag "anickas_profile.png" %>
           <p>Anicka<br><span class="job">Friendskis member</span></p>
@@ -62,7 +74,7 @@
   <div class="container canvas">
       <%= yield %>
     <footer>
-      <div class='static-nav'>
+      <div class='footer-nav'>
         <ul>
           <li><%= link_to 'Home', (session[:user_id].present? ? users_url : root_url) %></li>
           <li><%= link_to 'About', about_path %></li>

@@ -2,9 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body.static {
+body {
 	
-	.span9 { border: none; }
 	.span3 { margin-left: 40px }
 	
 	.blue-header {
@@ -13,7 +12,7 @@ body.static {
 		height: 80px;
 		
 		.blue-header-title {
-			width: 760px;
+			width: 720px;
 			margin: auto;
 			padding-top: 26px;
 			h2 { font-weight: bold; color: #3B5998 }
