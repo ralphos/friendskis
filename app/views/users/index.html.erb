@@ -36,6 +36,6 @@
       <p>Hey! You should buy a suscription on Friendskis because...</p>
   </div><!-- /modal-body --> 
   <div class="modal-footer">
-    <%= link_to "Pay for subscription on Facebook", '#', class: 'uibutton large confirm', style: "float: right", onclick: "buySubscription('#{subscription_url(v: SUBSCRIPTION_VERSION)}');" %>
+    <%= link_to "Pay for subscription on Facebook", '#', id: 'sales-click', class: 'uibutton large confirm', style: "float: right", onclick: "buySubscription('#{subscription_url(v: SUBSCRIPTION_VERSION)}');" %>
   </div><!-- /modal-footer --> 
 </div><!-- /modal --> 
