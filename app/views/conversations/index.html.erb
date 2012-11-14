@@ -3,6 +3,16 @@
 </div><!-- //span3 -->
 
 <div class="span9">
+  <% if !current_user.subscriber? %>
+  <div class="tip-box">
+    <h3>Become a subscriber to start the conversation</h3>
+    <%= image_tag "mail-icon.png", width: "55px" %>
+    <p class="conv-header">
+      Become a subscriber on Friendskis to begin sending unlimited messages. 
+      Unlike other dating sites, anyone can reply for free! <strong><%= link_to 'Join now!', '#', onclick: "salesModal($(this));" %></strong>
+    </p>
+  </div><!-- //tip-box --> 
+  <% end %>
   <div id="conversations">
     <div class='header'>
       <h3>Your Conversations</h3>
@@ -25,3 +35,28 @@
   </div><!-- /conversations -->
 </div><!-- //span9 -->
 
+<div class="modal" id="sales-modal" tabindex="-1" role="dialog" style="display: none">
+  <div class="modal-header">
+  </div><!-- /modal-header -->
+  <div class="modal-body" style="overflow: hidden">
+    <div class='sales-icon' style="float: left">
+      <%= image_tag 'message_icon.jpg', width: '75px'%>
+    </div><!-- /sales-icon -->
+    <div style="padding-left: 95px;">
+      <h3>Become a subscriber</h3>
+      <p style="margin-top: 5px;">
+        For only <strong>USD$2.99 a month</strong> you can join Friendskis as a member and send unlimited messages to other users.
+      </p>
+      <p>
+        By messaging someone you'll be able to find out more about them as they share cool stuff from their Facebook profile.
+        Unlike other dating sites, anyone you message <em>can reply for free</em> - so you'll get more responses!
+      </p>
+      <p>
+        Starting a conversation with this person could change everything. But you need to click the subscribe button below first!
+      </p>
+    </div>
+  </div><!-- /modal-body --> 
+  <div class="modal-footer">
+    <%= link_to "Subscribe now", '#', id: 'sales-click', class: 'uibutton large special', style: "float: right", onclick: "buySubscription('#{subscription_url(v: SUBSCRIPTION_VERSION)}');" %>
+  </div><!-- /modal-footer --> 
+</div><!-- /modal --> 

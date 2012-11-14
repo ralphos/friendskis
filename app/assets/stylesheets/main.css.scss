@@ -107,7 +107,9 @@ html, body {
 		font-size: 14px; 
 		span { font-size: 12px; font-weight: normal; float: right; }
 	}
+  img { float: left; padding-top: 3px; }
 	p { padding-top: 3px }
+  p.conv-header { padding-left: 65px; padding-top: 6px; }
 }
 
 .select-album {
