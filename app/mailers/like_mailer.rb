@@ -1,5 +1,5 @@
 class LikeMailer < ActionMailer::Base
-  default from: "no-reply@friendskis.com",
+  default from: "ralph@friendskis.com",
           charset: "utf-8"
 
   def like_email(photo, user, liker)
