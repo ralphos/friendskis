@@ -1,5 +1,5 @@
 class MessageMailer < ActionMailer::Base
-  default from: "no-reply@friendskis.com",
+  default from: "ralph@friendskis.com",
           charset: "utf-8"
 
   def message_notification(user_id, sender)

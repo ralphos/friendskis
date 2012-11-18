@@ -1,0 +1,21 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" /> 
+</head> 
+<body>
+  <h3>Hey, <%= @user.username %>!</h3>
+  <p>
+    <%= @liker.username %> liked your photo on Friendskis!
+  </p>
+  <div class='email-photo' style="margin: 10px 0">
+    <%= image_tag @photo.thumbnail_url %>
+  </div>
+  <p>
+    To check your popularity rating or add more photos, just follow this link: <%= @url %>.
+  </p>
+  <p>Have a great day!</p>
+  <p>The Friendskis Team</p>
+  </body>
+</html>
+

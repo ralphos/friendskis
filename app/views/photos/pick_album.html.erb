@@ -9,20 +9,28 @@
   </div>
 
   <div class='album-container'>
-    <% @albums.each do |album| %>
-    <div class='album'>
-      <div class='album-border'>
-        <a href="<%= album_photos_path(album_id: album[:id]) %>">
-        <div class='album-cover' style="background-image: url(<%= album[:cover_photo] %>)">
-        </div><!-- /album-cover -->
-        </a>
-      </div><!-- /album-border -->
-      <div class='album-info'>
-        <%= link_to album[:name], album_photos_path(album_id: album[:id]) %>
-        <p><%= pluralize(album[:count], 'photo') %></p>
-      </div><!-- /album-info -->
-    </div><!-- /album -->
+    <% if @albums.present? %>
+      <% @albums.each do |album| %>
+      <div class='album'>
+        <div class='album-border'>
+          <a href="<%= album_photos_path(album_id: album[:id]) %>">
+          <div class='album-cover' style="background-image: url(<%= album[:cover_photo] %>)">
+          </div><!-- /album-cover -->
+          </a>
+        </div><!-- /album-border -->
+        <div class='album-info'>
+          <%= link_to album[:name], album_photos_path(album_id: album[:id]) %>
+          <p><%= pluralize(album[:count], 'photo') %></p>
+        </div><!-- /album-info -->
+      </div><!-- /album -->
     <% end %>
+  <% else %>
+    <div class="no-profile-pics-container">
+      <div class="well">
+        <p><span class="label important">Oops! There was a problem!</span> <br><br>We're having some difficulty retrieving your photos from Facebook.</p><p>Please hold while we try and fix the issue!</p> 
+      </div>
+    </div>
+  <% end %>
   </div><!-- /album-container -->
 
 </div><!-- //span9 -->

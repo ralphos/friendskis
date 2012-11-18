@@ -7,7 +7,7 @@
     <div class='credits'>
       <div class='credits-settings'>
         <% if !current_user.subscriber? %>
-          <a href='#' class='uibutton large special' onclick="buySubscription('<%= subscription_url(v: SUBSCRIPTION_VERSION) %>')">Join Now!</a>
+          <%= link_to 'Join now', '#', class: 'uibutton large special', onclick: "salesModal($(this));" %>
         <% else %>
           <a href='#' class='uibutton large special disabled' style='width: 130px'>You're Subscribed!</a>
         <% end %>
@@ -36,7 +36,11 @@
             <li>Anyone can receive your messages, even non paying members</li>
             <li>Option to reveal your Facebook profile so you can become friends on Facebook</li>
       </div>
+
+      
     </div><!-- //credits -->
   </div><!-- //settings -->
 </div><!-- //span9 -->
+
+
 

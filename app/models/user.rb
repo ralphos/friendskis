@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
     visitor_ids = self.visitors.map { |v| v.visitor_id }
     visitors = User.where(id: visitor_ids).reject { |v| v.id == id }
     profile_pic_ids = visitors.map { |v| v.profile_pic }
-    Photo.where(id: profile_pic_ids)
+    Photo.where(id: profile_pic_ids).order('created_at desc')
   end
   
   def get_birthday
@@ -74,20 +74,24 @@ class User < ActiveRecord::Base
   end
   
   def albums
-    albums = self.facebook.get_connections(uid, "albums")
-    albums.map { |h| { id: h["id"], name: h["name"], count: h["count"], cover_photo: self.facebook.get_picture(h["cover_photo"]) } }
+    albums = self.facebook.get_connection(uid, "albums")
+    if albums.any?
+      albums.map { |h| { id: h["id"], name: h["name"], count: h["count"], cover_photo: self.facebook.get_picture(h["cover_photo"]) } }
+    else
+      # ... return nothing
+    end
   end
   
   def album_photos(album_id)
-    photos = facebook.get_connections(album_id, "photos")
+    photos = facebook.get_connection(album_id, "photos")
     photos.map { |h| { thumbnail_url: h["images"][6]["source"], medium_url: h["images"][4]["source"] } }
   end
   
   def profile_photos
-    albums = facebook.get_connections(uid, "albums")
+    albums = facebook.get_connection(uid, "albums")
     profile_album = albums.select { |a| a["name"] == "Profile Pictures" }
     if profile_album.any?
-      photo_hash = facebook.get_connections(profile_album.first["id"], "photos")
+      photo_hash = facebook.get_connection(profile_album.first["id"], "photos")
       photo_hash.map { |h| { tiny_url: h["images"][7]["source"], thumbnail_url: h["images"][6]["source"], medium_url: h["images"][4]["source"] } }
     else
       # ... return nothing

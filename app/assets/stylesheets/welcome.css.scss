@@ -45,11 +45,17 @@ header {
       }
 
       a.uibutton.large { font-size: 16px; }
+
+      p { 
+        color: #999;
+        margin-top: 8px;
+        font-style: italic;
+      }
     }
 
     .polaroid {
       background: white;
-      height: 133px;
+      height: 138px;
       padding: 8px;
       padding-bottom: 11px;
       float: left;
@@ -64,7 +70,7 @@ header {
         width: 110px; 
         float: right; 
         display: block;
-        margin-bottom: 3px;
+        margin-bottom: 5px;
       }
 
       p { 
