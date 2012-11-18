@@ -53,6 +53,7 @@
       $.ajax
         url: url
         headers: { 'X-CJAX': true}
+        dataType: 'html'
         success: (data, textStatus, jqXHR) ->
           $data = $(documentHtml(data))
           $dataBody = $data.find(".document-body:first")
