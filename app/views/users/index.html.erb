@@ -48,9 +48,14 @@
       <p>
         Starting a conversation with this person could change everything. But you need to click the subscribe button below first!
       </p>
+      <h3>Or try it for for free <span class="label important" style="vertical-align: middle">Special Offer</span></h3>
+      <p>
+       Invite 25 or more friends and get a free 2 weeks subscription to Friendskis.
+      </p>
     </div>
   </div><!-- /modal-body --> 
   <div class="modal-footer">
     <%= link_to "Subscribe now", '#', id: 'sales-click', class: 'uibutton large special', style: "float: right", onclick: "buySubscription('#{subscription_url(v: SUBSCRIPTION_VERSION)}');" %>
+    <%= link_to "Try it for free!", '#', id: 'free-trial', class: 'uibutton large confirm', style: "float: right; margin-right: 10px", onclick: "sendRequestViaMultiFriendSelector()" %>
   </div><!-- /modal-footer --> 
 </div><!-- /modal --> 

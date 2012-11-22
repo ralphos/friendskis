@@ -7,5 +7,9 @@ function salesModal(e) {
     $('#sales-modal').modal('hide');
   });
 
+  $('#free-trial').bind('click', function() {
+    $('#sales-modal').modal('hide');
+  });
+
 }
 
