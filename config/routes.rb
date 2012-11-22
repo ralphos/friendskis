@@ -8,6 +8,8 @@ Friendskis::Application.routes.draw do
   root :to => 'welcome#index'
   
 
+  resources :invites, only: [:create]
+
   match '/payments_callback' => 'welcome#payments_callback'
   match '/payments_callback2' => 'welcome#payments_callback'
 

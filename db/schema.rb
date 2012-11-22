@@ -25,8 +25,11 @@ ActiveRecord::Schema.define(:version => 20121122022049) do
   create_table "invites", :force => true do |t|
     t.integer  "user_id"
     t.string   "fb_uid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "fb_request_id"
+    t.string   "concat_request_field"
+    t.boolean  "accepted_invite"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "likes", :force => true do |t|
