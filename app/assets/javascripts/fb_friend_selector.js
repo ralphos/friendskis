@@ -1,9 +1,10 @@
 function sendRequestViaMultiFriendSelector() {
   FB.ui({method: 'apprequests',
-      message: 'Invite 25 or more friends and get 2 weeks free access to Friendskis!'
+      message: 'Come check out this awesome new app I joined called Friendskis! Click now!'
     }, requestCallback);
 }
 
 function requestCallback(response) { 
   // Handle callback here
+
 }
