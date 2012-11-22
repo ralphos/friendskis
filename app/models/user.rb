@@ -40,6 +40,43 @@ class User < ActiveRecord::Base
     self.subscription_status == "active" 
   end
 
+  def self.max_score
+    user = User.order("score desc").first
+    max_score = user.score
+  end
+
+  def self.compute_rankings!
+    max_factor = self.max_score.to_f / 100.0
+    self.all.each { |u| u.compute_percent_score!(max_factor) }
+  end
+
+  def self.compute_scores!
+    self.all.each { |u| u.compute_score! }
+  end
+
+  def total_likes
+    Like.where("created_at > ?", 1.week.ago).where(photo_id: photos.collect(&:id)).count
+  end
+
+  def computed_score
+    if total_likes.to_f > 0 && photos.count.to_f > 0
+      ((total_likes.to_f / photos.count.to_f) * photos.count.to_f * 100.0).round
+    else
+      0
+    end
+  end
+
+  def compute_score!
+    update_attribute(:score, computed_score)
+  end
+
+  def compute_percent_score(max_factor)
+    (score.to_f / max_factor.to_f).round
+  end
+
+  def compute_percent_score!(max_factor)
+    update_attribute(:percent_score, compute_percent_score(max_factor))
+  end
   def recent_photos
     photos.order('created_at DESC')
   end
@@ -105,45 +142,5 @@ class User < ActiveRecord::Base
   def latest_user_photos
     self.photos.order("created_at desc")
   end
-
-
-  def total_likes
-    Like.where("created_at > ?", 1.week.ago).where(photo_id: photos.collect(&:id)).count
-  end
-
-  def computed_score
-    if total_likes.to_f > 0 && photos.count.to_f > 0
-      ((total_likes.to_f / photos.count.to_f) * photos.count.to_f * 100.0).round
-    else
-      0
-    end
-  end
-
-  def compute_score!
-    update_attribute(:score, computed_score)
-  end
-
-  def compute_percent_score(max_factor)
-    (score.to_f / max_factor.to_f).round
-  end
-
-  def compute_percent_score!(max_factor)
-    update_attribute(:percent_score, compute_percent_score(max_factor))
-  end
-
-  def self.max_score
-    user = User.order("score desc").first
-    max_score = user.score
-  end
-
-  def self.compute_rankings!
-    max_factor = self.max_score.to_f / 100.0
-    self.all.each { |u| u.compute_percent_score!(max_factor) }
-  end
-
-  def self.compute_scores!
-    self.all.each { |u| u.compute_score! }
-  end
-
 
 end
