@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :photos, dependent: :destroy
 
   has_many :visitors
+  has_many :invites
   has_many :sender_conversations, class_name: 'Conversation', foreign_key: :sender_id, dependent: :destroy
   has_many :recipient_conversations, class_name: 'Conversation', foreign_key: :recipient_id, dependent: :destroy 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121029085701) do
+ActiveRecord::Schema.define(:version => 20121122022049) do
 
   create_table "conversations", :force => true do |t|
     t.integer  "sender_id"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(:version => 20121029085701) do
     t.datetime "updated_at",                            :null => false
     t.boolean  "sender_unlocked",    :default => false
     t.boolean  "recipient_unlocked", :default => false
+  end
+
+  create_table "invites", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "fb_uid"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "likes", :force => true do |t|
@@ -95,6 +102,8 @@ ActiveRecord::Schema.define(:version => 20121029085701) do
     t.integer  "subscription_error_code"
     t.string   "subscription_error_message"
     t.string   "link"
+    t.datetime "trial_start_at"
+    t.datetime "trial_end_at"
   end
 
   create_table "visitors", :force => true do |t|
