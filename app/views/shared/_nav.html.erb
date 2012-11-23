@@ -37,7 +37,7 @@
       <% if current_user.invites.count == 0 %>
         Invite 25 friends and receive 2 weeks of unlimited messaging!
       <% elsif current_user.invites.count < 25 %>
-        You need to invite<span id="invite_count"><%= current_user.invites_remaining %></span>more friends to send messages! 
+        You need to invite <span id="invite_count"><%= current_user.invites_remaining %></span> more friends to send messages! 
       <% else %>
       <% end %>
       </p>
