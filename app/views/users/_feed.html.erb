@@ -18,7 +18,9 @@
   <div class='send-message'>
     <% if photo.user != current_user %>
        <% unless photo.liked?(current_user) %>
+         <p>
          <%= link_to 'Cool', like_photo_path(photo), remote: true, id: dom_id(photo, 'like') %> 
+         </p>
        <% else %>
          <p>You thought this photo was cool</p>
        <% end %>
