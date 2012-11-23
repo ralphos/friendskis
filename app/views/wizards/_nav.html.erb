@@ -19,9 +19,9 @@
     <h6>Your Links</h6>
     <ul>
       <% if current_user.profile_pic.nil? %>
-        <li>Welcome</li>
+        <li><%= image_tag "editprofile.png" %>Welcome</li>
       <% else %>
-        <li>Select a profile photo</li>
+        <li><%= image_tag "searchicon.png" %> Select a profile photo</li>
       <% end %>
     </ul>
   </div><!-- //nav-links -->
