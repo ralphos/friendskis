@@ -35,9 +35,9 @@
       <span class="label important">Special Offer</span>
       <p>
       <% if current_user.invites.count == 0 %>
-        Invite 25 friends and receive 2 weeks of free access!
+        Invite 25 friends and receive 2 weeks of unlimited messaging!
       <% elsif current_user.invites.count < 25 %>
-        You need to invite <span id="invite_count"><%= current_user.invites_remaining %></span> more friends to get free access! 
+        You need to invite <span id="invite_count"><%= current_user.invites_remaining %></span> more friends to send messages! 
       <% else %>
       <% end %>
       </p>
