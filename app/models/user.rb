@@ -152,4 +152,12 @@ class User < ActiveRecord::Base
     self.photos.order("created_at desc")
   end
 
+  def invites_remaining
+    25 - self.invites.count 
+  end
+
+  def trial_expired?
+    trial_end_at.present? && trial_end_at < DateTime.now
+  end
+
 end

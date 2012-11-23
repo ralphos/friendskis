@@ -25,10 +25,28 @@
     <a href="/conversations"><li class="<%= nav_class(conversations_path) %>"><%= image_tag 'message.png', class: "convos" %><p>Conversations</p></li></a>
     <a href="/visitors"><li class="<%= nav_class(visitors_path) %>"><%= image_tag 'visitors.png' %><p>Visitors</p></li></a>
     <!-- <a href="/search"><li><%#= image_tag 'friend-finder.png' %><p>Search</p></li></a> -->
-    <!-- <a href="#"><li><%#= image_tag 'invitefriend.png' %><p>Invite Friends</p></li></a> -->
+    <a href="#" onclick="sendRequestViaMultiFriendSelector()"><li><%= image_tag 'invitefriend.png' %><p>Invite Friends</p></li></a>
     <a href="/account"><li class="<%= nav_class(account_path) %>"><%= image_tag 'editprofile.png' %><p>Settings</p></li></a>
   </ul>
   </div><!-- //nav-links -->
+  <% if current_user && !current_user.subscriber? %>
+    <% if current_user.invites.count < 25 %>
+    <div class="invite-trial">
+      <span class="label important">Special Offer</span>
+      <p>
+      <% if current_user.invites.count == 0 %>
+        Invite 25 friends and receive 2 weeks of free access!
+      <% elsif current_user.invites.count < 25 %>
+        You need to invite <span id="invite_count"><%= current_user.invites_remaining %></span> more friends to get free access! 
+      <% else %>
+      <% end %>
+      </p>
+      <div class="invite-button">
+       <%= link_to 'Invite Friends', '#', class: 'uibutton special', onclick: "sendRequestViaMultiFriendSelector()" %>
+     </div><!-- //invite-button -->
+    </div><!-- //invite-trial -->
+    <% end %>
+  <% end %>
   <div class="nav-footer-links">
     <p>Friendskis © 2012</p>
     <ul>
@@ -38,12 +56,14 @@
       <li><%= link_to 'Privacy', privacy_policy_path %></li>
     </ul>
   </div><!-- //nav-footer-links -->
+  <% if current_user.invites.count > 25 %>
   <div class="feedback">
     <div class="well">
       <p>Have a suggestion?</p>
       <%= link_to "Leave Feedback", about_path, class: "uibutton " %>
     </div>
   </div>
+  <% end %>
 </div><!-- //left-nav -->
 
   

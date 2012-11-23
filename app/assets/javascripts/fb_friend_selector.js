@@ -13,6 +13,7 @@ function requestCallback(response) {
     data: { ids: response.to, fb_request_id: response.request },
     success: function(e) {
       if(e.success == true)  {
+        $('#invite_count').html(e.invite_count)
       } else {
         alert("Sorry! Something went wrong.") 
       }
