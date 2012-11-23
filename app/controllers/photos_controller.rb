@@ -42,7 +42,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format| 
       format.js {
-        render js: "$('##{dom_id(@photo, 'like')}').parent().html('You thought this photo was cool')" 
+        render js: "$('##{dom_id(@photo, 'like')}').parent().html('#{view_context.pluralize(@photo.likes.count, 'person')} thought this photo was cool')" 
       }
       format.html { redirect_to users_url }
     end
