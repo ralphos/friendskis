@@ -27,6 +27,7 @@ class PhotosController < ApplicationController
       respond_to do |w|
         w.html { redirect_to user_url(current_user) }
         w.js { render js: "History.pushState(null, 'Feed', '#{user_url(current_user)}')"}
+        flash[:notice] = "Your photo has been added. Go see what other users are posting in your home feed!"
       end
     else
        @thumbnail_url = params[:photo][:thumbnail_url]
