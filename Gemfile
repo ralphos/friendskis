@@ -36,3 +36,4 @@ gem 'ey_config'
 gem 'airbrake'
 
 gem 'rack-facebook-signed-request'
+gem "rest-client", "~> 1.6.7"
