@@ -38,7 +38,15 @@ class User < ActiveRecord::Base
   end
 
   def subscriber?
-    self.subscription_status == "active" 
+    self.subscription_status == "active" || self.trial_period_active?
+  end
+
+  def trial_period_active?
+    if (trial_start_at && trial_end_at) && (trial_start_at < DateTime.now && trial_end_at > DateTime.now)
+      return true 
+    else
+      false
+    end
   end
 
   def self.max_score
