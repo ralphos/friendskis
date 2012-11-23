@@ -22,7 +22,7 @@
          <%= link_to 'Cool', like_photo_path(photo), remote: true, id: dom_id(photo, 'like') %> 
          </p>
        <% else %>
-         <p>You thought this photo was cool</p>
+         <p><%= pluralize(photo.likes.count, 'person') %> thought this photo was cool</p>
        <% end %>
          · <%= link_to 'Send Message', '#', onclick: (current_user.subscriber? ? "showModal($(this));" : "salesModal($(this));"), 
         data: { username: photo.user.username, recipients: photo.user.id, recipients_username: photo.user.username } %>
