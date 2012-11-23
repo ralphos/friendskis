@@ -14,7 +14,7 @@
       <div class='album'>
         <div class='album-border'>
           <a href="<%= album_photos_path(album_id: album[:id]) %>">
-          <div class='album-cover' style="background-image: url(<%= album[:cover_photo] %>)">
+          <div class='album-cover' style="background-image: url(<%= current_user.facebook.get_picture(album[:cover_photo]) %>)">
           </div><!-- /album-cover -->
           </a>
         </div><!-- /album-border -->

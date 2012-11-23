@@ -122,7 +122,18 @@ class User < ActiveRecord::Base
   def albums
     albums = self.facebook.get_connection(uid, "albums")
     if albums.any?
-      albums.map { |h| { id: h["id"], name: h["name"], count: h["count"], cover_photo: self.facebook.get_picture(h["cover_photo"]) } }
+      albums.map { |h| 
+        begin
+          { 
+            id: h["id"], 
+            name: h["name"], 
+            count: h["count"], 
+            cover_photo: h["cover_photo"]
+          } 
+        rescue Exception => e
+          Airbrake.notify(e)
+        end
+      }
     else
       # ... return nothing
     end
