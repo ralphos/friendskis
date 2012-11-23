@@ -15,6 +15,10 @@ class WelcomeController < ApplicationController
       return
     end
 
+    if params[:request_ids].present?
+      Invite.accept_invites(params[:request_ids])
+    end
+
     #if params[:signed_request].present?
       #redirect_to "/auth/facebook/?signed_request=#{params[:signed_request]}"
       #return

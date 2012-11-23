@@ -102,5 +102,22 @@ describe User do
     end
   end
 
+  describe "invite feature" do
+    context "with an insufficient invite count" do
+      let(:user) { FactoryGirl.create(:user) }
+      let(:invite) { FactoryGirl.create(:invite, user_id: user.id)}
+
+      it "will not have an active trial period" do
+        user.trial_period_active?.should_not eq(true)
+      end
+    end
+
+    context "with a sufficient invite count" do
+
+      it "will have an active trial period" do
+        
+      end
+    end
+  end
 
 end

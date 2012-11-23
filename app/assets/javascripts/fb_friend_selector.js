@@ -1,5 +1,6 @@
 function sendRequestViaMultiFriendSelector() {
   FB.ui({method: 'apprequests',
+      filters: ["app_non_users"],
       message: 'Come check out this awesome new app I joined called Friendskis! Click now!'
     }, requestCallback);
 }

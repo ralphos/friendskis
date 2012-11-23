@@ -14,8 +14,12 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     FB_APP_ID = '182721585186027'
     FB_SECRET = 'acce0a1b053db8895ab4f4892ca6c599'
   end
+
+  oauth = Koala::Facebook::OAuth.new(FB_APP_ID, FB_SECRET)
+  APP_ACCESS_TOKEN = oauth.get_app_access_token
 end
 
 if Rails.env == "production"
   OmniAuth.config.full_host = 'https://apps.facebook.com/friendskis'
 end
+
