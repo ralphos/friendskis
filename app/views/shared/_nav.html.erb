@@ -32,7 +32,7 @@
   <% if current_user && !current_user.subscriber? %>
     <% if current_user.invites.count < 25 %>
     <div class="invite-trial">
-      <span class="label important">Special Offer</span>
+      <span class="label important">Free Trial</span>
       <p>
       <% if current_user.invites.count == 0 %>
         Invite 25 friends and receive 2 weeks of free messaging!
