@@ -1,7 +1,7 @@
 function sendRequestViaMultiFriendSelector() {
   FB.ui({method: 'apprequests',
       filters: ["app_non_users"],
-      message: "Join me on Friendskis and make new friends on Facebook"
+      message: "Join me on Friendskis and make new friends on Facebook!"
     }, requestCallback);
 }
 
