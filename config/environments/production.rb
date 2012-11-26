@@ -66,6 +66,7 @@ Friendskis::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   #
   # EY Sengrid config
+  config.action_mailer.default_url_options = { :host => 'friendskis.com'}
   config.action_mailer.delivery_method = :smtp
   #config.action_mailer.default_charset = "utf-8"
   config.action_mailer.perform_deliveries = true
