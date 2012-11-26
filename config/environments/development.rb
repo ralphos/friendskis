@@ -36,6 +36,8 @@ Friendskis::Application.configure do
   config.assets.debug = true
 
   # EY Sendgrid config
+  # Adding this for redirect_urls
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
   #config.action_mailer.default_charset = "utf-8"
   config.action_mailer.perform_deliveries = true
