@@ -28,9 +28,11 @@ class WelcomeController < ApplicationController
         redirect_to params[:go]
         session[:return_to] = params[:go]
         return
+      else
+        redirect_to users_path
       end
     else
-      redirect_to root_url
+      redirect_to users_path
       return
     end 
   end
