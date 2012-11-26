@@ -78,13 +78,20 @@ module ApplicationHelper
     out
   end
 
+
+  
   def facebook_iframed_url
     #"#{$fb_url}#{request.path}" 
-    "https://apps.facebook.com/friendskis"
+    if session[:return_to].present?
+      "https://apps.facebook.com/friendskis/?go=#{session[:return_to]}"
+    else
+      "https://apps.facebook.com/friendskis"
+    end
   end
 
   def authenticate_url
     "#{root_url}auth/facebook"
   end
+
 
 end
