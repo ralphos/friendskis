@@ -75,6 +75,7 @@ Friendskis::Application.configure do
        :authentication => :plain,
        :address => "smtp.sendgrid.net",
        :port => 587,
+       :host => 'friendskis.com',
        :domain => EY::Config.get(:sendgrid, 'SENDGRID_SMTP_HOST'),
        :user_name => EY::Config.get(:sendgrid, 'SENDGRID_USERNAME'),
        :password => EY::Config.get(:sendgrid, 'SENDGRID_PASSWORD')
