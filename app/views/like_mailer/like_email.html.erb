@@ -2,20 +2,114 @@
 <html> 
 <head> 
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" /> 
+<title>Someone likes you on Friendskis</title>
+<style type="text/css">
+  body { background: #E7EBF2; color: #333 }
+</style>
 </head> 
 <body>
-  <h3>Hey, <%= @user.username %>!</h3>
-  <p>
-    <%= @liker.username %> liked your photo on Friendskis!
-  </p>
-  <div class='email-photo' style="margin: 10px 0">
-    <%= image_tag @photo.thumbnail_url %>
-  </div>
-  <p>
-    To check your popularity rating or add more photos, just follow this link: <%= @url %>.
-  </p>
-  <p>Have a great day!</p>
-  <p>The Friendskis Team</p>
-  </body>
+  <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#E7EBF2" style="background: #E7EBF2; margin:0 auto" align="center">
+    <tbody>
+      <tr>
+        <td style="font-size:0;line-height:0">&nbsp;</td>
+        <td width="10">&nbsp;</td>
+        <td width="455" align="center" style="width:455px">
+          <table cellpadding="0" cellspacing="0" border="0" width="455" style="text-align: left; margin: 0 auto">
+            <tbody>
+              <tr>
+                <td height="30"></td>
+              </tr>
+              <tr>
+                <td>
+                  <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                    <tbody>
+                      <tr>
+                        <td width="39" align="center">
+                          <%= link_to (image_tag Photo.find(@liker.profile_pic).thumbnail_url, width: '39', height: '39', style: 'display: block; border: 0'), root_url(go: "/users/#{@liker.id}"), target: "_blank" %>
+                        </td>
+                        <td width="7"></td>
+                        <td style="font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; font-size:18px;color: #3B5998">
+                          <%= link_to @liker.username, root_url(go: "/users/#{@liker.id}"), style: 'font-weight: bold; text-decoration: none; color: #3B5998' %> thought your photo was cool. 
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td height="10"></td>
+              </tr>
+              <tr>
+                <td>
+                  <table cellpadding="0" cellspacing="0" border="0" width="100%" bgcolor="#fff" style="border: 2px solid #C4CCE0; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; -webkit-box-shadow: 0 1px 0 0 #D9DFEA;"> 
+                    <tbody>
+                      <tr>
+                        <td colspan="3" height="14"></td>
+                      </tr>
+                      <tr>
+                        <td width="14">&nbsp;</td>
+                        <td style="font-size: 12px; font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; color: #333; line-height: 16px">
+                          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tbody>
+                              <tr>
+                                <td height="5" style="line-height: 0; font-size: 0">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td style="line-height:18px;color:#333;font-size:13px">
+                                  <span style="color:#3B5998, font-size: 14px"><strong><%= @liker.username %></strong> likes:</span>
+                                  <br>
+                                  <br>
+
+                                  <%= image_tag @photo.thumbnail_url %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="20">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td height="20">&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td align="center">
+                                  <%= link_to "View #{@liker.username}'s profile", root_url(go: "/users/#{@liker.id}"), style: 'border-color: #3B6E22 #3B6E22 #2C5115;color:white;background-color:#69A74E;text-decoration:none;padding:5px;font-size:18px; border:1px solid #999;font-size:18px;box-shadow:0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98C286;-webkit-box-shadow:0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98C286;-moz-box-shadow:0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98c286;' %>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td height="12"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                        <td width="14">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td colspan="3" height="14"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td height="8"></td>
+              </tr>
+              <tr>
+                <td align="center" style="font-size: 11px; font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; color: #3B5998; line-height: 16px">
+                  Friendskis © 2012 
+                  <br>
+                  <%= link_to "Email Settings", root_url(go: '/notifications'), style: "color: #3b5998; text-decoration: none; font-size: 12px; font-weight: bold", target: "_blank" %>
+                </td>
+              </tr>
+              <tr>
+                <td height="50"></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td width="10">&nbsp;</td>
+        <td style="font-size:0;line-height:0">.</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
 </html>
 

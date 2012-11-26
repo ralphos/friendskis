@@ -25,11 +25,11 @@
                     <tbody>
                       <tr>
                         <td width="39" align="center">
-                          <%= link_to (image_tag Photo.find(@user.profile_pic).thumbnail_url, width: '39', height: '39', style: 'display: block; border: 0'), user_url(@user), target: "_blank" %>
+                          <%= link_to (image_tag Photo.find(@sender.profile_pic).thumbnail_url, width: '39', height: '39', style: 'display: block; border: 0'), root_url(go: "/users/#{@sender.id}"), target: "_blank" %>
                         </td>
                         <td width="7"></td>
                         <td style="font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; font-size:18px;color: #3B5998">
-                          <strong><%= @user.username %></strong> sent you a new message. 
+                          <%= link_to @sender.username, root_url(go: "/users/#{@sender.id}"), style: 'text-decoration: none; color: #3B5998;font-weight: bold;' %> sent you a new message. 
                         </td>
                       </tr>
                     </tbody>
@@ -56,10 +56,10 @@
                               </tr>
                               <tr>
                                 <td style="line-height:18px;color:#333;font-size:13px">
-                                  <span style="color:#3B5998, font-size: 14px"><strong><%= @user.username %></strong> says:</span>
+                                  <span style="color:#3B5998, font-size: 14px"><strong><%= @sender.username %></strong> says:</span>
                                   <br>
                                   <br>
-                                  <%= truncate(@message.body, length: 140, omission: '...') %> <%= link_to '(read more)', conversation_url(@message.conversation), style: "color: #3B5998; text-decoration:none", target: "_blank" %>
+                                  <%= truncate(@message.body, length: 140, omission: '...') %> <%= link_to '(read more)', root_url(go: "/conversations/#{@message.conversation.id}"), style: "color: #3B5998; text-decoration:none", target: "_blank" %>
                                 </td>
                               </tr>
                               <tr>
@@ -70,7 +70,7 @@
                               </tr>
                               <tr>
                                 <td align="center">
-                                  <%= link_to 'Read more', conversation_url(@message.conversation), style: 'border-color: #3B6E22 #3B6E22 #2C5115;color:white;background-color:#69A74E;text-decoration:none;padding:5px;font-size:18px; border:1px solid #999;display:block;width:125px;font-size:18px;box-shadow:0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98C286;-webkit-box-shadow:0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98C286;-moz-box-shadow:0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98c286;' %>
+                                  <%= link_to 'Read more', root_url(go: "/conversations/#{@message.conversation.id}"), style: 'border-color: #3B6E22 #3B6E22 #2C5115;color:white;background-color:#69A74E;text-decoration:none;padding:5px;font-size:18px; border:1px solid #999;display:block;width:125px;font-size:18px;box-shadow:0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98C286;-webkit-box-shadow:0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98C286;-moz-box-shadow:0 1px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 #98c286;' %>
                                 </td>
                               </tr>
                               <tr>
@@ -95,7 +95,7 @@
                 <td align="center" style="font-size: 11px; font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; color: #3B5998; line-height: 16px">
                   Friendskis © 2012 
                   <br>
-                  <%= link_to "Email Settings", notifications_url, style: "color: #3b5998; text-decoration: none; font-size: 12px; font-weight: bold", target: "_blank" %>
+                  <%= link_to "Email Settings", root_url(go: '/notifications'), style: "color: #3b5998; text-decoration: none; font-size: 12px; font-weight: bold", target: "_blank" %>
                 </td>
               </tr>
               <tr>

@@ -47,6 +47,6 @@ class PhotosController < ApplicationController
       }
       format.html { redirect_to users_url }
     end
-    LikeMailer.like_email(@photo, @photo.user, current_user).deliver
+    LikeMailer.like_email(@photo, current_user).deliver
   end
 end

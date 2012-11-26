@@ -13,7 +13,11 @@ class SessionsController < ApplicationController
     elsif user.profile_pic.nil?
       redirect_to step_two_path(signed_request: params[:signed_request])
     else
-      redirect_to users_path(signed_request: params[:signed_request])
+      if session[:return_to].present?
+        redirect_to session[:return_to]
+      else
+        redirect_to users_path(signed_request: params[:signed_request])
+      end
     end
   end
 

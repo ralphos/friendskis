@@ -1,9 +1,13 @@
-Hey, <%= @user.username %>!
-============================
 
-<%= @liker.username %> liked your photo on Friendskis!
+<%= @liker.username %> thought your photo was cool!
 
-To check out your popularity rating or add more photos, just follow this link: <%= @url %>
+===================================
+
+<%= image_tag @photo.thumbnail_url, style: "display: block; margin: 5px;" %>
+
+===================================
+
+<%= link_to "View #{@liker.username}'s profile", root_url(go: "/users/#{@liker.id}") %>
 
 Have a great day!
 The Friendskis Team

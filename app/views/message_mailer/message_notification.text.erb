@@ -1,9 +1,6 @@
-Hey, <%= @user.username %>!
-============================
-
 <%= @sender.username %> has sent you a new message!
 
-To read your message, just follow this link: <%= @url %>
+To read your message, just click <%= link_to "here", root_url(go: "/conversations/#{@message.conversation.id}")%>
 
 Have a great day!
 The Friendskis Team

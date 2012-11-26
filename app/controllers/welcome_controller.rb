@@ -9,6 +9,10 @@ class WelcomeController < ApplicationController
     if Rails.env == "production" && params[:signed_request].blank?
       if user_signed_in?
         session[:user_id] = current_user.id
+      elsif params[:go].present?
+        redirect_to params[:go]
+        session[:return_to] = params[:go]
+        return
       end
 
       redirect_to "https://apps.facebook.com/friendskis/"
@@ -19,13 +23,14 @@ class WelcomeController < ApplicationController
       Invite.accept_invites(params[:request_ids])
     end
 
-    #if params[:signed_request].present?
-      #redirect_to "/auth/facebook/?signed_request=#{params[:signed_request]}"
-      #return
-    #end
-
     if user_signed_in?
-      redirect_to users_path
+      if params[:go]
+        redirect_to params[:go]
+        session[:return_to] = params[:go]
+        return
+      end
+    else
+      redirect_to root_url
       return
     end 
   end
